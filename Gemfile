@@ -82,4 +82,4 @@ gem 'carrierwave'
 gem 'pry-rails'
 gem 'mini_magick'
 gem 'font-awesome-rails'
-
+gem 'fog-aws'
