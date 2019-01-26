@@ -118,6 +118,8 @@ GEM
     faker (1.9.1)
       i18n (>= 0.7)
     ffi (1.10.0)
+    font-awesome-rails (4.7.0.4)
+      railties (>= 3.2, < 6.0)
     fog-aws (3.3.0)
       fog-core (~> 2.1)
       fog-json (~> 1.1)
@@ -333,6 +335,7 @@ DEPENDENCIES
   erb2haml
   factory_bot_rails
   faker
+  font-awesome-rails
   fog-aws
   haml-rails
   jbuilder (~> 2.5)
