@@ -85,6 +85,6 @@ gem 'haml-rails'
 gem 'erbhaml'
 gem 'devise'
 gem 'carrierwave'
-gem 'pryrails'
+gem 'pry-rails'
 gem 'mini_magick'
 
