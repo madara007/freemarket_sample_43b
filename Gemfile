@@ -81,4 +81,4 @@ gem 'devise'
 gem 'carrierwave'
 gem 'pry-rails'
 gem 'mini_magick'
-
+gem 'fog-aws'
