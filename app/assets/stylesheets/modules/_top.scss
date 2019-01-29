@@ -192,8 +192,8 @@ a {
     nav {
       width: 1020px;
       margin: 0 auto;
-      ul {
-        .footer-cell {
+      .footer__cell {
+        .footer__cell--content {
           @include f-left;
           width: 234px;
           margin-right: 20px;
