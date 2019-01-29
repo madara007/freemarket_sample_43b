@@ -1,0 +1,42 @@
+%header.header
+  .header__inner
+    .header__inner--upper.clearfix
+      %h1.logo
+        = link_to "" do
+          = image_tag("logo/logo.svg",alt: "mercari")
+      %form.header-form
+        %input{type: "search", name: "keyword", placeholder: "キーワードから探す", id: "search-form", class: "search-form"}
+    .header__inner--lower.clearfix
+      %nav.item-nav
+        全ての商品一覧
+
+      // if ログイン時
+      %nav.user-nav
+        %ul.user-nav__button
+          %li.user-nav__button--mypage
+            = link_to "" do
+              %figure.mypage-avatar
+                %div
+                  = image_tag("logo/member_photo_noimage_thumb.png")
+              %div.mypage-title
+                マイページ
+          %li.user-nav__button--info
+            = link_to "" , class: "" do
+              = fa_icon "bell-o"
+
+              / if 件数があればだす
+              %span.count-icon 9
+
+              %span お知らせ
+          %li.user-nav__button--playlist
+            = link_to "" , class: "" do
+              = fa_icon "check"
+              %span やることリスト
+
+      // else 未ログイン時
+      %nav.login-nav
+        %ul.login-nav__button
+          %li.login-nav__button--login
+            = link_to "ログイン", ""
+          %li.login-nav__button--signup
+            = link_to "新規登録", ""
