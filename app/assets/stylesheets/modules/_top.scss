@@ -27,6 +27,12 @@ a {
         height: 36px;
         .logo {
           @include f-left;
+          a {
+            img {
+              width: 134px;
+              height: 36px;
+            }
+          }
         }
         .header-form {
           @include f-right;
