@@ -11,11 +11,6 @@
 |first_name|string|null: false|
 |last_name_kana|string|null: false|
 |first_name_kana|string|null: false|
-|postal_code|string||
-|prefectures|string|null: false|
-|city|string|null: false|
-|address|string|null: false|
-|building|string|null: false|
 |tel|string||
 |birthday|integer||
 
@@ -34,7 +29,21 @@
 - has_many :scores
 - has_many :sizes
 - has_many :comments
+- has_one :adress
 
+## adressテーブル
+
+|Colum|Type|Option|
+|-----|----|------|
+|postal_code|string||
+|prefectures|string|null: false|
+|city|string|null: false|
+|number|string|null: false|
+|building|string||
+|user_id|references|foreign_key: true|
+
+### Association(score)
+- belongs_to: user
 
 ## itemsテーブル
 
@@ -61,7 +70,6 @@
 - has_many :ship_methods
 - has_many :comments
 - has_many :sizes
-
 
 ## categoriesテーブル
 
@@ -101,7 +109,6 @@
 ### Association(category_sizes)
 - belongs_to :category
 - belongs_to :size
-
 
 ## brandsテーブル
 
