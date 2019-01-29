@@ -1,18 +1,18 @@
 .owl-carousel {
   width: 100%;
   height: 390px;
-  .owl__stage-outer {
-    .owl__stage {
-      &--item {
+  &__area {
+    &--stage {
+      .owl-carousel-content {
         background-image: url('index/banner-new-register-2019.jpg');
         width: 100%;
         height: 390px;
         text-align: center;
+        }
       }
-      &--nav{
-      }
-      &--dots{
-      }
+    &--nav{
+    }
+    &--dots{
     }
   }
 }
