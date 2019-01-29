@@ -137,6 +137,7 @@
 |-----|----|------|
 |user_id|references|foreign_key: true|
 |item_id|references|foreign_key: true|
+
 ### Association(like)
 - belongs_to: user
 - belongs_to: item
@@ -165,7 +166,6 @@
 - belongs_to: user
 - belongs_to: item
 
-
 ## regionsテーブル
 
 |Colum|Type|Option|
@@ -190,7 +190,6 @@
 ### Association(item_photo)
 - belongs_to: user
 - belongs_to: item
-
 
 ## delivery_feesテーブル
 
