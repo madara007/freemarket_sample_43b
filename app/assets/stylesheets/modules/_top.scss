@@ -95,6 +95,8 @@ a {
                   @include f-left;
                     img {
                       @include circle;
+                      height: 32px;
+                      width: 32px;
                     }
                 }
                 &-title {
