@@ -1,0 +1,20 @@
+.pickup-container__box--content.clearfix
+  - for num in 1..4 do
+    %selection.item-box
+      = link_to "" do
+        %figure.item-box__photo
+          = image_tag("tmp/m53316857133_1.jpg",class: "item-box__photo--banner")
+        .item-box__body
+          %h3.item-box__body--name
+            洋服1
+          .item-box__body--info.clearfix
+            .item-price
+              ¥999,999,999
+            .item-like
+              = link_to "" , class: "" do
+                = fa_icon "heart-o"
+                99
+            %p.item-tax
+              (税込)
+.item-all
+  = link_to "すべての商品を見る"
