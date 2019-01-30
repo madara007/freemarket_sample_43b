@@ -1,0 +1,49 @@
+.app-banner {
+  height:260px;
+  width: 100%;
+  color: #fff;
+  background-image: url('logo/download_bg_pc.jpg');
+  background-position: center;
+  &__inner {
+    width: 750px;
+    height: 260px;
+    margin: 0 auto;
+    display: table;
+    &--left {
+      width: 450px;
+      display: table-cell;
+      vertical-align: middle;
+      h2 {
+        font-size: 24px;
+        font-weight: bold;
+      }
+      p {
+        font-size: 35px;
+        margin-top: 10px;
+      }
+      .logo {
+          margin-top: 20px;
+          height: 68px;
+        &__left {
+          @include f-left;
+        }
+        &__right {
+          @include f-left;
+          margin-left: 24px;
+          height: 100%;
+          padding-top: 15px;
+          li {
+            height: 68px;
+            @include f-left;
+          }
+          &--space {
+            margin-left: 16px;
+          }
+        }
+      }
+    }
+    &--right {
+      display: table-cell;
+    }
+  }
+}
