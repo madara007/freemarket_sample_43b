@@ -9,6 +9,7 @@
     padding-top: 8px;
     &--upper {
       height: 36px;
+      // width: 100%;
       .logo {
         @include f-left;
         a {
@@ -20,15 +21,26 @@
       }
       .header-form {
         @include f-right;
+        height: 100%;
         width: calc(100% - (134px + 16px));
-        .search-form {
-          font-size: 16px;
-          width: 100%;
-          background: #fafafa;
-          height: 36px;
-          padding: 9px 32px 9px 8px;
-          border-radius: 4px;
-          border: 1px solid #ccc;
+        &__search {
+          position: absolute;
+          width :870px;
+          .search-form {
+            font-size: 16px;
+            width: 100%;
+            background: #fafafa;
+            height: 36px;
+            padding: 9px 32px 9px 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+          }
+          .fa-search {
+            position: absolute;
+            font-size: 16px;
+            top: 9px;
+            right: 10px;
+          }
         }
       }
     }
