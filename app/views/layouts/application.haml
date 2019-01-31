@@ -9,4 +9,10 @@
     %link{href:"https://use.fontawesome.com/releases/v5.6.1/css/all.css", rel:"stylesheet"}
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    = yield
+    .container
+      = render partial: "layouts/header"
+      .bread-crumbs
+        = render partial: "items/menulist"
+      = yield
+      = render partial: "layouts/app-banner"
+      = render partial: "layouts/footer"
