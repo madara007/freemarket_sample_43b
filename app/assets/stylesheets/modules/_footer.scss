@@ -1,13 +1,13 @@
-footer {
+.footer {
   background: #212121;
   padding: 60px 0;
   color: #fff;
   width: 100%;
-  nav {
+  &__nav {
     width: 1020px;
     margin: 0 auto;
-    .footer__cell {
-      .footer__cell--content {
+    &--cell {
+      .cell-content {
         @include f-left;
         width: 234px;
         margin-right: 20px;
