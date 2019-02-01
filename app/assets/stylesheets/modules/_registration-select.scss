@@ -1,0 +1,116 @@
+.registration-select {
+  height: 100%;
+  width: 100%;
+
+  &__header {
+    height: 128px;
+    .logo {
+      @include mercari-logo();
+    }
+  }
+
+  &__box {
+    background-color: #fff;
+    width: 700px;
+    margin: 0 auto;
+    h1 {
+      padding: 32px 16px;
+      font-size: 22px;
+      text-align: center;
+      font-weight: bold;
+    }
+    .registration-box {
+      border-top: 1px solid #f5f5f5;
+      padding: 64px;
+      &__single {
+        margin: 0 auto;
+        width: 320px;
+        .mail {
+          @include btn();
+          position: relative;
+          line-height: 48px;
+          color: #333;
+          background-color: #eee;
+          &-icon {
+            @include fa-icon();
+            position: absolute;
+            left: 20px;
+            top: 15px;
+            color: #fff;
+            display: inline-block;
+            font-size: 20px;
+          }
+        }
+        .facebook {
+          @include btn();
+          position: relative;
+          margin: 16px 0 0;
+          line-height: 48px;
+          color: #fff;
+          background-color: #385185;
+          &-icon {
+            @include fa-icon();
+            position: absolute;
+            left: 20px;
+            top: 15px;
+            display: inline-block;
+            font-size: 20px;
+          }
+        }
+        .google {
+          @include btn();
+          position: relative;
+          margin: 16px 0 0;
+          line-height: 48px;
+          color: #fff;
+          background-color: #dc4e41;
+          &-icon {
+            @include fa-icon();
+            position: absolute;
+            left: 20px;
+            top: 15px;
+            color: #fff;
+            display: inline-block;
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+
+  &__footer {
+    bottom: 0;
+    width: 456px;
+    margin: 200px auto 0;
+    padding-top: 60px;
+    color: #fff;
+    nav {
+      ul {
+        @include clearfix();
+        font-size: 12px;
+        text-align: center;
+        li {
+          &:first-child {
+            margin: 0;
+          }
+          margin-left: 16px;
+          display: inline-block;
+        }
+      }
+    }
+    .top-link {
+      @include btn();
+      margin-top: 16px;
+      .logo-gray {
+        height: 65px;
+        width: 80px;
+      }
+    }
+    h2 {
+      margin-top: 10px;
+      color: #333;
+      font-size: 12px;
+      text-align: center;
+    }
+  }
+}
