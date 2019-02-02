@@ -1,0 +1,56 @@
+@mixin comment-balloon {
+  @include clearfix();
+    .user-comment__left {
+      float: left;
+      position: relative;
+      height: 40px;
+      width: 40px;
+    }
+  .user-comment-right {
+    float: left;
+    margin-left: 10px;
+
+    .username {
+      font-size: 14px;
+      font-weight: bold;
+    }
+    .text-box {
+      word-break: break-all;
+      position:relative;
+      width: 570px;
+      background-color: #eef0f4;
+      padding: 16px;
+      line-height: 1.5rem;
+      font-size: 12px;
+      border-radius: 10px;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      &:after{
+        border: solid transparent;
+        content: '';
+        height: 0;
+        width: 0;
+        pointer-events: none;
+        position: absolute;
+        border-color: rgba(0, 153, 255, 0);
+        border-top-width: 5px;
+        border-bottom-width: 5px;
+        border-left-width: 17px;
+        border-right-width: 17px;
+        margin-top: -5px;
+        border-right-color: #eef0f4;
+        right: 99%;
+        top: 22%;
+      }
+      .icons{
+        .clock {
+          color: #aaa;
+        }
+        .flag {
+          color: #aaa;
+          float: right;
+        }
+      }
+    }
+  }
+}
