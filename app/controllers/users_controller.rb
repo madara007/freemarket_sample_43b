@@ -8,6 +8,11 @@ class UsersController < ApplicationController
   def select
   end
 
+# ユーザーの新規登録画面(仮)
+  def registration
+  end
+  
   def index
+
   end
 end
