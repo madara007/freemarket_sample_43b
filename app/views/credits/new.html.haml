@@ -1,0 +1,92 @@
+.credit-content
+  %section.credit-content__during
+    %h2.credit-content__during--title クレジットカード情報入力
+    %form#add-card-form.credit-content__during--form{action: "", "data-adyen-id": "card-form", method: "POST", novalidate: "novalidate"}
+      .card-form
+        .card-form__box
+          %label.card-form__box--label カード番号
+          %span.card-form__box--require 必須
+          %input#payment_card_no.card-form__box--input{"data-input-type": "card", maxlength: "19", placeholder: "半角数字のみ", type: "text"}/
+          %ul#card-no-error-wrapper.card-form__box--error
+          %ul.card-form__box--card
+            %li
+              = image_tag("visa.svg")
+            %li
+              = image_tag("master-card.svg")
+            %li
+              = image_tag("saison-card.svg")
+            %li
+              = image_tag("jcb.svg")
+            %li
+              = image_tag("american_express.svg")
+            %li
+              = image_tag("dinersclub")
+            %li
+              = image_tag("discover.svg")
+        .card-form__box
+          %label.card-form__box--label 有効期限
+          %span.card-form__box--require 必須
+          %br/
+          .card-form__box--wrap
+            %select.payment_card_expire
+              %option{value: "01"} 01
+              %option{value: "02"} 02
+              %option{value: "03"} 03
+              %option{value: "04"} 04
+              %option{value: "05"} 05
+              %option{value: "06"} 06
+              %option{value: "07"} 07
+              %option{value: "08"} 08
+              %option{value: "09"} 09
+              %option{value: "10"} 10
+              %option{value: "11"} 11
+              %option{value: "12"} 12
+            %i.fas.fa-angle-down
+          %span 月
+          %ul#expire-mm-error-wrapper.card-form__box--error
+          .card-form__box--wrap
+            %select.payment_card_expire
+              %option{value: "19"} 19
+              %option{value: "20"} 20
+              %option{value: "21"} 21
+              %option{value: "22"} 22
+              %option{value: "23"} 23
+              %option{value: "24"} 24
+              %option{value: "25"} 25
+              %option{value: "26"} 26
+              %option{value: "27"} 27
+              %option{value: "28"} 28
+              %option{value: "29"} 29
+            %i.fas.fa-angle-down
+          %span 年
+          %ul#expire-yy-error-wrapper.card-form__box--error
+        .card-form__box
+          %label.card-form__box--label セキュリティコード
+          %span.card-form__box--require 必須
+          %input#payment_card_security_code.card-form__box--input{placeholder: "カード背面4桁もしくは3桁の番号", type: "number", value: ""}/
+          %ul#security-code-error-wrapper.card-form__box--error
+          .card-form__box--seqcode
+            .signup-seqcode-text{"data-js": "show-tips-toggle"}
+              %span.question> ?
+              カード裏面の番号とは？
+        %p#primary-error.has-error-text
+        %button#submit-button.btn-default.btn-red{type: "button"} 追加する
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
