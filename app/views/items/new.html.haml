@@ -1,0 +1,154 @@
+.exhibit-body
+  .exhibit-body__container
+    %header.exhibit-body__container--header
+      %h1
+        = link_to '' do
+          = image_tag("//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?1966943736", class: "mercari-image", alt: "mercari")
+    %main.exhibit-body__container--main
+      %section.main-container
+        .main-container__sell-container
+          .main-container__sell-container--box{"data-reactroot": ""}
+            .sell-container
+              %h2.sell-container__header.bold
+                %b 商品の情報を入力
+              %form.sell-container__form
+                .sell-container__form--content
+                  .sell-content
+                    .sell-content__image-upload-box
+                      %h3.sell-content__image-upload-box--head.bold
+                        %b 出品画像
+                        %span.form-require
+                          %b 必須
+                      %p.sell-content__image-upload-box--content
+                        最大4枚までアップロードできます
+                      .sell-content__image-upload-box--sell-dropbox-container.clearfix.state-image-number-4
+                        .sell-upload-drop-box
+                          %input.sell-upload-drop-box__sell-upload-drop-file{multiple: "multiple", name: "image1", style: "display: none;", type: "file"}/
+                          %pre.sell-upload-drop-box__visible-pc
+                            ドラッグアンドドロップ
+                            %br>/
+                            またはクリックしてファイルをアップロード
+                          %i.sell-upload-drop-box__icon-camera
+                  .sell-content
+                    .sell-content__name
+                      %label
+                        %b 商品名
+                        %span.form-require 必須
+                      %input.sell-content__name--input{placeholder: "商品名（必須 40文字まで)", value: ""}/
+                    .sell-content__description
+                      %label
+                        %b 商品の説明
+                        %span.form-require 必須
+                      %textarea.sell-content__description--textarea{placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5"}
+                  .sell-content.clearfix
+                    %h3.sell-content__sell-sub-head
+                      %b 商品の詳細
+                    .sell-content__sell-form-box
+                      .sell-content__sell-form-box--form-group
+                        %label
+                          カテゴリー
+                          %span.form-require
+                            必須
+                        .select-wrap
+                          %select.select-default
+                            %option{value: ""} ---
+                          %i.fa.fa-angle-down
+                      .sell-content__sell-form-box--form-group.margin-top
+                        %label
+                          商品の状態
+                          %span.form-require
+                            必須
+                        .select-wrap
+                          %select.select-default
+                            %option{value: ""} ---
+                          %i.fa.fa-angle-down
+                  .sell-content.clearfix
+                    %h3.sell-content__sell-sub-head
+                      %b 配送について
+                    = link_to('?','/jp/help_center/article/68/',class:'sell-content__form-question')
+                    .sell-content__sell-form-box
+                      .sell-content__sell-form-box--form-group
+                        %label
+                          配送料の負担
+                          %span.form-require
+                            必須
+                        .select-wrap
+                          %select.select-default
+                            %option{value: ""} ---
+                          %i.fa.fa-angle-down
+                      .sell-content__sell-form-box--form-group.margin-top
+                        %label
+                          発送元の地域
+                          %span.form-require
+                            %b 必須
+                        .select-wrap
+                          %select.select-default
+                            %option{value: ""} ---
+                          %i.fa.fa-angle-down
+                      .sell-content__sell-form-box--form-group.margin-top
+                        %label
+                          発送までの日数
+                          %span.form-require
+                            必須
+                        .select-wrap
+                          %select.select-default
+                            %option{value: ""} ---
+                            %option{value: "1"} 1~2日で発送
+                            %option{value: "2"} 2~3日で発送
+                            %option{value: "3"} 4~7日で発送
+                          %i.fa.fa-angle-down
+                  .sell-content.clearfix
+                    %h3.sell-content__sell-sub-head
+                      %b 販売価格(300〜9,999,999)
+                    = link_to('?','/jp/help_center/article/64/", target: "_blank',class:'sell-content__form-question')
+                    .sell-content__sell-form-box
+                      %ul.sell-content__sell-form-box--sell-price
+                        %li.form-group
+                          .clearfix
+                            %label.l-left.form-group__label
+                              %b 価格
+                              %span.form-require 必須
+                            .l-right.sell-price-input
+                              ¥
+                              .sell-price-input-box
+                                %input.input-price{placeholder: "例）300", value: ""}/
+                        %li.commission-profit.clearfix
+                          .l-left 販売手数料 (10%)
+                          .l-right -
+                        %li.commission-profit.clearfix.bold
+                          .l-left
+                            %b 販売利益
+                          .l-right -
+                  .sell-content.sell-btn-box
+                    .notions
+                      %p.sell-btn-box__notion
+                        = link_to('禁止されている出品','/jp/help_center/getting_started/prohibited_items/',class:'sell-btn-box__link')
+                        、
+                        =link_to('行為'.rstrip ,'/jp/help_center/getting_started/prohibited_conduct/',class:'sell-btn-box__link')
+                        を必ずご確認ください。
+                      %p.sell-btn-box__notion
+                        またブランド品でシリアルナンバー等がある場合はご記載ください。
+                        =link_to('偽ブランドの販売','/jp/help_center/getting_started/counterfeit_goods/',class:'sell-btn-box__link')
+                        は犯罪であり処罰される可能性があります。
+                      %p.sell-btn-box__notion
+                        また、出品をもちまして
+                        =link_to('加盟店規約','/jp/seller_terms/',class:'sell-btn-box__link')
+                        に同意したことになります。
+                    %button.btn-default.btn-red{type: "submit"}
+                      出品する
+                    =link_to('もどる','',class:'btn-default btn-gray')
+              .overlay
+    %footer.exhibit-body__container--footer
+      .footer-content
+        %nav.footer-content__rule-link
+          %ul.clearfix
+            %li
+              = link_to 'プライバシーポリシー', 'https://www.mercari.com/jp/privacy/' ,class:'footer-content__rule-link--agreement'
+            %li
+              = link_to 'メルカリ利用規約','https://www.mercari.com/jp/tos/',class:'footer-content__rule-link--agreement'
+            %li
+              =link_to '特定商取引に関する表記','https://www.mercari.com/jp/tokutei/',class:'footer-content__rule-link--agreement'
+        = link_to 'https://www.mercari.com/jp/',class:'footer-content__mercari-footer-logo' do
+          = image_tag('//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?1966943736"')
+        %p.footer-content__copyright
+          %small.footer-content__copyright--content © 2019 Mercari

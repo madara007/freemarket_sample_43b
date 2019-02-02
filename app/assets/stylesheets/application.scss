@@ -1,5 +1,6 @@
 @import "font-awesome";
 
+@import "./reset";
 @import "config/reset";
 @import "config/clearfix";
 
@@ -17,5 +18,7 @@
 
 @import "modules/app-banner";
 @import "modules/footer";
+
 @import "users";
 @import "user_side_bar";
+@import "modules/exhibit";
