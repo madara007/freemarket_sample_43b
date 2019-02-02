@@ -1,6 +1,5 @@
 @import "font-awesome";
 
-// @import "./reset";
 @import "config/reset";
 @import "config/clearfix";
 
@@ -15,10 +14,9 @@
 @import "modules/index";
 @import "modules/comment-balloon";
 @import "modules/item-show";
+@import "modules/exhibit";
+@import "users";
+@import "user_side_bar";
 
 @import "modules/app-banner";
 @import "modules/footer";
-
-@import "users";
-@import "user_side_bar";
-@import "modules/exhibit";
