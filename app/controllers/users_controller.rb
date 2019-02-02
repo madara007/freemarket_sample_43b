@@ -11,4 +11,8 @@ class UsersController < ApplicationController
 # ユーザーの新規登録画面(仮)
   def registration
   end
+  
+  def index
+
+  end
 end
