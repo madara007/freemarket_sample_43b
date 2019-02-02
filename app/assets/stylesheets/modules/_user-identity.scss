@@ -2,13 +2,6 @@
   .user-identity__area {
     margin: 40px auto;
     width: 1020px;
-    &--side-menu {
-      @include f-left;
-      width: 280px;
-      height: 1252px;
-      background: white;
-      margin-right: 40px;
-    }
     &--profile {
       @include f-right;
       background: #fff;
