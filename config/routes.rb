@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :regions
   resources :brands
   resources :categorys
+  resources :credits
 end
