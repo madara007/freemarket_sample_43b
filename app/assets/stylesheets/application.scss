@@ -1,6 +1,5 @@
-/*
- *= require font-awesome
- */
+@import "./reset";
+@import "font-awesome";
 @import "config/reset";
 @import "config/clearfix";
 
@@ -15,3 +14,5 @@
 
 @import "modules/app-banner";
 @import "modules/footer";
+
+@import "modules/exhibit";
