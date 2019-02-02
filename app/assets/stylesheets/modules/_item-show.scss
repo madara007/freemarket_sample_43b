@@ -3,9 +3,7 @@ body {
   width: 100%;
   height: 100%;
   background-color: #F5F5F5;
-font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif;
 }
-
 
 ul, li, h1, h2, h3, p {
   margin: 0;
@@ -31,6 +29,7 @@ ul, li, h1, h2, h3, p {
     &--content{
       @include clearfix();
       margin: 16px 0 0;
+
 
       .item-image {
         float: left;
