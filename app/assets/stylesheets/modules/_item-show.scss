@@ -223,25 +223,49 @@ ul, li, h1, h2, h3, p {
           width: 40px;
 
         &-facebook {
-          background-color: #1d71f7;
+          display: block;
+          background-color: #385185;
           @include icon();
           .facebook {
-            @include fa-icon();
+            .fa {
+              @include fa-icon();
+              color: #fff;
+              font-size: 18px;
+              position: absolute;
+              top: 11px;
+              left: 13px;
+            }
           }
         }
 
         &-twitter {
-          background-color: #1cd0dd;
+          display: block;
+          background-color: #0099e8;
           @include icon();
           .twitter {
-            @include fa-icon();
+            .fa {
+              @include fa-icon();
+              color: #fff;
+              font-size: 18px;
+              position: absolute;
+              top: 11px;
+              left: 13px;
+            }
           }
         }
         &-pinterest {
-          background-color: #f70921;
+          display: block;
+          background-color: #aa262a;
           @include icon();
           .pinterest {
-            @include fa-icon();
+            .fa {
+              @include fa-icon();
+              color: #fff;
+              font-size: 18px;
+              position: absolute;
+              top: 11px;
+              left: 11px;
+            }
           }
         }
       }
