@@ -1,9 +1,7 @@
-%footer
-  %nav
-    / %ul.clearfix
-    .footer__cell.clearfix
-      / %li.footer-cell
-      .footer__cell--content
+%footer.footer
+  %nav.footer__nav
+    .footer__nav--cell.clearfix
+      .cell-content
         %h2 メルカリについて
         %ul
           %li
@@ -28,7 +26,7 @@
             = link_to "法令遵守と犯罪抑止のために"
           %li
             = link_to "採用情報"
-      .footer__cell--content
+      .cell-content
         %h2 メルカリを見る
         %ul
           %li
@@ -43,7 +41,7 @@
             = link_to "公式Twitter"
           %li
             = link_to "公式Facebook"
-      .footer__cell--content
+      .cell-content
         %h2 ヘルプ＆ガイド
         %ul
           %li
@@ -68,7 +66,7 @@
             = link_to "偽ブランド品撲滅への取り組み"
           %li
             = link_to "メルカリボックス"
-      .footer__cell--content
+      .cell-content
         %h2 国
         %ul
           %li

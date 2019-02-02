@@ -4,8 +4,11 @@
       %h1.logo
         = link_to "" do
           = image_tag("logo/logo.svg",alt: "mercari")
-      %form.header-form
-        %input{type: "search", name: "keyword", placeholder: "キーワードから探す", id: "search-form", class: "search-form"}
+      .header-form
+        %form.header-form__search
+          %input{type: "search", name: "keyword", placeholder: "キーワードから探す", id: "search-form", class: "search-form"}
+          = link_to "" do
+            = fa_icon("search")
     .header__inner--lower.clearfix
       %nav.item-nav
         全ての商品一覧
