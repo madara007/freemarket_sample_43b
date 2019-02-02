@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  resources :credits
+  root 'items#index'
   resources :items
   resources :users
   resources :regions
   resources :brands
   resources :categorys
+  resources :credits
 end
