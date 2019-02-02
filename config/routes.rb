@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'items#index'
+  root 'users#index'
   resources :items
   resources :users
   resources :regions

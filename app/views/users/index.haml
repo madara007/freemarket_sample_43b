@@ -1,0 +1,48 @@
+.container
+  .container__during
+    %section.container__during--user-box
+      = link_to "", class: "user-link" do
+        = image_tag("member_photo_noimage_thumb.png",class: "user-link__image")
+        %h2 鬼束ちひろ
+        .user-the-history
+          %div
+            %span 評価 0
+          %div
+            %span 出品数 0
+    %section.container__during--user-box__todo
+      %ul.container__during--user-box__todo-list
+        %li
+          %h3
+            = link_to "お知らせ", ""
+        %li
+          %h3
+            = link_to "やることリスト", ""
+      .tab-container
+        %ul.tab-container-notification
+          %li
+            = link_to "", class: "item" do
+              = image_tag("mercari_profile.png",class: "item-image")
+              .user-item-body
+                .user-item-body-text 【期間限定のお得情報】対象カテゴリーが売れたら“必ず“ポイントがもらえるキャンペーン開催中
+                %time
+                  %i.icon-time
+                  %i.fas.fa-clock
+                  %span 2日前
+              %i.fa.fa-chevron-right
+          .user-go-list
+            = link_to "一覧を見る", ""
+
+    %section.container__during--user-box__todo
+      %h2.user-tab-container-head 購入した商品
+      %ul.container__during--user-box__todo-list
+        %li
+          %h3
+            = link_to "取引中", ""
+        %li
+          %h3
+            = link_to "過去の取引", ""
+      .tab-container
+        %ul.user-item-list
+          %li.user-item-not-found 取引中の商品がありません
+= render partial: 'user_side_bar'
+    
