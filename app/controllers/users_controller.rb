@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  layout 'session'
+
 # ログイン画面への遷移)(仮)
   def new
   end

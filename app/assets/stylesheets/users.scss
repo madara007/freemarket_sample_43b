@@ -1,7 +1,7 @@
 
 /* ユーザー*/
 .container {
-	margin: 40px auto 0;
+  margin: 40px auto;
 	width: 1020px;
   &__during {
     float: right;
@@ -41,9 +41,7 @@
       }
       .user-link {
         display: block;
-        position: absolute;
-        top: 260px;
-        right: 750px;
+        margin-top: 60px;
         transform: translate(0, -50%);
         color: #333;
         &:hover{
