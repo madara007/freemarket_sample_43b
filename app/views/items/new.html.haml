@@ -9,13 +9,13 @@
         .main-container__sell-container
           .main-container__sell-container--box{"data-reactroot": ""}
             .sell-container
-              %h2.sell-container__header
+              %h2.sell-container__header.bold
                 %b 商品の情報を入力
               %form.sell-container__form
                 .sell-container__form--content
                   .sell-content
                     .sell-content__image-upload-box
-                      %h3.sell-content__image-upload-box--head
+                      %h3.sell-content__image-upload-box--head.bold
                         %b 出品画像
                         %span.form-require
                           %b 必須
@@ -101,7 +101,7 @@
                     %h3.sell-content__sell-sub-head
                       %b 販売価格(300〜9,999,999)
                     = link_to('?','/jp/help_center/article/64/", target: "_blank',class:'sell-content__form-question')
-                    .sell-form-box
+                    .sell-content__sell-form-box
                       %ul.sell-content__sell-form-box--sell-price
                         %li.form-group
                           .clearfix
