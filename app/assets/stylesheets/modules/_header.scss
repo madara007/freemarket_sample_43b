@@ -104,6 +104,7 @@
             padding-left: 16px;
             position: relative;
             .fa-bell-o {
+              @include fa-icon();
               font-size: 16px;
             }
             @include count-icon;

@@ -69,6 +69,9 @@
             }
             .item-like {
               @include f-right;
+              .fa {
+                @include fa-icon();
+              }
             }
           }
           .item-tax {

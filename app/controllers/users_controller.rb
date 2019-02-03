@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  layout 'session'
+ layout  "session", except: [:index, :show]
 # ログイン画面への遷移)(仮)
   def new
   end
@@ -8,6 +8,14 @@ class UsersController < ApplicationController
   def select
   end
 
+# ユーザーの新規登録画面(仮)
+  def registration
+  end
+
   def index
+
+  end
+
+  def show
   end
 end
