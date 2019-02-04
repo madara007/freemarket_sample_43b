@@ -17,24 +17,25 @@
    	  	}
    	  }
    	  .setting-profile-icon{
-		padding: 72px 16px 24px;
-		background: image-url("user-bg.jpg");
-		background-repeat: no-repeat;
-		background-size: cover;
-		text-align: center;
-		font-size: 0;
+  		padding: 60px 10px 20px;
+  		background: image-url("user-bg.jpg");
+  		background-repeat: no-repeat;
+  		background-size: cover;
+  		text-align: center;
+  		font-size: 0;
 		&-image{
-		  height: 60px;
-		  border-radius: 50%;
+		   height: 60px;
+		   border-radius: 50%;
 		}
 		&-text{
 		  width: 220px;
 		  height: 48px;
 		  border-radius: 5px;
-          margin: 0 0 50px 8px;
-          vertical-align: middle;
+      margin: 0 0 50px 8px;
+      font-size: 20px;
+      vertical-align: middle;
 		}
-      }
+  }
       .setting-profile-content{
       	padding: 40px 16px;
         margin: 0;
@@ -55,9 +56,9 @@
           border: 1px solid #ea352d;
           color: #fff;
           display: block;
-		  width: 100%;
-		  line-height: 48px;
-		  font-size: 14px;
+		      width: 100%;
+		      line-height: 48px;
+		      font-size: 14px;
         }
       }
    }
