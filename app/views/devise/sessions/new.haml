@@ -1,26 +1,50 @@
-<h2>Log in</h2>
+/ ログインページ
+.user-login__page
+  %header.user-login__page--header
+    = link_to "", class: "logo" do
+      = image_tag "logo/logo.svg", class: "top-logo"
+  .user-login__page--box
+    .registration
+      %h1 アカウントをお持ちでない方はこちら
+      = link_to "", class: "registration-btn" do
+        新規会員登録
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    .session
+      = link_to "", class: "session-facebook" do
+        Facebookでログイン
+        = fa_icon "facebook-square", class: "facebook"
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+      = link_to "", class: "session-google" do
+        Googleでログイン
+        = fa_icon "google-plus-g", class: "google"
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end -%>
+    %form.login-form
+      .login-form__inner
+        .form-column
+          %input{name: "email", autofucus: "true", placeholder: "メールアドレス"}
+        .form-column
+          %input{name: "password", autofucus: "true", placeholder: "パスワード"}
+        .form-column
+          / サーバーサイド実装時に作成
+          .login-recaptcha
+        = link_to "", class: "login-btn" do
+          ログイン
+        = link_to "", class: "forget-pass" do
+          パスワードをお忘れの方
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+  .user-login__page--footer
+    %nav
+      %ul
+        %li
+          = link_to "", class: "rule-link" do
+            プライバシーポリシー
+        %li
+          = link_to "", class: "rule-link" do
+            メルカリ利用規約
+        %li
+          = link_to "", class: "rule-link" do
+            特定商取引に関する表記
+    = link_to "", class: "top-link" do
+      = image_tag "logo/logo-gray.svg", class: "logo-gray"
+    %h2 © 2019 Mercari
