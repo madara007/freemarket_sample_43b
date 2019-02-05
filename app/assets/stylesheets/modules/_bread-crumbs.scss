@@ -1,11 +1,23 @@
-.bread-crumbs {
-  height: 49px;
-  width: 100%;
+.bread {
+  font-size: 14px;
   border-top: 1px solid #eee;
   background: #FFF;
-  ul {
-    width: 1020px;
-    padding: 16px 0;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  .breadcrumbs {
+    padding: 17px 0 17px;
     margin: 0 auto;
+    width: 1020px;
+    a {
+      display: inline-block;
+    }
+    a:hover {
+      color: #a9a9a9;
+      opacity: 50%;
+      text-decoration: underline;
+    }
+    span {
+      display: inline-block;
+      font-weight: bold;
+    }
   }
 }
