@@ -1,12 +1,11 @@
-/ ログインページ
 .user-login__page
   %header.user-login__page--header
-    = link_to "", class: "logo" do
+    = link_to root_path, class: "logo" do
       = image_tag "logo/logo.svg", class: "top-logo"
   .user-login__page--box
     .registration
       %h1 アカウントをお持ちでない方はこちら
-      = link_to "", class: "registration-btn" do
+      = link_to new_user_path, class: "registration-btn" do
         新規会員登録
 
     .session
@@ -18,17 +17,17 @@
         Googleでログイン
         = fa_icon "google-plus-g", class: "google"
 
-    %form.login-form
+    = form_with(model: @user, url: new_user_session_path, method: :post, local: true, class: "login-form") do |form|
       .login-form__inner
         .form-column
-          %input{name: "email", autofucus: "true", placeholder: "メールアドレス"}
+          = form.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス"
         .form-column
-          %input{name: "password", autofucus: "true", placeholder: "パスワード"}
+          = form.password_field :password, autocomplete: "current-password", placeholder: "パスワード"
         .form-column
           / サーバーサイド実装時に作成
           .login-recaptcha
-        = link_to "", class: "login-btn" do
-          ログイン
+        = form.submit("ログイン", class: "login-btn")
+
         = link_to "", class: "forget-pass" do
           パスワードをお忘れの方
 
@@ -45,6 +44,6 @@
         %li
           = link_to "", class: "rule-link" do
             特定商取引に関する表記
-    = link_to "", class: "top-link" do
+    = link_to root_path, class: "top-link" do
       = image_tag "logo/logo-gray.svg", class: "logo-gray"
     %h2 © 2019 Mercari
