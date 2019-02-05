@@ -4,12 +4,7 @@ class UsersController < ApplicationController
   def new
   end
 
-# ユーザーの新規登録画面(仮)
-  def registration
-  end
-
   def index
-
   end
 
   def show
