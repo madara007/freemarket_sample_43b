@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
- layout  "session", except: [:index, :show, :edit]
+ layout  "session", except: [:index, :show, :edit, :logout]
 # ログイン画面への遷移)(仮)
   def new
   end
@@ -16,5 +16,8 @@ class UsersController < ApplicationController
   end
 
   def edit
+  end
+
+  def logout
   end
 end
