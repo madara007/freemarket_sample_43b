@@ -1,10 +1,10 @@
 .pr-container {
    margin: 40px auto 40px;
    width: 1020px;
-   &-main{
+   &__main{
    	  float: right;
    	  width: 700px;
-   	  &-during{
+   	  &--during{
    	  	 margin: 0;
    	  	 background: #fff;
    	    .pr-chapter-head{
@@ -23,34 +23,34 @@
   		background-size: cover;
   		text-align: center;
   		font-size: 0;
-		&-image{
-		   height: 60px;
-		   border-radius: 50%;
-		}
-		&-text{
-		  width: 220px;
-		  height: 48px;
-		  border-radius: 5px;
-      margin: 0 0 50px 8px;
-      font-size: 20px;
-      vertical-align: middle;
-		}
-  }
-      .setting-profile-content{
-      	padding: 40px 16px;
-        margin: 0;
-        &-textarea{
-          display: block;
-          width: 100%;
-          max-width: 100%;
-          border: 1px solid #ccc;
-          background: #fff;
-          font-size: 16px;
-          min-height: 216px;
-          line-height: 1.5;
-          color: #9a8c8c
-        }
-        &-button{
+		  &__image{
+  		  height: 60px;
+  		  border-radius: 50%;
+		  }
+		   &__text{
+  		  width: 220px;
+  		  height: 48px;
+  		  border-radius: 5px;
+        margin: 0 0 50px 8px;
+        font-size: 20px;
+        vertical-align: middle;
+		  }
+    }
+     .profile-content{
+       padding: 40px 16px;
+       margin: 0;
+      &__textarea{
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        border: 1px solid #ccc;
+        background: #fff;
+        font-size: 16px;
+        min-height: 216px;
+        line-height: 1.5;
+        color: #9a8c8c;
+      }
+        &__button{
           margin: 16px 0 0;
           background: #ea352d;
           border: 1px solid #ea352d;
