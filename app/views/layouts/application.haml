@@ -11,8 +11,9 @@
   %body.main-container
     .main-container__box
       = render partial: "layouts/header"
-      .bread-crumbs
-        = render partial: "items/menulist"
+      .bread
+        = breadcrumbs separator: " &rsaquo; "
+
       = yield
       = render partial: "layouts/app-banner"
       = render partial: "layouts/footer"
