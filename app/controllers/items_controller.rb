@@ -7,5 +7,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
+    @score = Score.all
   end
 end

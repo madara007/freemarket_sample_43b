@@ -4,7 +4,7 @@
   .show-item__main
 
     %h1.show-item__main--name
-      トップス
+      = @item.name
     .show-item__main--content
       .item-image
         .item-image-main
@@ -19,7 +19,8 @@
         = render "items/item-info"
 
     .show-item__main-price
-      ¥2,000
+      ¥
+      = number_with_delimiter(@item.price)
       %span.tax
         (税込)
         %span.postage
@@ -34,7 +35,8 @@
       .show-item__main-btn-container-left
         = link_to "", class: "like" do
           = fa_icon "heart", class: ""
-          %span いいね! 5
+          %span いいね!
+          = @item.likes.length
         = link_to "", class: "report" do
           = fa_icon "flag", class: ""
           %span 不適切な商品の報告
