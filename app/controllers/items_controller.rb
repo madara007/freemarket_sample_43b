@@ -5,7 +5,9 @@ class ItemsController < ApplicationController
 
   def new
   end
-  
+
   def show
+    @item = Item.find(1)
+    @score = Score.all
   end
 end
