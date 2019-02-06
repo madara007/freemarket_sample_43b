@@ -11,4 +11,7 @@ class Item < ApplicationRecord
 
   has_many :item_photos
   has_many :likes
+  belongs_to :saler, class_name: "User"
+  belongs_to :buyer, class_name: "User"
+
 end
