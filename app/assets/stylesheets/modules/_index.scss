@@ -3,11 +3,11 @@
   height: 390px;
   &__area {
     &--stage {
-      .owl-carousel-content {
+      .bxslider {
         width: 100%;
         height: 390px;
         text-align: center;
-        .photo {
+        &__photo {
           height: 390px;
           margin: 0 auto;
         }
