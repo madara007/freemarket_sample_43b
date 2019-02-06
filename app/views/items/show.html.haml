@@ -19,7 +19,7 @@
 
     .show-item__main-price
       ¥
-      = @item.price
+      = number_with_delimiter(@item.price)
       %span.tax
         (税込)
         %span.postage
