@@ -110,6 +110,8 @@ GEM
     domain_name (0.5.20180417)
       unf (>= 0.0.5, < 1.0.0)
     enum (1.0.0)
+    enum_help (0.0.17)
+      activesupport (>= 3.0.0)
     erb2haml (0.1.5)
       html2haml
     erubi (1.8.0)
@@ -374,6 +376,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   enum
+  enum_help
   erb2haml
   factory_bot_rails
   faker
