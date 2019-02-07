@@ -11,9 +11,9 @@ class CreditsController < ApplicationController
 
    def create
       
-      items = Item.find(parmas[:id])
-      price = items.price
-      Payjp.api_key = "sk_test_63fca0d2e14f02caa7fb939d"
+      items = Item.find(params[:id])
+      price = items.price 
+      Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
       charge = Payjp::Charge.create(
       :amount => price,
       :card => params['payjp-token'],
