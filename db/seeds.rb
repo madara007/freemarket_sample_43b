@@ -9,7 +9,7 @@ require "csv"
 
 # coding: utf-8
 
-  CSV.foreach('db/category.csv') do |row|
+  CSV.foreach('db/csv/category.csv') do |row|
     if row[1] == nil
       Category.create(name: row[0].to_i)
     else
