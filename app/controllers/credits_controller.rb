@@ -14,9 +14,9 @@ class CreditsController < ApplicationController
       Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
       charge = Payjp::Charge.create(
 
-      amount:  price,
-      card: params['payjp-token'],
-      currency: 'jpy',
+         amount: price,
+         card:  params['payjp-token'],
+         currency: 'jpy',
       )
    end
 
