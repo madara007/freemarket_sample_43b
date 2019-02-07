@@ -10,9 +10,8 @@ class CreditsController < ApplicationController
    end
 
    def create
-      
-      items = Item.find(params[:id])
-      price = items.price 
+      item = Item.find(params[:id])
+      price = item.price 
       Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
       charge = Payjp::Charge.create(
       :amount => price,
