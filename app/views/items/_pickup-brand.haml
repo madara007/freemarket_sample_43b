@@ -1,0 +1,31 @@
+%h2.pickup-container__head
+  ピックアップブランド
+%selection.pickup-container__box
+  %h3.topix
+    = link_to "シャネル 新着アイテム"
+  .pickup-container__box--content.clearfix
+    - @chanels.each do |item|
+      = render partial: "items/pickup-container", locals: {item: item}
+  .item-all
+    = link_to "すべての商品を見る"
+  %h3.topix
+    = link_to "ナイキ 新着アイテム"
+  .pickup-container__box--content.clearfix
+    - @nikes.each do |item|
+      = render partial: "items/pickup-container", locals: {item: item}
+  .item-all
+    = link_to "すべての商品を見る"
+  %h3.topix
+    = link_to "プーマ 新着アイテム"
+  .pickup-container__box--content.clearfix
+    - @pumas.each do |item|
+      = render partial: "items/pickup-container", locals: {item: item}
+  .item-all
+    = link_to "すべての商品を見る"
+  %h3.topix
+    = link_to "ルイ ヴィトン 新着アイテム"
+  .pickup-container__box--content.clearfix
+    - @vuittons.each do |item|
+      = render partial: "items/pickup-container", locals: {item: item}
+  .item-all
+    = link_to "すべての商品を見る"
