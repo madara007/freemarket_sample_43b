@@ -1,5 +1,4 @@
 class Item < ApplicationRecord
-  # belongs_to :user
   belongs_to :size ,optional: true
   belongs_to :shipping_date
   belongs_to :condition
