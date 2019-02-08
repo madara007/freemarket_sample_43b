@@ -40,7 +40,3 @@ end
 for num in 1..3 do
   ShippingDate.find_or_create_by(day: num)
 end
-
-for num in 1..3 do
-  Score.find_or_create_by(type: num)
-end
