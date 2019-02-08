@@ -1,12 +1,12 @@
 class ItemsController < ApplicationController
-  layout  "session"
+  layout  "session", except: [:index, :show]
   # トップページ作成でindex利用
   def index
+    render :create
   end
 
   def new
     @item = Item.new
-    # binding.pry
   end
 
   def create
