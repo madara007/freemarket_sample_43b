@@ -39,6 +39,3 @@ end
 for num in 1..3 do
 Shipping_date.find_or_create_by(day: num)
 end
-
-
-
