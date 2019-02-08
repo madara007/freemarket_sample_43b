@@ -1287,6 +1287,11 @@ ja:
         yu_pack: 'ゆうパック'
         click_post: 'クリックポスト'
         yu_packet: 'ゆうパケット'
+    shipping_date:
+      day:
+        within_2days: '1-2日で発送'
+        within_3days: '2-3日で発送'
+        within_4days: '4-7日で発送'
 
   activerecord:
     errors:
