@@ -11,7 +11,8 @@
             .sell-container
               %h2.sell-container__header.bold
                 %b 商品の情報を入力
-              %form.sell-container__form
+              = form_with(model: @item, url: items_path, local: true, class: 'sell-container__form') do |f|
+                / = f.text_field :name
                 .sell-container__form--content
                   .sell-content
                     .sell-content__image-upload-box
@@ -22,24 +23,28 @@
                       %p.sell-content__image-upload-box--content
                         最大4枚までアップロードできます
                       .sell-content__image-upload-box--sell-dropbox-container.clearfix.state-image-number-4
-                        .sell-upload-drop-box
-                          %input.sell-upload-drop-box__sell-upload-drop-file{multiple: "multiple", name: "image1", style: "display: none;", type: "file"}/
-                          %pre.sell-upload-drop-box__visible-pc
-                            ドラッグアンドドロップ
-                            %br>/
-                            またはクリックしてファイルをアップロード
-                          %i.sell-upload-drop-box__icon-camera
+                        = f.label :image, class: 'form-mask-image' do
+                          .sell-upload-drop-box
+                            %input.sell-upload-drop-box__sell-upload-drop-file{multiple: "multiple", name: "image1", style: "display: none;", type: "file"}/
+                            %pre.sell-upload-drop-box__visible-pc
+                              ドラッグアンドドロップ
+                              %br>/
+                              またはクリックしてファイルをアップロード
+                            %i.sell-upload-drop-box__icon-camera
+                          = f.file_field :image, class: 'hidden'
+
                   .sell-content
                     .sell-content__name
                       %label
                         %b 商品名
                         %span.form-require 必須
-                      %input.sell-content__name--input{placeholder: "商品名（必須 40文字まで)", value: ""}/
+                        = f.text_field :name,class: 'sell-content__name--input',placeholder: '商品名（必須 40文字まで)'
                     .sell-content__description
                       %label
                         %b 商品の説明
                         %span.form-require 必須
-                      %textarea.sell-content__description--textarea{placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5"}
+                      / %textarea.sell-content__description--textarea{placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5"}
+                      = f.text_area :description, class: 'sell-content__description--textarea',placeholder: '商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。', rows: '5'
                   .sell-content.clearfix
                     %h3.sell-content__sell-sub-head
                       %b 商品の詳細
@@ -50,8 +55,7 @@
                           %span.form-require
                             必須
                         .select-wrap
-                          %select.select-default
-                            %option{value: ""} ---
+                          = f.select :category_id, Category.all.collect {|c| [c.name, c.id]}, {prompt: '---'}, {class: 'select-default'}
                           %i.fa.fa-angle-down
                       .sell-content__sell-form-box--form-group.margin-top
                         %label
@@ -59,8 +63,7 @@
                           %span.form-require
                             必須
                         .select-wrap
-                          %select.select-default
-                            %option{value: ""} ---
+                          = f.select :condition_id, Condition.all.collect {|c| [c.type, c.id]}, {prompt: '---'}, {class: 'select-default'}
                           %i.fa.fa-angle-down
                   .sell-content.clearfix
                     %h3.sell-content__sell-sub-head
@@ -73,8 +76,7 @@
                           %span.form-require
                             必須
                         .select-wrap
-                          %select.select-default
-                            %option{value: ""} ---
+                          = f.select :delivery_fee_id, DeliveryFee.all.collect {|d| [d.type, d.id]}, {prompt: '---'}, {class: 'select-default'}
                           %i.fa.fa-angle-down
                       .sell-content__sell-form-box--form-group.margin-top
                         %label
@@ -82,8 +84,9 @@
                           %span.form-require
                             %b 必須
                         .select-wrap
-                          %select.select-default
-                            %option{value: ""} ---
+                          / %select.select-default
+                          /   %option{value: ""} ---
+                          = f.select :region_id, Region.all.collect {|r| [r.name, r.id]}, {prompt: '---'}, {class: 'select-default'}
                           %i.fa.fa-angle-down
                       .sell-content__sell-form-box--form-group.margin-top
                         %label
@@ -91,11 +94,7 @@
                           %span.form-require
                             必須
                         .select-wrap
-                          %select.select-default
-                            %option{value: ""} ---
-                            %option{value: "1"} 1~2日で発送
-                            %option{value: "2"} 2~3日で発送
-                            %option{value: "3"} 4~7日で発送
+                          = f.select :shipping_date_id, ShippingDate.all.collect {|s| [s.day, s.id]}, {prompt: '---'}, {class: 'select-default'}
                           %i.fa.fa-angle-down
                   .sell-content.clearfix
                     %h3.sell-content__sell-sub-head
@@ -111,7 +110,8 @@
                             .l-right.sell-price-input
                               ¥
                               .sell-price-input-box
-                                %input.input-price{placeholder: "例）300", value: ""}/
+                                / %input.input-price{placeholder: "例）300", value: ""}
+                                = f.text_field :price, class:'input-price',placeholder: '例）300'
                         %li.commission-profit.clearfix
                           .l-left 販売手数料 (10%)
                           .l-right -
@@ -134,8 +134,8 @@
                         また、出品をもちまして
                         =link_to('加盟店規約','/jp/seller_terms/',class:'sell-btn-box__link')
                         に同意したことになります。
-                    %button.btn-default.btn-red{type: "submit"}
-                      出品する
+                    / %button.btn-default.btn-red{type: "submit"}
+                    =f.submit '出品する' ,class:'btn-red'
                     =link_to('もどる','',class:'btn-default btn-gray')
               .overlay
     %footer.exhibit-body__container--footer
