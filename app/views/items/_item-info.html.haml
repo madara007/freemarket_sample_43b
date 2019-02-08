@@ -1,0 +1,69 @@
+%table
+  %tr
+    %th
+      出品者
+    %td
+      = link_to "", class: "link" do
+        = @item.saler.nickname
+      .item-user
+        %span.item-user-rating
+          = fa_icon "grin", class: "grin"
+          %span
+            = @score.where( "type = '1' ").length
+        %span.item-user-rating
+          = fa_icon "meh-o", class: "meh"
+          %span
+            = @score.where( "type = '2' ").length
+        %span.item-user-rating
+          = fa_icon "frown-o", class: "frown"
+          %span
+            = @score.where( "type = '3' ").length
+  %tr
+    %th
+      カテゴリー
+    %td
+      = link_to "", class: "link" do
+        = @item.category.name_i18n
+      %br
+      = link_to "", class: "link" do
+        >
+      %br
+      = link_to "", class: "link" do
+        >
+  %tr
+    %th
+      ブランド
+    %td
+      = link_to "", class: "link" do
+        = @item.brand.name
+  %tr
+    %th
+      商品のサイズ
+    %td
+      = @item.size.type_i18n
+  %tr
+    %th
+      商品の状態
+    %td
+      = @item.condition.type_i18n
+  %tr
+    %th
+      配送料の負担
+    %td
+      = @item.delivery_fee.type_i18n
+  %tr
+    %th
+      配送の方法
+    %td
+      = @item.ship_method.type_i18n
+  %tr
+    %th
+      配送元地域
+    %td
+      = link_to "", class: "link" do
+        = @item.region.name_i18n
+  %tr
+    %th
+      発送日の目安
+    %td
+      = @item.shipping_date.day_i18n

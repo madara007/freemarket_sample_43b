@@ -1,0 +1,139 @@
+.user-login__page {
+  height: 100%;
+  width: 100%;
+  &--header {
+    height: 128px;
+    .logo {
+      @include mercari-logo();
+    }
+  }
+
+  &--box {
+    width: 456px;
+    background-color: #fff;
+    margin: 0 auto;
+    .registration {
+      padding: 40px 64px;
+      h1 {
+        text-align: center;
+      }
+      &-btn {
+        @include btn();
+        margin: 8px 0 0;
+        line-height: 40px;
+        color: #fff;
+        background-color: #0099e8;
+      }
+    }
+
+    .session {
+      padding: 32px 64px;
+      border-top: 1px solid #f5f5f5;
+      &-facebook {
+        @include btn();
+        position: relative;
+        line-height: 40px;
+        color: #fff;
+        background-color: #385185;
+        .facebook {
+          @include fa-icon();
+          position: absolute;
+          left: 20px;
+          top: 11px;
+          display: inline-block;
+          font-size: 20px;
+        }
+      }
+      &-google {
+        @include btn();
+        position: relative;
+        margin: 16px 0 0;
+        line-height: 40px;
+        color: #fff;
+        background-color: #dc4e41;
+        .google {
+          @include fa-icon();
+          position: absolute;
+          left: 20px;
+          top: 11px;
+          color: #fff;
+          display: inline-block;
+          font-size: 20px;
+        }
+      }
+    }
+
+    .login-form {
+      &__inner {
+        padding: 24px 64px 32px;
+        .form-column {
+          &:first-child {
+            margin: 0;
+          }
+          margin: 24px 0 0;
+          input {
+            height: 40px;
+            width: calc(100% - 14px);
+            font-size: 14px;
+            padding-left: 10px;
+          }
+          // サーバーサイド実装時に作成
+          .login-recaptcha {
+            border: 1px solid #aaa;
+            height: 78px;
+            background-color: #f5f5f5;
+          }
+        }
+        .login-btn {
+          @include btn();
+          width: 100%;
+          margin: 16px 0 0;
+          line-height: 40px;
+          color: #fff;
+          background-color: #ea352d;
+        }
+        .forget-pass {
+          display: block;
+          margin: 40px 0 0;
+          color: #0099e8;
+        }
+      }
+    }
+  }
+
+  &--footer {
+    height: 220px;
+    width: 456px;
+    margin: 70px auto 0;
+    padding: 60px 0;
+    color: #fff;
+    nav {
+      ul {
+        @include clearfix();
+        font-size: 12px;
+        text-align: center;
+        li {
+          &:first-child {
+            margin: 0;
+          }
+          margin-left: 16px;
+          display: inline-block;
+        }
+      }
+    }
+    .top-link {
+      @include btn();
+      margin-top: 16px;
+      .logo-gray {
+        height: 65px;
+        width: 80px;
+      }
+    }
+    h2 {
+      margin-top: 10px;
+      color: #333;
+      font-size: 12px;
+      text-align: center;
+    }
+  }
+}
