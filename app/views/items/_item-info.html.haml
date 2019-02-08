@@ -4,63 +4,66 @@
       出品者
     %td
       = link_to "", class: "link" do
-        ちゃあ
+        = @item.saler.nickname
       .item-user
         %span.item-user-rating
           = fa_icon "grin", class: "grin"
-          %span 3
+          %span
+            = @score.where( "type = '1' ").length
         %span.item-user-rating
           = fa_icon "meh-o", class: "meh"
-          %span 3
+          %span
+            = @score.where( "type = '2' ").length
         %span.item-user-rating
           = fa_icon "frown-o", class: "frown"
-          %span 4
+          %span
+            = @score.where( "type = '3' ").length
   %tr
     %th
       カテゴリー
     %td
       = link_to "", class: "link" do
-        レディース
+        = @item.category.name_i18n
       %br
       = link_to "", class: "link" do
-        >トップス
+        >
       %br
       = link_to "", class: "link" do
-        >Tシャツ
+        >
   %tr
     %th
       ブランド
     %td
       = link_to "", class: "link" do
-        イング
+        = @item.brand.name
   %tr
     %th
       商品のサイズ
     %td
-      M
+      = @item.size.type_i18n
   %tr
     %th
       商品の状態
     %td
-      新品
+      = @item.condition.type_i18n
   %tr
     %th
       配送料の負担
     %td
-      送料込み
+      = @item.delivery_fee.type_i18n
   %tr
     %th
       配送の方法
     %td
-      未定
+      = @item.ship_method.type_i18n
   %tr
     %th
       配送元地域
     %td
       = link_to "", class: "link" do
-        兵庫県
+        = @item.region.name_i18n
   %tr
     %th
       発送日の目安
     %td
-      2~3日で発送
+      = @item.shipping_date.day_i18n

@@ -1,0 +1,49 @@
+.user-login__page
+  %header.user-login__page--header
+    = link_to root_path, class: "logo" do
+      = image_tag "logo/logo.svg", class: "top-logo"
+  .user-login__page--box
+    .registration
+      %h1 アカウントをお持ちでない方はこちら
+      = link_to new_user_path, class: "registration-btn" do
+        新規会員登録
+
+    .session
+      = link_to "", class: "session-facebook" do
+        Facebookでログイン
+        = fa_icon "facebook-square", class: "facebook"
+
+      = link_to "", class: "session-google" do
+        Googleでログイン
+        = fa_icon "google-plus-g", class: "google"
+
+    = form_with(model: @user, url: new_user_session_path, method: :post, local: true, class: "login-form") do |form|
+      .login-form__inner
+        .form-column
+          = form.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス"
+        .form-column
+          = form.password_field :password, autocomplete: "current-password", placeholder: "パスワード"
+        .form-column
+          / サーバーサイド実装時に作成
+          .login-recaptcha
+        = form.submit("ログイン", class: "login-btn")
+
+        = link_to "", class: "forget-pass" do
+          パスワードをお忘れの方
+
+
+  .user-login__page--footer
+    %nav
+      %ul
+        %li
+          = link_to "", class: "rule-link" do
+            プライバシーポリシー
+        %li
+          = link_to "", class: "rule-link" do
+            メルカリ利用規約
+        %li
+          = link_to "", class: "rule-link" do
+            特定商取引に関する表記
+    = link_to root_path, class: "top-link" do
+      = image_tag "logo/logo-gray.svg", class: "logo-gray"
+    %h2 © 2019 Mercari

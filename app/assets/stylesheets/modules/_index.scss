@@ -3,13 +3,16 @@
   height: 390px;
   &__area {
     &--stage {
-      .owl-carousel-content {
-        background-image: image-url('index/banner-new-register-2019.jpg');
+      .bxslider {
         width: 100%;
         height: 390px;
         text-align: center;
+        &__photo {
+          height: 390px;
+          margin: 0 auto;
         }
       }
+    }
     &--nav{
     }
     &--dots{
