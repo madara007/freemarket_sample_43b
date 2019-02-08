@@ -16,3 +16,26 @@ require "csv"
       Category.create(name: row[0].to_i, parent_id: row[1].to_i)
     end
   end
+for num in 1..46 do
+Size.find_or_create_by(type: num)
+end
+
+for num in 1..6 do
+Condition.find_or_create_by(type: num)
+end
+
+for num in 1..2 do
+Delivery_fee.find_or_create_by(type: num)
+end
+
+for num in 1..9 do
+Ship_method.find_or_create_by(type: num)
+end
+
+for num in 1..48 do
+Region.find_or_create_by(name: num)
+end
+
+for num in 1..3 do
+Shipping_date.find_or_create_by(day: num)
+end
