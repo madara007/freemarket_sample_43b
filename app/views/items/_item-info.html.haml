@@ -35,7 +35,8 @@
       ブランド
     %td
       = link_to "", class: "link" do
-        = @item.brand.name
+        - unless @item.brand.nil?
+          = @item.brand.name
   %tr
     %th
       商品のサイズ
