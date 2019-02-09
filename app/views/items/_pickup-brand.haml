@@ -4,24 +4,24 @@
   %h3.topix
     = link_to "シャネル 新着アイテム"
   .pickup-container__box--content.clearfix
-    = render partial: "pickup", collection: @chanels
+    = render partial: "pickup", collection: @chanels, as: "item"
   .item-all
     = link_to "すべての商品を見る"
   %h3.topix
     = link_to "ナイキ 新着アイテム"
   .pickup-container__box--content.clearfix
-    = render partial: "pickup", collection: @nikes
+    = render partial: "pickup", collection: @nikes, as: "item"
   .item-all
     = link_to "すべての商品を見る"
   %h3.topix
     = link_to "プーマ 新着アイテム"
   .pickup-container__box--content.clearfix
-    = render partial: "pickup", collection: @pumas
+    = render partial: "pickup", collection: @pumas, as: "item"
   .item-all
     = link_to "すべての商品を見る"
   %h3.topix
     = link_to "ルイ ヴィトン 新着アイテム"
   .pickup-container__box--content.clearfix
-    = render partial: "pickup", collection: @vuittons
+    = render partial: "pickup", collection: @vuittons, as: "item"
   .item-all
     = link_to "すべての商品を見る"

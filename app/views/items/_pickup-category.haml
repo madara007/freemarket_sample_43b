@@ -4,24 +4,24 @@
   %h3.topix
     = link_to "レディース 新着アイテム"
   .pickup-container__box--content.clearfix
-    = render partial: "pickup", collection: @ladies
+    = render partial: "pickup", collection: @ladies, as: "item"
   .item-all
     = link_to "すべての商品を見る"
   %h3.topix
     = link_to "メンズ 新着アイテム"
   .pickup-container__box--content.clearfix
-    = render partial: "pickup", collection: @menzes
+    = render partial: "pickup", collection: @menzes, as: "item"
   .item-all
     = link_to "すべての商品を見る"
   %h3.topix
     = link_to "ベビー・キッズ 新着アイテム"
   .pickup-container__box--content.clearfix
-    = render partial: "pickup", collection: @babies
+    = render partial: "pickup", collection: @babies, as: "item"
   .item-all
     = link_to "すべての商品を見る"
   %h3.topix
     = link_to "コスメ・香水・美容 新着アイテム"
   .pickup-container__box--content.clearfix
-    = render partial: "pickup", collection: @cosumes
+    = render partial: "pickup", collection: @cosumes, as: "item"
   .item-all
     = link_to "すべての商品を見る"

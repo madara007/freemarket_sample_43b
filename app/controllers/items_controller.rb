@@ -1,14 +1,8 @@
 class ItemsController < ApplicationController
 
   def index
-    @ladies = Item.where(category_id: 82).order("id DESC").first(4)
-    @menzes = Item.where(category_id: 83).order("id DESC").first(4)
-    @babies = Item.where(category_id: 84).order("id DESC").first(4)
-    @cosumes = Item.where(category_id: 85).order("id DESC").first(4)
-    @chanels = Item.where(brand_id: 1).order("id DESC").first(4)
-    @nikes = Item.where(brand_id: 2).order("id DESC").first(4)
-    @pumas = Item.where(brand_id: 3).order("id DESC").first(4)
-    @vuittons = Item.where(brand_id: 4).order("id DESC").first(4)
+    pickup_categories(1, 2, 3, 4)
+    pickup_brands(1, 2, 3, 4)
   end
 
   def new
@@ -18,4 +12,21 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @score = Score.all
   end
+
+  private
+
+  def pickup_categories(women, menz, baby, cosume)
+    @ladies = Item.get_items_category(women)
+    @menzes = Item.get_items_category(menz)
+    @babies = Item.get_items_category(baby)
+    @cosumes = Item.get_items_category(cosume)
+  end
+
+  def pickup_brands(chanel, nike, puma, vuitton)
+    @chanels = Item.get_items_brand(chanel)
+    @nikes = Item.get_items_brand(nike)
+    @pumas = Item.get_items_brand(puma)
+    @vuittons = Item.get_items_brand(vuitton)
+  end
+
 end
