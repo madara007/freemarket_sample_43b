@@ -37,9 +37,17 @@ ul, li, h1, h2, h3, p {
         &-main {
           height: 300px;
           width: 300px;
-          .big {
-            height: 300px;
-            width: 300px;
+          .big-photo-box {
+            display: flex;
+            #big1 {
+              height: 300px;
+              width: 300px;
+            }
+            #big2,#big3,#big4 {
+              height: 300px;
+              width: 300px;
+              display:none
+            }
           }
         }
         &-sub {
@@ -49,9 +57,15 @@ ul, li, h1, h2, h3, p {
             height: 75px;
             width: 75px;
             float: left;
-            .mini {
+            #mini1 {
               height: 75px;
               width: 75px;
+              opacity:1.0;
+            }
+            #mini2, #mini3,#mini4 {
+              height: 75px;
+              width: 75px;
+              opacity:0.5;
             }
           }
         }
