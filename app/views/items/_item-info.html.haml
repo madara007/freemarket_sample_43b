@@ -23,13 +23,13 @@
       カテゴリー
     %td
       = link_to "", class: "link" do
-        レディース
+        = @item.category.name_i18n
       %br
       = link_to "", class: "link" do
-        >トップス
+        >
       %br
       = link_to "", class: "link" do
-        = @item.category.name
+        >
   %tr
     %th
       ブランド
@@ -40,30 +40,30 @@
     %th
       商品のサイズ
     %td
-      = @item.size.type
+      = @item.size.type_i18n
   %tr
     %th
       商品の状態
     %td
-      = @item.condition.type
+      = @item.condition.type_i18n
   %tr
     %th
       配送料の負担
     %td
-      = @item.delivery_fee.type
+      = @item.delivery_fee.type_i18n
   %tr
     %th
       配送の方法
     %td
-      = @item.ship_method.type
+      = @item.ship_method.type_i18n
   %tr
     %th
       配送元地域
     %td
       = link_to "", class: "link" do
-        = @item.region.name
+        = @item.region.name_i18n
   %tr
     %th
       発送日の目安
     %td
-      = @item.shipping_date.day
+      = @item.shipping_date.day_i18n
