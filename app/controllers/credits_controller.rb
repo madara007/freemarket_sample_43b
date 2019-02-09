@@ -4,13 +4,13 @@ class CreditsController < ApplicationController
    def new
 
    end
-   
+
    def index
-   
+
    end
 
    def create
-      price = item.price 
+      price = item.price
       Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
       charge = Payjp::Charge.create(
 

@@ -2,7 +2,6 @@ class ItemsController < ApplicationController
   layout  "session", except: [:index, :show]
   # トップページ作成でindex利用
   def index
-    render :create
   end
 
   def new
