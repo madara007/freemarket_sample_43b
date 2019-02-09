@@ -1,0 +1,17 @@
+%selection.item-box
+  = link_to item_path(item) do
+    %figure.item-box__photo
+      = image_tag(item.item_photos.first.photo, class: "item-box__photo--banner")
+    .item-box__body
+      %h3.item-box__body--name
+        = item.name
+      .item-box__body--info.clearfix
+        .item-price
+          = "¥" + item.price.to_s(:delimited)
+        - if item.likes.length > 0
+          .item-like
+            = link_to "" , class: "" do
+              = fa_icon "heart-o"
+              = item.likes.length
+        %p.item-tax
+          (税込)

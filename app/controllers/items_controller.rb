@@ -1,7 +1,10 @@
 class ItemsController < ApplicationController
+
   layout  "session", except: [:index, :show]
-  # トップページ作成でindex利用
+
   def index
+    pickup_categories(1, 2, 3, 4)
+    pickup_brands(1, 2, 3, 4)
   end
 
   def new
@@ -21,8 +24,24 @@ class ItemsController < ApplicationController
   def update
   end
 
+  private
+
+  def pickup_categories(women, menz, baby, cosume)
+    @ladies = Item.get_items_category(women)
+    @menzes = Item.get_items_category(menz)
+    @babies = Item.get_items_category(baby)
+    @cosumes = Item.get_items_category(cosume)
+  end
+
+  def pickup_brands(chanel, nike, puma, vuitton)
+    @chanels = Item.get_items_brand(chanel)
+    @nikes = Item.get_items_brand(nike)
+    @pumas = Item.get_items_brand(puma)
+    @vuittons = Item.get_items_brand(vuitton)
+  end
 
   def item_params
     params.require(:item).permit(:name, :price,:description, :category_id,:buyer_id, :saler_id, :shipping_date_id,:condition_id,:region_id, :delivery_fee_id, :ship_method_id, :brand_id,:size_id, :transaction)
   end
+
 end

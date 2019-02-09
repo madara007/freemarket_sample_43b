@@ -25,12 +25,11 @@
           = form.password_field :password, autocomplete: "current-password", placeholder: "パスワード"
         .form-column
           / サーバーサイド実装時に作成
-          .login-recaptcha
+          = recaptcha_tags
         = form.submit("ログイン", class: "login-btn")
 
         = link_to "", class: "forget-pass" do
           パスワードをお忘れの方
-
 
   .user-login__page--footer
     %nav
