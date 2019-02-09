@@ -1,5 +1,5 @@
 class SessionsController < Devise::SessionsController
-  prepend_before_action :captcha_valid
+  prepend_before_action :captcha_valid, only: [:create]
 
     def captcha_valid
 
