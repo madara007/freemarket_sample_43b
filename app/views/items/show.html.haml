@@ -8,11 +8,15 @@
     .show-item__main--content
       .item-image
         .item-image-main
-          =image_tag "items/m22842714743_1.jpg", class: "big"
+          .big-photo-box
+            = image_tag "items/m22842714743_1.jpg", class: "bigs", id: "big1"
+            = image_tag "items/m22842714743_1.jpg", class: "bigs", id: "big2"
+            = image_tag "items/m22842714743_1.jpg", class: "bigs", id: "big3"
+            = image_tag "items/m22842714743_1.jpg", class: "bigs", id: "big4"
         .item-image-sub
-          - for num in 1..4
+          - @item.item_photos.each_with_index do |p, i|
             .image-sub
-              =image_tag "items/m22842714743_1.jpg", class: "mini"
+              =image_tag "items/m22842714743_1.jpg", class: "mini", id: "mini#{i + 1}"
 
       / 出品の詳細テーブル
       .item-detail-table
