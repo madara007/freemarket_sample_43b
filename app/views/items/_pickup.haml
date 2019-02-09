@@ -1,17 +1,17 @@
 %selection.item-box
-  = link_to "items/#{item.id}" do
+  = link_to "items/#{pickup.id}" do
     %figure.item-box__photo
-      = image_tag(item.item_photos.first.photo, class: "item-box__photo--banner")
+      = image_tag(pickup.item_photos.first.photo, class: "item-box__photo--banner")
     .item-box__body
       %h3.item-box__body--name
-        = item.name
+        = pickup.name
       .item-box__body--info.clearfix
         .item-price
-          = "¥" + item.price.to_s(:delimited)
-        - if item.likes.length > 0
+          = "¥" + pickup.price.to_s(:delimited)
+        - if pickup.likes.length > 0
           .item-like
             = link_to "" , class: "" do
               = fa_icon "heart-o"
-              = item.likes.length
+              = pickup.likes.length
         %p.item-tax
           (税込)

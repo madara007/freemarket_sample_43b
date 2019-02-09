@@ -2,30 +2,26 @@
   ピックアップカテゴリー
 %selection.pickup-container__box
   %h3.topix
-    = link_to "レディースアイテム"
+    = link_to "レディース 新着アイテム"
   .pickup-container__box--content.clearfix
-    - @ladies.each do |item|
-      = render partial: "items/pickup-container", locals: {item: item}
+    = render partial: "pickup", collection: @ladies
   .item-all
     = link_to "すべての商品を見る"
   %h3.topix
     = link_to "メンズ 新着アイテム"
   .pickup-container__box--content.clearfix
-    - @menzes.each do |item|
-      = render partial: "items/pickup-container", locals: {item: item}
+    = render partial: "pickup", collection: @menzes
   .item-all
     = link_to "すべての商品を見る"
   %h3.topix
     = link_to "ベビー・キッズ 新着アイテム"
   .pickup-container__box--content.clearfix
-    - @babies.each do |item|
-      = render partial: "items/pickup-container", locals: {item: item}
+    = render partial: "pickup", collection: @babies
   .item-all
     = link_to "すべての商品を見る"
   %h3.topix
     = link_to "コスメ・香水・美容 新着アイテム"
   .pickup-container__box--content.clearfix
-    - @cosumes.each do |item|
-      = render partial: "items/pickup-container", locals: {item: item}
+    = render partial: "pickup", collection: @cosumes
   .item-all
     = link_to "すべての商品を見る"
