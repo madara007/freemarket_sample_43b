@@ -90,8 +90,6 @@ gem 'gretel'
 gem 'enum'
 gem 'kaminari'
 gem 'safe_attributes'
-<<<<<<< HEAD
 gem 'enum_help'
-=======
 gem "recaptcha", require: "recaptcha/rails"
->>>>>>> origin/master
+
