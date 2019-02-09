@@ -17,6 +17,10 @@ require "csv"
     end
   end
 
+CSV.foreach('db/csv/brand.csv') do |row|
+  Brand.find_or_create_by(name: row[0])
+end
+
 for num in 1..46 do
   Size.find_or_create_by(type: num)
 end
