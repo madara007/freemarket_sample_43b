@@ -11,9 +11,9 @@ require "csv"
 
   CSV.foreach('db/csv/category.csv') do |row|
     if row[1] == nil
-      Category.create(name: row[0].to_i)
+      Category.find_or_create_by(name: row[0].to_i)
     else
-      Category.create(name: row[0].to_i, parent_id: row[1].to_i)
+      Category.find_or_create_by(name: row[0].to_i, parent_id: row[1].to_i)
     end
   end
 
