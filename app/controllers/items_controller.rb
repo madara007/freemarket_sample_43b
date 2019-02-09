@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
   layout  "session", except: [:index, :show]
-  
+
   def index
     @ladies = Item.where(category_id: 82).order("id DESC").first(4)
     @menzes = Item.where(category_id: 83).order("id DESC").first(4)
@@ -30,7 +30,7 @@ class ItemsController < ApplicationController
   def update
   end
 
-
+  private
   def item_params
     params.require(:item).permit(:name, :price,:description, :category_id,:buyer_id, :saler_id, :shipping_date_id,:condition_id,:region_id, :delivery_fee_id, :ship_method_id, :brand_id,:size_id, :transaction)
   end
