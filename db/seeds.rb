@@ -45,13 +45,12 @@ for num in 1..3 do
   ShippingDate.find_or_create_by(day: num)
 end
 
-
 100.times do |index|
   no = index + 1
   user = User.create(
-    email:  "email_#{no}@example.com",
-    password:               "#{no}password#{no}",
-    nickname:           "ユーザー_#{no}",
+    email: "email_#{no}@example.com",
+    password: "#{no}password#{no}",
+    nickname: "ユーザー_#{no}",
     last_name: "last_name_#{no}",
     first_name: "first_name_#{no}",
     last_name_kana: "last_name_kana_#{no}",
@@ -99,7 +98,4 @@ for num in 1..100 do
     item_id: num,
     photo: photo
   )
-end
-
-for num in 1..100 do
 end
