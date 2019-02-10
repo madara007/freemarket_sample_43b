@@ -9,13 +9,13 @@ require "csv"
 
 # coding: utf-8
 
-  CSV.foreach('db/csv/category.csv') do |row|
-    if row[1] == nil
-      Category.find_or_create_by(name: row[0].to_i)
-    else
-      Category.find_or_create_by(name: row[0].to_i, parent_id: row[1].to_i)
-    end
+CSV.foreach('db/csv/category.csv') do |row|
+  if row[1] == nil
+    Category.find_or_create_by(name: row[0].to_i)
+  else
+    Category.find_or_create_by(name: row[0].to_i, parent_id: row[1].to_i)
   end
+end
 
 CSV.foreach('db/csv/brand.csv') do |row|
   Brand.find_or_create_by(name: row[0])
@@ -43,4 +43,26 @@ end
 
 for num in 1..3 do
   ShippingDate.find_or_create_by(day: num)
+end
+
+
+10.times do |index|
+  no = index + 1
+  user = User.create(
+    email:  "email_#{no}@example.com",
+    password:               "#{no}password#{no}",
+    nickname:           "user_#{no}",
+    last_name: "last_name_#{no}",
+    first_name: "first_name_#{no}",
+    last_name_kana: "last_name_kana_#{no}",
+    first_name_kana: "first_name_kana_#{no}",
+    birthday: '1900-1-1'
+  )
+  user.save!
+end
+
+for num1 in 1..10 do
+  for num2 in 1..10 do
+    Item.find_or_create_by(name: num1 + num2, price: num1 * num2 * 100, description: "test", category_id: num1, buyer_id: 1, saler_id: 1, shipping_date_id: 1, condition_id: 1, region_id: 1, delivery_fee_id: 1, ship_method_id: 1, brand_id: 1, size_id: 1, transaction: "1")
+  end
 end
