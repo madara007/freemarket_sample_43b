@@ -9,13 +9,13 @@ class CreditsController < ApplicationController
   end
 
   def create
-  price = item.price
-  Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
-  charge = Payjp::Charge.create(
-    amount: price,
-    card: params['payjp-token'],
-    currency: 'jpy',
-  )
+    price = item.price
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    charge = Payjp::Charge.create(
+      amount: price,
+      card: params['payjp-token'],
+      currency: 'jpy',
+    )
   end
 
   private
