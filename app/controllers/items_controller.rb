@@ -33,17 +33,17 @@ class ItemsController < ApplicationController
   private
 
   def pickup_categories(women, menz, baby, cosume)
-    @ladies = Item.get_items_category(women)
-    @menzes = Item.get_items_category(menz)
-    @babies = Item.get_items_category(baby)
-    @cosumes = Item.get_items_category(cosume)
+    @ladies = Item.includes(:likes).get_items_category(women)
+    @menzes = Item.includes(:likes).get_items_category(menz)
+    @babies = Item.includes(:likes).get_items_category(baby)
+    @cosumes = Item.includes(:likes).get_items_category(cosume)
   end
 
   def pickup_brands(chanel, nike, puma, vuitton)
-    @chanels = Item.get_items_brand(chanel)
-    @nikes = Item.get_items_brand(nike)
-    @pumas = Item.get_items_brand(puma)
-    @vuittons = Item.get_items_brand(vuitton)
+    @chanels = Item.includes(:likes).get_items_brand(chanel)
+    @nikes = Item.includes(:likes).get_items_brand(nike)
+    @pumas = Item.includes(:likes).get_items_brand(puma)
+    @vuittons = Item.includes(:likes).get_items_brand(vuitton)
   end
 
   def item_params
