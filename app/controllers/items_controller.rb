@@ -3,8 +3,8 @@ class ItemsController < ApplicationController
   layout  "session", except: [:index, :show]
 
   def index
-    pickup_categories(1, 2, 3, 4)
-    pickup_brands(1, 2, 3, 4)
+    pickup_categories(1, 138, 259, 683)
+    pickup_brands(2440, 3802, 4790, 6142)
   end
 
   def new
