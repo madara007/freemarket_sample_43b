@@ -19,6 +19,12 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @score = Score.all
+    @categorys = []
+    item_category = @item.category
+    while item_category
+      @categorys.unshift(item_category)
+      item_category = Category.find_by(name: item_category.parent_id)
+    end
   end
 
   def update
