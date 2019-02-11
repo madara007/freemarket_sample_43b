@@ -55,7 +55,10 @@
     %h3.user-side__nav--head-left 設定
     %ul.user-side__nav--list
       %li
+      - if current_user
         = link_to "プロフィール", edit_user_path(current_user.id), class: "user-nav-box"
+      - else
+        = link_to "プロフィール",  class: "user-nav-box"
         %i.fa.fa-angle-right
       %li
         = link_to "住所変更", "", class: "user-nav-box"
@@ -67,7 +70,10 @@
         = link_to "メール/パスワード", "", class: "user-nav-box"
         %i.fa.fa-angle-right
       %li
+      - if current_user
         = link_to "本人情報", user_path(current_user.id), class: "user-nav-box"
+      - else
+        = link_to "本人情報", class: "user-nav-box"
         %i.fa.fa-angle-right
       %li
         = link_to "電話番号の確認", "", class: "user-nav-box"
