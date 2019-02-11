@@ -3,9 +3,9 @@ class GooglesController < ApplicationController
   end
 
   def create
-    user = SnsCredential.from_omniauth(request.env["omniauth.auth"])
+    user = Snscredential.from_omniauth(request.env["omniauth.auth"])
     if user.save
-      session[:sns_credential_id] = user.id
+      session[:snscredential_id] = user.id
       redirect_to root_path
     else
       redirect_to new_session_path
@@ -13,7 +13,7 @@ class GooglesController < ApplicationController
   end
 
   def destroy
-    session[:sns_credential_id] = nil
+    session[:Snscredential_id] = nil
     redirect_to new_session_path
   end
 end

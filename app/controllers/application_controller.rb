@@ -5,9 +5,9 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def current_user
-    SnsCredential.find(session[:sns_credential_id]) if session[:sns_credential_id]
+    Snscredential.find(session[:snscredential_id]) if session[:snscredential_id]
   end
-  
+
   private
 
   def production?

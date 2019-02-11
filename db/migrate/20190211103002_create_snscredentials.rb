@@ -1,6 +1,6 @@
-class CreateSnsCredentials < ActiveRecord::Migration[5.2]
+class CreateSnscredentials < ActiveRecord::Migration[5.2]
   def change
-    create_table :sns_credentials do |t|
+    create_table :snscredentials do |t|
       t.string :provider
       t.string :uid
       t.string :name

@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   resources :items, except: [:edit, :destroy]
   resources :users, only: [:index, :new, :edit, :show]
   get 'auth/:provider/callback', to: 'googles#create'
-  get 'auth/failure', to: redirect('/')
   # resources :regions
   # resources :brands
   # resources :categorys
