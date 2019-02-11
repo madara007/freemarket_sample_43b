@@ -93,4 +93,4 @@ gem 'safe_attributes'
 gem 'enum_help'
 gem "recaptcha", require: "recaptcha/rails"
 gem 'dotenv-rails'
-
+gem 'acts_as_tree'
