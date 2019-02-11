@@ -1215,7 +1215,6 @@ ja:
         otherwise_125: 'その他'
         otherwise_126: 'その他'
         category_list: 'カテゴリー一覧'
-
     condition:
       type:
         new_item: '新品、未使用'
@@ -1343,6 +1342,9 @@ ja:
         kids_shoes_16: '16cm・16.5cm'
         kids_shoes_17: '17cm以上'
   activerecord:
+    attributes:
+      user:
+        encrypted_password: パスワード (確認)
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
