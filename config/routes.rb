@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   get "users/logout", "users#logout"
   resources :items, except: [:edit, :destroy]
   resources :users, only: [:index, :new, :edit, :show]
-  # resources :regions
-  # resources :brands
-  # resources :categorys
+  resources :regions, only: [:index, :show]
+  resources :brands, only: [:index, :show]
+  resources :categories, only: [:index, :show]
   resources :credits, only: [:index, :new, :create]
 end
