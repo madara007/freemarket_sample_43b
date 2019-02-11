@@ -1,4 +1,5 @@
 class GooglesController < ApplicationController
+  
   def new
   end
 
