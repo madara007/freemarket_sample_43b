@@ -78,17 +78,11 @@
               margin: 8px 0 0;
               width: 200px;
               .field_with_errors {
-                #user_birthday_1i {
-                  border: 1px solid red;
-                }
-                #user_birthday_2i {
-                  border: 1px solid red;
-                }
-                #user_birthday_3i {
+                .birthday {
                   border: 1px solid red;
                 }
               }
-              #user_birthday_1i {
+              .birthday {
                 margin-top: 5px;
                 width: 140px;
                 position: relative;
@@ -101,40 +95,12 @@
                 font-size: 16px;
                 line-height: 1.5;
                 cursor: pointer;
-              }
-              #user_birthday_2i {
-                margin-top: 5px;
-                width: 140px;
-                position: relative;
-                z-index: 2;
-                height: 48px;
-                padding: 0 16px;
-                border-radius: 4px;
-                border: 1px solid #ccc;
-                background: 0;
-                font-size: 16px;
-                line-height: 1.5;
-                cursor: pointer;
-              }
-              #user_birthday_3i {
-                margin-top: 5px;
-                width: 140px;
-                position: relative;
-                z-index: 2;
-                height: 48px;
-                padding: 0 16px;
-                border-radius: 4px;
-                border: 1px solid #ccc;
-                background: 0;
-                font-size: 16px;
-                line-height: 1.5;
-                cursor: pointer;
-              }
-              #user_birthday_4i {
-                display: none;
-              }
-              #user_birthday_5i {
-                display: none;
+                &:nth-child(4){
+                  display: none;
+                }
+                &:nth-child(5){
+                  display: none;
+                }
               }
               &__default {
                 width: 140px;
