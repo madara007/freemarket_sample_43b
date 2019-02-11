@@ -92,9 +92,7 @@ gem 'kaminari'
 gem 'safe_attributes'
 gem 'enum_help'
 gem "recaptcha", require: "recaptcha/rails"
-gem 'dotenv-rails'
-gem 'omniauth-google-oauth2'
-gem 'omniauth-facebook'
 gem 'omniauth'
-gem 'dotenv-rails'
+gem 'omniauth-google-oauth2'
+
 
