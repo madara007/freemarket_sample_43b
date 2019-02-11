@@ -2,7 +2,12 @@ class ApplicationController < ActionController::Base
   before_action :basic_auth, if: :production?
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
+  helper_method :current_user
 
+  def current_user
+    SnsCredential.find(session[:sns_credential_id]) if session[:sns_credential_id]
+  end
+  
   private
 
   def production?

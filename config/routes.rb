@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   get "users/logout", "users#logout"
   resources :items, except: [:edit, :destroy]
   resources :users, only: [:index, :new, :edit, :show]
-  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'auth/:provider/callback', to: 'googles#create'
+  get 'auth/failure', to: redirect('/')
   # resources :regions
   # resources :brands
   # resources :categorys

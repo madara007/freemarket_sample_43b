@@ -1,8 +1,8 @@
 class SessionsController < Devise::SessionsController
   prepend_before_action :captcha_valid, only: [:create]
 
-    def captcha_valid
 
+    def captcha_valid
       if verify_recaptcha
         true
       else
