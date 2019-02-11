@@ -9,13 +9,13 @@ class GooglesController < ApplicationController
       session[:snscredential_id] = user.id
       redirect_to root_path
     else
-      redirect_to new_session_path
+      redirect_to root_path
     end
   end
 
   def destroy
-    session[:Snscredential_id] = nil
-    redirect_to new_session_path
+  session.clear
+  redirect_to root_path
   end
 end
 
