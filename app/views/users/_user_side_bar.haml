@@ -2,7 +2,7 @@
   %nav.user-side__nav
     %ul.user-side__nav--list
       %li
-        = link_to "マイページ", "", class: "user-nav-box"
+        = link_to "マイページ", users_path, class: "user-nav-box"
         %i.fa.fa-angle-right
       %li
         = link_to "お知らせ", "", class: "user-nav-box"
@@ -10,7 +10,7 @@
         %i.fa.fa-angle-right
       %li
         = link_to "やることリスト", "", class: "user-nav-box"
-        %i.fa.fa-angle-right 
+        %i.fa.fa-angle-right
       %li
         = link_to "いいね一覧", "", class: "user-nav-box"
         %i.fa.fa-angle-right
@@ -19,10 +19,10 @@
         %i.fa.fa-angle-right
       %li
         = link_to "出品した商品-出品中", "", class: "user-nav-box"
-        %i.fa.fa-angle-right 
+        %i.fa.fa-angle-right
       %li
         = link_to "出品した商品 - 取引中", "", class: "user-nav-box"
-        %i.fa.fa-angle-right 
+        %i.fa.fa-angle-right
       %li
         = link_to "出品した商品 - 売却済み", "", class: "user-nav-box"
         %i.fa.fa-angle-right
@@ -34,44 +34,44 @@
         %i.fa.fa-angle-right
       %li
         = link_to "ニュース一覧", "", class: "user-nav-box"
-        %i.fa.fa-angle-right 
+        %i.fa.fa-angle-right
       %li
         = link_to "評価一覧", "", class: "user-nav-box"
         %i.fa.fa-angle-right
       %li
         = link_to "ガイド", "", class: "user-nav-box"
-        %i.fa.fa-angle-right 
+        %i.fa.fa-angle-right
       %li
         = link_to "お問い合わせ", "", class: "user-nav-box"
-        %i.fa.fa-angle-right 
+        %i.fa.fa-angle-right
     %h3.user-side__nav--head-left 売上・ポイント
     %ul.user-side__nav--list
       %li
         = link_to "売上・振込申請", "", class: "user-nav-box"
-        %i.fa.fa-angle-right 
+        %i.fa.fa-angle-right
       %li
         = link_to "ポイント", "", class: "user-nav-box"
-        %i.fa.fa-angle-right 
+        %i.fa.fa-angle-right
     %h3.user-side__nav--head-left 設定
     %ul.user-side__nav--list
       %li
-        = link_to "プロフィール", "", class: "user-nav-box"
+        = link_to "プロフィール", edit_user_path(current_user.id), class: "user-nav-box"
         %i.fa.fa-angle-right
       %li
         = link_to "住所変更", "", class: "user-nav-box"
-        %i.fa.fa-angle-right 
+        %i.fa.fa-angle-right
       %li
-        = link_to "お支払い方法", "", class: "user-nav-box"
-        %i.fa.fa-angle-right 
+        = link_to "支払い方法", new_credit_path, class: "user-nav-box"
+        %i.fa.fa-angle-right
       %li
         = link_to "メール/パスワード", "", class: "user-nav-box"
-        %i.fa.fa-angle-right 
+        %i.fa.fa-angle-right
       %li
-        = link_to "本人情報", "", class: "user-nav-box"
+        = link_to "本人情報", user_path(current_user.id), class: "user-nav-box"
         %i.fa.fa-angle-right
       %li
         = link_to "電話番号の確認", "", class: "user-nav-box"
         %i.fa.fa-angle-right
       %li
-        = link_to "ログアウト", "", class: "user-nav-box"
+        = link_to "ログアウト", users_logout_path, class: "user-nav-box"
         %i.fa.fa-angle-right

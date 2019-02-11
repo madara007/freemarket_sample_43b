@@ -9,13 +9,13 @@ require "csv"
 
 # coding: utf-8
 
-  CSV.foreach('db/csv/category.csv') do |row|
-    if row[1] == nil
-      Category.find_or_create_by(name: row[0].to_i)
-    else
-      Category.find_or_create_by(name: row[0].to_i, parent_id: row[1].to_i)
-    end
+CSV.foreach('db/csv/category.csv') do |row|
+  if row[1] == nil
+    Category.find_or_create_by(name: row[0].to_i)
+  else
+    Category.find_or_create_by(name: row[0].to_i, parent_id: row[1].to_i)
   end
+end
 
 CSV.foreach('db/csv/brand.csv') do |row|
   Brand.find_or_create_by(name: row[0])
@@ -43,4 +43,59 @@ end
 
 for num in 1..3 do
   ShippingDate.find_or_create_by(day: num)
+end
+
+100.times do |index|
+  no = index + 1
+  user = User.create(
+    email: "email_#{no}@example.com",
+    password: "#{no}password#{no}",
+    nickname: "ユーザー_#{no}",
+    last_name: "last_name_#{no}",
+    first_name: "first_name_#{no}",
+    last_name_kana: "last_name_kana_#{no}",
+    first_name_kana: "first_name_kana_#{no}",
+    birthday: '1900-1-1'
+  )
+  user.save!
+end
+
+for num in 1..100 do
+  if num <= 20
+    category = 1
+    brand = 2440
+    photo = "tmp/ladies_sample.jpg"
+  elsif num <= 40
+    category = 138
+    brand = 3802
+    photo = "tmp/menz_sample.jpg"
+  elsif num <= 60
+    category = 259
+    brand = 4790
+    photo = "tmp/kids_sample.jpg"
+  else
+    category = 683
+    brand = 6142
+    photo = "tmp/cosmetic_sample.jpg"
+  end
+  Item.find_or_create_by(
+    name: "アイテム_" + num.to_s,
+    price: num * 1000,
+    description: "test",
+    category_id: category,
+    buyer_id: num,
+    saler_id: num,
+    shipping_date_id: 1,
+    condition_id: 1,
+    region_id: 1,
+    delivery_fee_id: 1,
+    ship_method_id: 1,
+    brand_id: brand,
+    size_id: 1,
+    transaction: "1"
+  )
+  ItemPhoto.find_or_create_by(
+    item_id: num,
+    photo: photo
+  )
 end

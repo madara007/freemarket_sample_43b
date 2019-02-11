@@ -389,3 +389,77 @@
 .hidden{
   display: none;
 }
+
+.modal{
+  z-index: 1000;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  &.is-visible{
+    visibility: visible;
+  }
+  &__inner{
+  background-color: #fff;
+  width: 600px;
+  height: 287px;
+  margin: 20px auto;
+  position: relative;
+  color: #000;
+    &--box{
+      .modal-head{
+        font-size: 16px;
+        text-align: center;
+        line-height: 80px;
+        font-weight: 700;
+      }
+      .sell-modal-body{
+        border-top: 1px solid #eee;
+        padding: 40px;
+        .btn-red-2{
+          margin: 40px auto 0;
+          background: #ea352d;
+          border: 1px solid #ea352d;
+          color: #fff;
+          display: block;
+          width: 100%;
+          line-height: 48px;
+          font-size: 14px;
+          text-align: center;
+        }
+        .text-center{
+          margin: 8px 0 0;
+          width: 100%;
+          .btn-blue{
+            color: #0099e8;
+            text-decoration: none;
+            text-align: center;
+            width: 100%;
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
+
+.is-fixed{
+  overflow: hidden;
+}
+.opacity_box{
+  &.is-visible{
+    visibility: visible;
+  }
+  opacity: 0.6;
+  background-color: #000;
+  border: 1px solid #000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 999;
+  visibility: hidden;
+}
