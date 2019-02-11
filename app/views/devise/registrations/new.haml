@@ -92,7 +92,7 @@
           .birthday-select
             .select-wrap
               / = raw sprintf(form.date_select(:birthday, use_month_numbers: true, date_separator: '%s', start_year: 1900, end_year: Time.now.year, default: '1900-1-1'.to_date, include_blank: '--'),"年","月")  + "日"
-              = raw sprintf(form.datetime_select(:birthday, use_month_numbers: true, date_separator: '%s', datetime_separator: '%s', time_separator: '',  start_year: 1900, end_year: Time.now.year, default: '1900-1-1'.to_date, include_blank: '--'),"年","月","日")
+              = raw sprintf(form.datetime_select(:birthday, {use_month_numbers: true, date_separator: '%s', datetime_separator: '%s', time_separator: '',  start_year: 1900, end_year: Time.now.year, default: '1900-1-1'.to_date, include_blank: '--'},{class: "birthday"}),"年","月","日")
               = fa_icon "angle-down", class: "angle-down", id: "down1"
               = fa_icon "angle-down", class: "angle-down", id: "down2"
               = fa_icon "angle-down", class: "angle-down", id: "down3"
