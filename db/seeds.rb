@@ -78,7 +78,8 @@ for num in 1..100 do
     brand = 6142
     photo = "tmp/cosmetic_sample.jpg"
   end
-  Item.find_or_create_by(
+  Item.create!(
+  # Item.find_or_create_by(
     name: "アイテム_" + num.to_s,
     price: num * 1000,
     description: "test",
@@ -92,10 +93,13 @@ for num in 1..100 do
     ship_method_id: 1,
     brand_id: brand,
     size_id: 1,
-    transaction: "1"
+    transaction: "1",
+    item_photos_attributes: [
+      {
+        photo: open("#{Rails.root}/app/assets/images/" + photo),
+        item_id: num,
+      }
+    ]
   )
-  ItemPhoto.find_or_create_by(
-    item_id: num,
-    photo: photo
-  )
+  # ItemPhoto.create!(item_id: num, photo: open("#{Rails.root}/tmp/ladies_sample.jpg"))
 end
