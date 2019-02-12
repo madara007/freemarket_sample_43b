@@ -95,7 +95,6 @@ for num in 1..100 do
     category_num = category + 1 + num - 60
   end
   Item.create!(
-  # Item.find_or_create_by(
     name: "アイテム_" + num.to_s,
     price: num * 1000,
     description: "test",
@@ -117,5 +116,4 @@ for num in 1..100 do
       }
     ]
   )
-  # ItemPhoto.create!(item_id: num, photo: open("#{Rails.root}/tmp/ladies_sample.jpg"))
 end
