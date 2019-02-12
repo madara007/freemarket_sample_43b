@@ -3,13 +3,14 @@ class ItemsController < ApplicationController
   layout  "session", except: [:index, :show]
 
   def index
-    pickup_categories(1, 2, 3, 4)
-    pickup_brands(1, 2, 3, 4)
+    pickup_categories(1, 138, 259, 683)
+    pickup_brands(2440, 3802, 4790, 6142)
   end
 
   def new
     @item = Item.new
     @item.item_photos.new
+    #追加
   end
 
   def create
@@ -20,6 +21,12 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @score = Score.all
+    @categorys = []
+    item_category = @item.category
+    while item_category
+      @categorys.unshift(item_category)
+      item_category = Category.find_by(name: item_category.parent_id)
+    end
   end
 
   def update
@@ -28,17 +35,17 @@ class ItemsController < ApplicationController
   private
 
   def pickup_categories(women, menz, baby, cosume)
-    @ladies = Item.get_items_category(women)
-    @menzes = Item.get_items_category(menz)
-    @babies = Item.get_items_category(baby)
-    @cosumes = Item.get_items_category(cosume)
+    @ladies = Item.includes(:likes).get_items_category(women)
+    @menzes = Item.includes(:likes).get_items_category(menz)
+    @babies = Item.includes(:likes).get_items_category(baby)
+    @cosumes = Item.includes(:likes).get_items_category(cosume)
   end
 
   def pickup_brands(chanel, nike, puma, vuitton)
-    @chanels = Item.get_items_brand(chanel)
-    @nikes = Item.get_items_brand(nike)
-    @pumas = Item.get_items_brand(puma)
-    @vuittons = Item.get_items_brand(vuitton)
+    @chanels = Item.includes(:likes).get_items_brand(chanel)
+    @nikes = Item.includes(:likes).get_items_brand(nike)
+    @pumas = Item.includes(:likes).get_items_brand(puma)
+    @vuittons = Item.includes(:likes).get_items_brand(vuitton)
   end
 
   def item_params

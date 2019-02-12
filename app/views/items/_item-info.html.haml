@@ -22,14 +22,10 @@
     %th
       カテゴリー
     %td
-      = link_to "", class: "link" do
-        = @item.category.name_i18n
-      %br
-      = link_to "", class: "link" do
-        >
-      %br
-      = link_to "", class: "link" do
-        >
+      - @categorys.each do |category|
+        = link_to "", class: "link" do
+          = category.name_i18n
+        %br
   %tr
     %th
       ブランド

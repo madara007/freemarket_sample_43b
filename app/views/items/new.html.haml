@@ -22,10 +22,9 @@
                       %p.sell-content__image-upload-box--content
                         最大4枚までアップロードできます
                       .sell-content__image-upload-box--sell-dropbox-container.clearfix.state-image-number-4
-                        = f.fields_for :item_photos, multiple: true do |fin|
+                        = f.fields_for :item_photos do |fin|
                           = fin.label :photo, class: 'form-mask-image' do
                             .sell-upload-drop-box
-                              %input.sell-upload-drop-box__sell-upload-drop-file{multiple: true, name: "image1", style: "display: none;", type: "file"}/
                               %pre.sell-upload-drop-box__visible-pc
                                 ドラッグアンドドロップ
                                 %br>/
@@ -147,3 +146,15 @@
           = image_tag('//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?1966943736"')
         %p.footer-content__copyright
           %small.footer-content__copyright--content © 2019 Mercari
+
+.modal
+  .modal__inner
+    .modal__inner--box
+      %h3.modal-head
+        出品が完了しました
+      .sell-modal-body
+        あなたが出品した商品は「出品した商品一覧」からいつでも見ることができます。
+        = link_to '続けて出品する',{controller: "items", action: "new"},class:'btn-red-2'
+        %p.text-center
+          = link_to '商品ページへ行ってシェアする',{controller: "items", action: "index"},class:'btn-blue'
+.opacity_box
