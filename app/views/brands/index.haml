@@ -1,0 +1,3 @@
+- breadcrumb :brands, @brands
+- @brands.each do |brand|
+  = link_to brand.name, brand_path(brand)
