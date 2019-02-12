@@ -38,10 +38,12 @@
             margin: 0;
           }
           label {
+            @include f-left;
             font-weight: 600;
             display: inline-block;
           }
           .require-tag {
+            @include f-left;
             background-color: #ea352d;
             margin: 0 0 0 8px;
             padding: 2px 4px;
@@ -74,21 +76,13 @@
               display: inline-block;
               position: relative;
               margin: 8px 0 0;
-              #user_birthday_1i {
-                margin-top: 5px;
-                width: 140px;
-                position: relative;
-                z-index: 2;
-                height: 48px;
-                padding: 0 16px;
-                border-radius: 4px;
-                border: 1px solid #ccc;
-                background: 0;
-                font-size: 16px;
-                line-height: 1.5;
-                cursor: pointer;
+              width: 200px;
+              .field_with_errors {
+                .birthday {
+                  border: 1px solid red;
+                }
               }
-              #user_birthday_2i {
+              .birthday {
                 margin-top: 5px;
                 width: 140px;
                 position: relative;
@@ -101,20 +95,12 @@
                 font-size: 16px;
                 line-height: 1.5;
                 cursor: pointer;
-              }
-              #user_birthday_3i {
-                margin-top: 5px;
-                width: 140px;
-                position: relative;
-                z-index: 2;
-                height: 48px;
-                padding: 0 16px;
-                border-radius: 4px;
-                border: 1px solid #ccc;
-                background: 0;
-                font-size: 16px;
-                line-height: 1.5;
-                cursor: pointer;
+                &:nth-child(4){
+                  display: none;
+                }
+                &:nth-child(5){
+                  display: none;
+                }
               }
               &__default {
                 width: 140px;
@@ -182,6 +168,15 @@
             text-align: center;
             .link {
               color: #0099e8;
+            }
+          }
+          .error-msg {
+            color: red;
+            margin-top: 8px;
+          }
+          .field_with_errors {
+            input {
+              border: 1px solid red;
             }
           }
         }

@@ -3,9 +3,20 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
   helper_method :google_user
+  layout :layout_by_resource
 
   def google_user
     Snscredential.find(session[:snscredential_id]) if session[:snscredential_id]
+  end
+
+  protected
+
+  def layout_by_resource
+    if devise_controller?
+      "session"
+    else
+      "application"
+    end
   end
 
   private
