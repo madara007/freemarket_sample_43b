@@ -3,6 +3,7 @@ class CreateCategories < ActiveRecord::Migration[5.2]
     create_table :categories do |t|
       t.integer :name, null: false
       t.integer :parent_id
+      t.integer :group
       t.timestamps
     end
   end
