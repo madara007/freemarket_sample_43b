@@ -12,10 +12,8 @@
       = link_to "", class: "session-facebook" do
         Facebookでログイン
         = fa_icon "facebook-square", class: "facebook"
+      = link_to "Googleでログイン",  "/auth/google_oauth2",class: "session-google" 
 
-      = link_to "", class: "session-google" do
-        Googleでログイン
-        = fa_icon "google-plus-g", class: "google"
 
     = form_with(model: @user, url: new_user_session_path, method: :post, local: true, class: "login-form") do |form|
       .login-form__inner
