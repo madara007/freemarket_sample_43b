@@ -94,5 +94,3 @@ gem 'enum_help'
 gem "recaptcha", require: "recaptcha/rails"
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
-
-
