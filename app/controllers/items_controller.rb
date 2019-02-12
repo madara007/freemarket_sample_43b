@@ -9,7 +9,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    4.times { @item.item_photos.build }
+    @item.item_photos.build
     #追加
   end
 
