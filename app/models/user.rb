@@ -12,8 +12,4 @@ class User < ApplicationRecord
   validates :first_name_kana, presence: true
   validates :password, length: { in: 6..128 }
   validates :birthday, presence: true
-
-  def saler_items_number(user)
-    return user.items.length - user.scores.length
-  end
 end
