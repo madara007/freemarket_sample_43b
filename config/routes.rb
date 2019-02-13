@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :new, :edit, :show]
   get 'auth/:provider/callback', to: 'googles#create'
   get 'signout', to: 'googles#destroy'
-  get '/auth/:provider/callback',    to: 'users#create',      as: :create
+  get '/auth/:provider/callback',    to: 'users#create'
   resources :regions, only: [:index, :show]
   resources :brands, only: [:index, :show]
   resources :categories, only: [:index, :show]
