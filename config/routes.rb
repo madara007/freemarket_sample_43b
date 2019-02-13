@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :new, :edit, :show]
   # resources :regions
   # resources :brands
-  # resources :categorys
+  resources :categorys
+  resources :sizes
+  resources :ship_methods
   resources :credits, only: [:index, :new, :create]
 end
