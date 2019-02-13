@@ -77,25 +77,28 @@ for num in 1..100 do
     category = 1
     brand = 2440
     photo = "tmp/ladies_sample.jpg"
+    category_num = category + 1 + num
   elsif num <= 40
     category = 138
     brand = 3802
     photo = "tmp/menz_sample.jpg"
+    category_num = category + 1 + num - 20
   elsif num <= 60
     category = 259
     brand = 4790
     photo = "tmp/kids_sample.jpg"
+    category_num = category + 1 + num - 40
   else
     category = 683
     brand = 6142
     photo = "tmp/cosmetic_sample.jpg"
+    category_num = category + 1 + num - 60
   end
   Item.create!(
-  # Item.find_or_create_by(
     name: "アイテム_" + num.to_s,
     price: num * 1000,
     description: "test",
-    category_id: category,
+    category_id: category_num,
     buyer_id: num,
     saler_id: num,
     shipping_date_id: 1,
@@ -113,5 +116,4 @@ for num in 1..100 do
       }
     ]
   )
-  # ItemPhoto.create!(item_id: num, photo: open("#{Rails.root}/tmp/ladies_sample.jpg"))
 end
