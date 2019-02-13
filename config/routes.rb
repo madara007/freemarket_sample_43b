@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :new, :edit, :show]
   get 'auth/:provider/callback', to: 'googles#create'
   get 'signout', to: 'googles#destroy'
-  # resources :regions
-  # resources :brands
-  # resources :categorys
+  resources :regions, only: [:index, :show]
+  resources :brands, only: [:index, :show]
+  resources :categories, only: [:index, :show]
   resources :credits, only: [:index, :new, :create]
 end

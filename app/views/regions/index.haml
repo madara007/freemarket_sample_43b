@@ -1,0 +1,3 @@
+- breadcrumb :regions
+- @regions.each do |region|
+  = link_to region.name_i18n, region_path(region)

@@ -12,8 +12,10 @@ require "csv"
 CSV.foreach('db/csv/category.csv') do |row|
   if row[1] == nil
     Category.find_or_create_by(name: row[0].to_i)
-  else
+  elsif row[2] == nil
     Category.find_or_create_by(name: row[0].to_i, parent_id: row[1].to_i)
+  else
+    Category.find_or_create_by(name: row[0].to_i, parent_id: row[1].to_i, group: row[2].to_i)
   end
 end
 
@@ -22,7 +24,17 @@ CSV.foreach('db/csv/brand.csv') do |row|
 end
 
 for num in 1..46 do
-  Size.find_or_create_by(type: num)
+  if num < 11
+    Size.find_or_create_by(type: num, group: 1)
+  elsif num < 27
+    Size.find_or_create_by(type: num, group: 2)
+  elsif num < 32
+    Size.find_or_create_by(type: num, group: 3)
+  elsif num < 39
+    Size.find_or_create_by(type: num, group: 4)
+  else
+    Size.find_or_create_by(type: num, group: 5)
+  end
 end
 
 for num in 1..6 do
@@ -78,7 +90,8 @@ for num in 1..100 do
     brand = 6142
     photo = "tmp/cosmetic_sample.jpg"
   end
-  Item.find_or_create_by(
+  Item.create!(
+  # Item.find_or_create_by(
     name: "アイテム_" + num.to_s,
     price: num * 1000,
     description: "test",
@@ -92,10 +105,13 @@ for num in 1..100 do
     ship_method_id: 1,
     brand_id: brand,
     size_id: 1,
-    transaction: "1"
+    transaction: "1",
+    item_photos_attributes: [
+      {
+        photo: open("#{Rails.root}/app/assets/images/" + photo),
+        item_id: num,
+      }
+    ]
   )
-  ItemPhoto.find_or_create_by(
-    item_id: num,
-    photo: photo
-  )
+  # ItemPhoto.create!(item_id: num, photo: open("#{Rails.root}/tmp/ladies_sample.jpg"))
 end

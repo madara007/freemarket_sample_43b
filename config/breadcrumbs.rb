@@ -4,7 +4,7 @@ crumb :root do
 end
 
 crumb :support do
-  link "メルカリガイド", path
+  link "メルカリガイド"
 end
 
 # 第2階層
@@ -13,8 +13,8 @@ crumb :users do
   parent :root
 end
 
-crumb :categorys do
-  link "カテゴリー一覧", categorys_path
+crumb :categories do
+  link "カテゴリー一覧", categories_path
   parent :root
 end
 
@@ -24,145 +24,135 @@ crumb :brands do
 end
 
 crumb :regions do
-  link "出品地域一覧", path
+  link "出品地域一覧", regions_path
+  parent :root
+end
+
+# 商品詳細
+crumb :item_show do |item|
+  link item.name
   parent :root
 end
 
 # 第3階層
-# カテゴリー一覧 > カテゴリー１
+# カテゴリー一覧 > カテゴリー
 crumb :category do |category|
-  link category.name, category_path
-  parent :categorys
+  link category.name_i18n, category
+  if category.parent
+    parent category.parent
+  else
+    parent :categories
+  end
 end
 
 # ブランド一覧 > ブランド
 crumb :brand do |brand|
-  link brand.name, brand_path
+  link brand.name, brand_path(brand)
   parent :brands
 end
 
-# リンク名(仮置き)
-crumb :item_show do
-  link "トップス", item_path
-  parent :root
+# 出品地域一覧 > 地域名
+crumb :region do |region|
+  link region.name_i18n
+  parent :regions
 end
 
 crumb :notification do
-  link "お知らせ", path
+  link "お知らせ"
   parent :users
 end
 
 crumb :todo do
-  link "やることリスト", path
+  link "やることリスト"
   parent :users
 end
 
 crumb :likes do
-  link "いいね！一覧", path
+  link "いいね！一覧"
   parent :users
 end
 
 crumb :listing do
-  link "出品した商品・出品中", path
+  link "出品した商品・出品中"
   parent :users
 end
 
 crumb :in_progress do
-  link "出品した商品・取引中", path
+  link "出品した商品・取引中"
   parent :users
 end
 
 crumb :completed do
-  link "出品した商品・売却済み", path
+  link "出品した商品・売却済み"
   parent :users
 end
 
 crumb :purchase do
-  link "購入した商品・取引中", path
+  link "購入した商品・取引中"
   parent :users
 end
 
 crumb :purchased do
-  link "購入した商品・過去の取引", path
+  link "購入した商品・過去の取引"
   parent :users
 end
 
 crumb :news do
-  link "ニュース一覧", path
+  link "ニュース一覧"
   parent :users
 end
 
 crumb :score do
-  link "評価一覧", path
+  link "評価一覧"
   parent :users
 end
 
 crumb :help_center do
-  link "お問い合わせ", path
+  link "お問い合わせ"
   parent :users
 end
 
 crumb :sales do
-  link "売上・振込申請", path
+  link "売上・振込申請"
   parent :users
 end
 
 crumb :point do
-  link "ポイント", path
+  link "ポイント"
   parent :users
 end
 
 crumb :profile do
-  link "プロフィール", path
+  link "プロフィール"
   parent :users
 end
 
 crumb :deliver_addres do
-  link "住所変更", path
+  link "住所変更"
   parent :users
 end
 
 crumb :credit do
-  link "支払い方法", new_credit_path
+  link "支払い方法"
   parent :users
 end
 
 crumb :email_password do
-  link "メール/パスワード", path
+  link "メール/パスワード"
   parent :users
 end
 
 crumb :identification do
-  link "本人情報の登録", user_path
+  link "本人情報の登録"
   parent :users
 end
 
 crumb :sms_confirmation do
-  link "電話番号の確認", path
+  link "電話番号の確認"
   parent :users
 end
 
 crumb :logout do
-  link "ログアウト", path
+  link "ログアウト"
   parent :users
-end
-
-# 第4階層
-# カテゴリー一覧 > カテゴリー１ > カテゴリー２
-crumb :category_second do |category|
-  link category.name, category_path
-  parent :category
-end
-
-# ブランド一覧 > ブランド > カテゴリー
-crumb :brand do |brand|
-  link category.name, brand_path
-  parent :brands
-end
-
-# 第5階層
-# カテゴリー一覧 > カテゴリー１ > カテゴリー２ > カテゴリー３
-crumb :category_third do |category|
-  link category.name, category_path
-  parent :category_third
 end

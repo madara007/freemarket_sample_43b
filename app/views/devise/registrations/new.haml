@@ -1,6 +1,6 @@
 .registration
   %header.registration__header
-    = link_to "", class: "logo" do
+    = link_to root_path, class: "logo" do
       = image_tag "logo/logo.svg", class: "top-logo"
     %nav.progress-bar
       %ol.clearfix
@@ -28,18 +28,33 @@
           = form.label :nickname
           %span.require-tag 必須
           = form.text_field :nickname, autofocus: true, placeholder: "例) メルカリ太郎",class: "field"
+          - @user.errors.full_messages_for(:nickname).each do |error|
+            .span.error-msg
+              = error
         .form-group
           = form.label :email
           %span.require-tag 必須
           = form.email_field :email, placeholder: "PC・携帯どちらでも可",class: "field"
+          - @user.errors.full_messages_for(:email).each do |error|
+            .span.error-msg
+              = error
         .form-group
           = form.label :password
           %span.require-tag 必須
           = form.password_field :password, placeholder: "6文字以上",class: "field"
+          - @user.errors.full_messages_for(:password).each do |error|
+            .span.error-msg
+              = error
         .form-group
           = form.label :password_confirmation
           %span.require-tag 必須
           = form.password_field :password_confirmation, placeholder: "6文字以上",class: "field"
+          - @user.errors.full_messages_for(:encrypted_password).each do |error|
+            .span.error-msg
+              = error
+          - @user.errors.full_messages_for(:password_confirmation).each do |error|
+            .span.error-msg
+              = error
         .form-group
           %h2 本人確認
           %p 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
@@ -47,27 +62,43 @@
           = form.label :last_name
           %span.require-tag 必須
           = form.text_field :last_name, autofocus: true, placeholder: "例) 山田",class: "field"
+          - @user.errors.full_messages_for(:last_name).each do |error|
+            .span.error-msg
+              = error
         .form-group
           = form.label :first_name
           %span.require-tag 必須
           = form.text_field :first_name, autofocus: true, placeholder: "例) 彩",class: "field"
+          - @user.errors.full_messages_for(:first_name).each do |error|
+            .span.error-msg
+              = error
         .form-group
           = form.label :last_name_kana
           %span.require-tag 必須
           = form.text_field :last_name_kana, autofocus: true, placeholder: "例) ヤマダ",class: "field"
+          - @user.errors.full_messages_for(:last_name_kana).each do |error|
+            .span.error-msg
+              = error
         .form-group
           = form.label :first_name_kana
           %span.require-tag 必須
           = form.text_field :first_name_kana, autofocus: true, placeholder: "例) アヤ",class: "field"
+          - @user.errors.full_messages_for(:first_name_kana).each do |error|
+            .span.error-msg
+              = error
         .form-group
           = form.label :birthday
           %span.require-tag 必須
           .birthday-select
             .select-wrap
-              = raw sprintf(form.date_select(:birthday, use_month_numbers: true, date_separator: '%s', start_year: 1900, end_year: Time.now.year, default: '1900-1-1'.to_date),"年","月") + "日"
+              = raw sprintf(form.datetime_select(:birthday, {use_month_numbers: true, date_separator: '%s', datetime_separator: '%s', time_separator: '',  start_year: 1900, end_year: Time.now.year, default: '1900-1-1'.to_date, include_blank: '--'},{class: "birthday"}),"年","月","日")
               = fa_icon "angle-down", class: "angle-down", id: "down1"
               = fa_icon "angle-down", class: "angle-down", id: "down2"
               = fa_icon "angle-down", class: "angle-down", id: "down3"
+            - @user.errors.full_messages_for(:birthday).each do |error|
+              .span.error-msg
+                = error
+
         %p.form-group__info
           ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
       .content
