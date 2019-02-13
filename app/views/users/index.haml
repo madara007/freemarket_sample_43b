@@ -14,7 +14,7 @@
           %div
             %span
               出品数
-              = current_user.saler_items_number(current_user)
+              = current_user.items.length
     %section.container__during--user-box__todo
       %ul.container__during--user-box__todo-list
         %li
