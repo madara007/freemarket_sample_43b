@@ -4,12 +4,17 @@
     %section.container__during--user-box
       = link_to "", class:  "user-link" do
         = image_tag("member_photo_noimage_thumb.png",class: "user-link__image")
-        %h2 鬼束ちひろ
+        %h2
+          = current_user.nickname
         .user-the-history
           %div
-            %span 評価 0
+            %span
+              評価
+              = current_user.scores.length
           %div
-            %span 出品数 0
+            %span
+              出品数
+              = current_user.items.length
     %section.container__during--user-box__todo
       %ul.container__during--user-box__todo-list
         %li
