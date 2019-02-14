@@ -1,16 +1,3 @@
-body {
-  margin: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #F5F5F5;
-}
-
-ul, li, h1, h2, h3, p {
-  margin: 0;
-  padding: 0;
-}
-
-
 .show-item {
   width: 700px;
   margin: 0 auto;
@@ -47,6 +34,36 @@ ul, li, h1, h2, h3, p {
               height: 300px;
               width: 300px;
               display:none
+            }
+            .sold-box{
+              overflow: hidden;
+              position: absolute;
+              width: 100px;
+              height: 100px;
+              &:before {
+                content: '';
+                position: absolute;
+                top: -30px;
+                left: -55px;
+                width: 150px;
+                height: 150px;
+                background: #ea352d;
+                -webkit-transform-origin: left center;
+                -ms-transform-origin: left center;
+                transform-origin: left center;
+                -webkit-transform: rotate(-45deg);
+                -ms-transform: rotate(-45deg);
+                transform: rotate(-45deg);
+                }
+              &__name {
+                position: relative;
+                top: 5px;
+                left: -8px;
+                font-size: 23px;
+                color: #fff;
+                font-weight: 600;
+                transform: rotate(-45deg);
+              }
             }
           }
         }
@@ -105,6 +122,9 @@ ul, li, h1, h2, h3, p {
       line-height: 56px;
       font-size: 24px;
       font-weight: bold;
+    }
+    .buy-after {
+    background-color: #888;
     }
 
     &-exhibitor-comment {
