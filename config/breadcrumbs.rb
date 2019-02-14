@@ -72,17 +72,17 @@ crumb :likes do
   parent :users
 end
 
-crumb :listing do
+crumb :selling do
   link "出品した商品・出品中"
   parent :users
 end
 
-crumb :in_progress do
+crumb :progress do
   link "出品した商品・取引中"
   parent :users
 end
 
-crumb :completed do
+crumb :complete do
   link "出品した商品・売却済み"
   parent :users
 end

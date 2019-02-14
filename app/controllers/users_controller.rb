@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
- layout  "session", except: [:index, :show, :edit, :logout]
+ layout  "session", except: [:index, :show, :edit, :logout, :selling, :progress, :complete, :purchase, :purchased]
   def index
   end
 
@@ -10,6 +10,21 @@ class UsersController < ApplicationController
   end
 
   def show
+  end
+
+  def selling
+  end
+
+  def progress
+  end
+
+  def complete
+  end
+
+  def purchase
+  end
+
+  def purchased
   end
 
   def logout
