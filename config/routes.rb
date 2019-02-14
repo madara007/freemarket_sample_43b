@@ -1,9 +1,17 @@
 Rails.application.routes.draw do
   root 'items#index'
   devise_for :users, controllers: { sessions: 'sessions' ,registrations: "registrations"}
-  get "users/logout", "users#logout"
   resources :items, except: [:edit, :destroy]
-  resources :users, only: [:index, :new, :edit, :show]
+  resources :users do
+    collection do
+      get "selling"
+      get "progress"
+      get "complete"
+      get "purchase"
+      get "purchased"
+      get "logout"
+    end
+  end
   get 'auth/:provider/callback', to: 'googles#create'
   get 'signout', to: 'googles#destroy'
   get '/auth/:provider/callback',    to: 'users#create'
