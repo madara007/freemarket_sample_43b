@@ -9,6 +9,7 @@ $(function() {
       }
       reader.onload = (function(file) {
         return function(e) {
+          $preview.empty();
           $preview.append($('<img>').attr({
                     src: e.target.result,
                     width: "143px",
