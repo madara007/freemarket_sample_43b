@@ -116,4 +116,5 @@ for num in 1..100 do
       }
     ]
   )
+  # ItemPhoto.create!(item_id: num, photo: open("#{Rails.root}/tmp/ladies_sample.jpg"))
 end
