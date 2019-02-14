@@ -12,7 +12,6 @@ $(function(){
         dataType: 'json'
       })
       .done(function(ship_methods){
-        console.log(ship_methods)
         if (ship_methods.length > 0 ){
           addDelivery(ship_methods)
         }
