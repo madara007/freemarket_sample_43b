@@ -9,14 +9,15 @@
       .item-image
         .item-image-main
           .big-photo-box
-            = image_tag "items/m22842714743_1.jpg", class: "bigs", id: "big1"
-            = image_tag "items/m22842714743_1.jpg", class: "bigs", id: "big2"
-            = image_tag "items/m22842714743_1.jpg", class: "bigs", id: "big3"
-            = image_tag "items/m22842714743_1.jpg", class: "bigs", id: "big4"
+            - if @item.buyer_id?
+              .sold-box
+                .sold-box__name SOLD
+            - @item.item_photos.each_with_index do |photo, number|
+              = image_tag photo.photo.to_s, class: "bigs", id: "big#{number+1}"
         .item-image-sub
-          - @item.item_photos.each_with_index do |p, i|
+          - @item.item_photos.each_with_index do |photo, number|
             .image-sub
-              =image_tag "items/m22842714743_1.jpg", class: "mini", id: "mini#{i + 1}"
+              = image_tag photo.photo.to_s, class: "mini", id: "mini#{number+1}"
 
       / 出品の詳細テーブル
       .item-detail-table
@@ -29,12 +30,15 @@
         (税込)
         %span.postage
           送料込み
-    = link_to "", class: "show-item__main-buy-btn" do
-      購入画面に進む
+    - if @item.buyer_id?
+      .show-item__main-buy-btn.buy-after
+        売り切れました
+    - else
+      = link_to "", class: "show-item__main-buy-btn" do
+        購入画面に進む
 
-    / 出品者のコメント
-    .show-item__main-exhibitor-comment
-      トップスの二枚セット
+    %p.show-item__main-exhibitor-comment
+      = @item.description
     .show-item__main-btn-container
       .show-item__main-btn-container-left
         = link_to "", class: "like" do
