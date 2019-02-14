@@ -7,7 +7,8 @@ $(function(){
     if (val != 0) {
       $.ajax({
         type: 'GET',
-        url: '/categorys/'+val,
+        url: '/categories/search',
+        data: {id:val},
         dataType: 'json'
       })
       .done(function(categories){
