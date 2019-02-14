@@ -9,14 +9,12 @@
       .item-image
         .item-image-main
           .big-photo-box
-            = image_tag "items/m22842714743_1.jpg", class: "bigs", id: "big1"
-            = image_tag "items/m22842714743_1.jpg", class: "bigs", id: "big2"
-            = image_tag "items/m22842714743_1.jpg", class: "bigs", id: "big3"
-            = image_tag "items/m22842714743_1.jpg", class: "bigs", id: "big4"
+            - @item.item_photos.each_with_index do |photo, number|
+              = image_tag photo.photo.to_s, class: "bigs", id: "big#{number+1}"
         .item-image-sub
-          - @item.item_photos.each_with_index do |p, i|
+          - @item.item_photos.each_with_index do |photo, number|
             .image-sub
-              =image_tag "items/m22842714743_1.jpg", class: "mini", id: "mini#{i + 1}"
+              = image_tag photo.photo.to_s, class: "mini", id: "mini#{number+1}"
 
       / 出品の詳細テーブル
       .item-detail-table
