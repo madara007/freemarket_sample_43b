@@ -61,7 +61,7 @@
                           %span.form-require
                             必須
                         .select-wrap
-                          = f.select :condition_id, Condition.all.collect {|c| [c.type_i18n, c.id]}, {prompt: '---'}, {class: 'select-default',}
+                          = f.select :condition_id, Condition.all.collect {|c| [c.type_i18n, c.id]}, {prompt: '---'}, {class: 'select-default'}
                           %i.fa.fa-angle-down
                   .sell-content.clearfix
                     %h3.sell-content__sell-sub-head
