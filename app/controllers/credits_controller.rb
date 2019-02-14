@@ -1,6 +1,6 @@
 class CreditsController < ApplicationController
   layout  "session", only: [:index]
-
+  before_action set_item, only[:show, :create]
   def index
     
   end

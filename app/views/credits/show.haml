@@ -11,7 +11,6 @@
         .buy-item__info
           %h3.buy-item__info--image
             = image_tag(@item.item_photos.first.photo.to_s, class: "buy-item-image")
-            /- binding.pry
           %p.buy-item__info--name
             = @item.name
           %form.buy-item__info--form
