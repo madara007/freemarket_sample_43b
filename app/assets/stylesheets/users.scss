@@ -1,9 +1,9 @@
-
 /* ユーザー*/
 .container {
   margin: 40px auto;
 	width: 1020px;
   &__during {
+    margin: 0 0 50px 0;
     float: right;
     width: 700px;
     &--user-box {
