@@ -1,26 +1,30 @@
 class CreditsController < ApplicationController
   layout  "session", only: [:index]
-  before_action :item_set, only: [:create]
 
   def index
+    
   end
+  
 
   def new
+
+  end
+
+  def show
+    @item = Item.find(params[:id])
   end
 
   def create
+    item = Item.find(params[:item])
     price = item.price
+    user = current_user.id
+    buyer = item.update( buyer_id: user)
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     charge = Payjp::Charge.create(
-      amount: price,
+      amount:price,
       card: params['payjp-token'],
       currency: 'jpy',
     )
-  end
-
-  private
-
-  def item_set
-   item = Item.find(params[:id])
+    redirect_to  root_path
   end
 end
