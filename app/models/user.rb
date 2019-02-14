@@ -3,7 +3,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :scores
   has_many :likes
-  has_many :items
+  has_many :items, foreign_key: 'saler_id'
   validates :nickname, presence: true
   validates :encrypted_password, presence: true
   validates :last_name, presence: true

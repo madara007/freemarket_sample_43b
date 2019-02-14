@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2019_02_11_103002) do
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "name", null: false
     t.integer "parent_id"
+    t.integer "group"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -109,6 +110,7 @@ ActiveRecord::Schema.define(version: 2019_02_11_103002) do
 
   create_table "sizes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "type", default: 0, null: false
+    t.integer "group"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
