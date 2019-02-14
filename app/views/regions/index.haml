@@ -1,0 +1,61 @@
+- breadcrumb :regions
+.regions-content
+  .regions-content__box
+    %h1 出品地域一覧
+    %ul.regions-content__box--index
+      %li.nav#hokkaido
+        北海道地方
+      %li.nav#tohoku
+        東北地方
+      %li.nav#kanto
+        関東地方
+      %li.nav#hokuriku
+        北陸地方
+      %li.nav#tyubu
+        中部地方
+      %li.nav#kinki
+        近畿地方
+      %li.nav#tyugoku
+        中国地方
+      %li.nav#sikoku
+        四国地方
+      %li.nav#kyusyu
+        九州・沖縄地方
+
+    .regions-content__box--show
+      %section.box#area_1
+        %h2 北海道地方
+        %ul
+          = link_to @hokkaido.name_i18n, region_path(@hokkaido)
+      %section.box__gray#area_2
+        %h2 東北地方
+        %ul
+          = render partial: "region", collection: @tohoku
+      %section.box#area_3
+        %h2 関東地方
+        %ul
+          = render partial: "region", collection: @kanto
+      %section.box__gray#area_4
+        %h2 北陸地方
+        %ul
+          = render partial: "region", collection: @hokuriku
+      %section.box#area_5
+        %h2 中部地方
+        %ul
+          = render partial: "region", collection: @tyubu
+      %section.box__gray#area_6
+        %h2 近畿地方
+        %ul
+          = render partial: "region", collection: @kinki
+      %section.box#area_7
+        %h2 中国地方
+        %ul
+          = render partial: "region", collection: @tyugoku
+      %section.box__gray#area_8
+        %h2 四国地方
+        %ul
+          = render partial: "region", collection: @sikoku
+      %section.box#area_9
+        %h2 九州・沖縄地方
+        %ul
+          = render partial: "region", collection: @kyusyu

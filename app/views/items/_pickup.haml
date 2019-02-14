@@ -1,7 +1,10 @@
 %selection.item-box
   = link_to item_path(item) do
     %figure.item-box__photo
-      = image_tag(item.item_photos.first.photo, class: "item-box__photo--banner")
+      - if item.buyer_id?
+        .sold-box
+          .sold-box__name SOLD
+      = image_tag(item.item_photos.first.photo.to_s, class: "item-box__photo--banner")
     .item-box__body
       %h3.item-box__body--name
         = item.name

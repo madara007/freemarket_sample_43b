@@ -1,0 +1,62 @@
+.regions-content {
+  height: 100%;
+  width: 100%;
+  &__box {
+    width: 700px;
+    margin: 40px auto;
+    h1 {
+      font-size: 22px;
+      font-weight: bold;
+    }
+    &--index {
+      margin: 20px 0 0;
+      @include clearfix();
+      .nav {
+        cursor: pointer;
+        display: block;
+        padding: 0 30px;
+        height: 40px;
+        border-radius: 4px;
+        box-shadow: 1px 1px 1px 1px rgba(14,14,14,0.0580392);
+        text-align: center;
+        line-height: 40px;
+        background-color: #fff;
+        color: #333;
+        float: left;
+        margin: 8px 8px 0 0;
+      }
+      li:hover {
+        color: #0099e8;
+        text-decoration: underline;
+      }
+    }
+
+    &--show {
+      background-color: #fff;
+      margin: 18px 0 0;
+      border: 1px solid #eee;
+      h2 {
+        font-size: 22px;
+        font-weight: bold;
+      }
+      a {
+        display: block;
+        float:left;
+        width: 50%;
+        color: #0099e8;
+        margin: 20px 0 0;
+      }
+      .box {
+        padding: 40px;
+        margin: 8px 0 0;
+        @include clearfix();
+      }
+      .box__gray {
+        background-color: #fafafa;
+        padding: 40px;
+        margin: 8px 0 0;
+        @include clearfix();
+      }
+    }
+  }
+}

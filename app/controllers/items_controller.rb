@@ -9,6 +9,8 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @item.item_photos.build
+    # 4.times { @item.item_photos.build }
   end
 
   def create
@@ -33,10 +35,10 @@ class ItemsController < ApplicationController
   private
 
   def pickup_categories(women, menz, baby, cosume)
-    @ladies = Item.includes(:likes).get_items_category(women)
-    @menzes = Item.includes(:likes).get_items_category(menz)
-    @babies = Item.includes(:likes).get_items_category(baby)
-    @cosumes = Item.includes(:likes).get_items_category(cosume)
+    @ladies = Item.includes(:likes).get_items_category(Category.get_categorys_lineup(women))
+    @menzes = Item.includes(:likes).get_items_category(Category.get_categorys_lineup(menz))
+    @babies = Item.includes(:likes).get_items_category(Category.get_categorys_lineup(baby))
+    @cosumes = Item.includes(:likes).get_items_category(Category.get_categorys_lineup(cosume))
   end
 
   def pickup_brands(chanel, nike, puma, vuitton)
@@ -47,7 +49,7 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name, :price,:description, :category_id,:buyer_id, :saler_id, :shipping_date_id,:condition_id,:region_id, :delivery_fee_id, :ship_method_id, :brand_id,:size_id, :transaction)
+    params.require(:item).permit(:name, :price, :description, :category_id, :buyer_id, :saler_id, :shipping_date_id, :condition_id, :region_id, :delivery_fee_id, :ship_method_id, :brand_id, :size_id, :transaction, item_photos_attributes: [:id, :photo])
   end
 
 end
