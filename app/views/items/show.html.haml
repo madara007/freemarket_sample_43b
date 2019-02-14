@@ -37,9 +37,8 @@
       = link_to "", class: "show-item__main-buy-btn" do
         購入画面に進む
 
-    / 出品者のコメント
-    .show-item__main-exhibitor-comment
-      トップスの二枚セット
+    %p.show-item__main-exhibitor-comment
+      = @item.description
     .show-item__main-btn-container
       .show-item__main-btn-container-left
         = link_to "", class: "like" do
