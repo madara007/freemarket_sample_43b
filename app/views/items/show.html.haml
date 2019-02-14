@@ -30,12 +30,13 @@
         (税込)
         %span.postage
           送料込み
-    - if @item.buyer_id?
-      .show-item__main-buy-btn.buy-after
-        売り切れました
-    - else
-      = link_to "", class: "show-item__main-buy-btn" do
-        購入画面に進む
+    - if @item.saler_id != current_user.id
+      - if @item.buyer_id?
+        .show-item__main-buy-btn.buy-after
+          売り切れました
+      - else
+        = link_to "", class: "show-item__main-buy-btn" do
+          購入画面に進む
 
     %p.show-item__main-exhibitor-comment
       = @item.description
