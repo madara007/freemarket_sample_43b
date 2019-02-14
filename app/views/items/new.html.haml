@@ -47,13 +47,13 @@
                     %h3.sell-content__sell-sub-head
                       %b 商品の詳細
                     .sell-content__sell-form-box
-                      .sell-content__sell-form-box--form-group
+                      .sell-content__sell-form-box--form-group#select-content-category
                         %label
                           カテゴリー
                           %span.form-require
                             必須
-                        .select-wrap
-                          = f.select :category_id, Category.all.collect {|c| [c.name_i18n, c.id]}, {prompt: '---'}, {class: 'select-default'}
+                        .select-wrap#select-wrap-category
+                          = f.select :category_id, Category.where(parent_id: nil).collect {|c| [c.name_i18n, c.id]}, {prompt: '---'}, {class: 'select-default',id:'select-category'}
                           %i.fa.fa-angle-down
                       .sell-content__sell-form-box--form-group.margin-top
                         %label
@@ -61,26 +61,26 @@
                           %span.form-require
                             必須
                         .select-wrap
-                          = f.select :condition_id, Condition.all.collect {|c| [c.type_i18n, c.id]}, {prompt: '---'}, {class: 'select-default'}
+                          = f.select :condition_id, Condition.all.collect {|c| [c.type_i18n, c.id]}, {prompt: '---'}, {class: 'select-default',}
                           %i.fa.fa-angle-down
                   .sell-content.clearfix
                     %h3.sell-content__sell-sub-head
                       %b 配送について
                     = link_to('?','/jp/help_center/article/68/',class:'sell-content__form-question')
                     .sell-content__sell-form-box
-                      .sell-content__sell-form-box--form-group
+                      .sell-content__sell-form-box--form-group#select-content-delivery
                         %label
                           配送料の負担
                           %span.form-require
                             必須
                         .select-wrap
-                          = f.select :delivery_fee_id, DeliveryFee.all.collect {|d| [d.type_i18n, d.id]}, {prompt: '---'}, {class: 'select-default'}
+                          = f.select :delivery_fee_id, DeliveryFee.all.collect {|d| [d.type_i18n, d.id]}, {prompt: '---'}, {class: 'select-default',id:'select-delivery'}
                           %i.fa.fa-angle-down
                       .sell-content__sell-form-box--form-group.margin-top
                         %label
                           発送元の地域
                           %span.form-require
-                            %b 必須
+                            必須
                         .select-wrap
                           = f.select :region_id, Region.all.collect {|r| [r.name_i18n, r.id]}, {prompt: '---'}, {class: 'select-default'}
                           %i.fa.fa-angle-down
