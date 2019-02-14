@@ -26,6 +26,12 @@ function addDelivery(ship_methods) {
     var html2 = "<option value="+ ship_method.id + ">" + ship_method.type + "</option>"
     html3 += html2;
   })
-  var html =`<div class="select-wrap" id="select-wrap-delivery"><i class="fa fa-angle-down"></i><select class="select-default" name="item[category_id]"><option value="">---</option>` + html3
+  var html =`<div class="sell-content__sell-form-box--form-group margin-top" id="select-content-size">
+<label>
+配送の方法
+<span class="form-require">
+必須
+</span>
+</label><div class="select-wrap" id="select-wrap-delivery"><i class="fa fa-angle-down"></i><select class="select-default" name="item[ship_method_id]"><option value="">---</option>` + html3
   $("#select-content-delivery").append(html);
 }

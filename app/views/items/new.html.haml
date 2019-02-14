@@ -80,7 +80,7 @@
                         %label
                           発送元の地域
                           %span.form-require
-                            %b 必須
+                            必須
                         .select-wrap
                           = f.select :region_id, Region.all.collect {|r| [r.name_i18n, r.id]}, {prompt: '---'}, {class: 'select-default'}
                           %i.fa.fa-angle-down
