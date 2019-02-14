@@ -9,6 +9,9 @@
       .item-image
         .item-image-main
           .big-photo-box
+            - if @item.buyer_id?
+              .sold-box
+                .sold-box__name SOLD
             - @item.item_photos.each_with_index do |photo, number|
               = image_tag photo.photo.to_s, class: "bigs", id: "big#{number+1}"
         .item-image-sub
@@ -27,8 +30,12 @@
         (税込)
         %span.postage
           送料込み
-    = link_to "", class: "show-item__main-buy-btn" do
-      購入画面に進む
+    - if @item.buyer_id?
+      .show-item__main-buy-btn.buy-after
+        売り切れました
+    - else
+      = link_to "", class: "show-item__main-buy-btn" do
+        購入画面に進む
 
     / 出品者のコメント
     .show-item__main-exhibitor-comment
