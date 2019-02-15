@@ -14,67 +14,75 @@
           %p.buy-item__info--name
             = @item.name
           %form.buy-item__info--form
-            %p.buy-price.bold
-              ¥ 
-              %span.buy-price__tax
-              = number_with_delimiter(@item.price)
-            .buy-accordion
-              .buy-accordion__list
-                ポイントを使う
-                = fa_icon("angle-down")
-            .buy-price-table
-              .buy-price-table__cell
-                支払い金額　
-              .buy-price-table__cell
-                ¥
+            - if @item.delivery_fee.id ==  1
+              %p.buy-price.bold
+                ¥ 
                 = number_with_delimiter(@item.price)
-            %p.buy-has-text
-              この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
-          = form_tag(action: :create, method: :post, item: @item) do
-            %script.payjp-button{"data-key":ENV["PAYJP_PUBLIC_KEY"], src: "https://checkout.pay.jp", type: "text/javascript","data-text": "購入する"}
-            %p.buy-app-button
-              アプリをお持ちでない方は以下よりインストールしてご利用いただけます。
-              .buy-app-button__image
-                = link_to "" do
-                  = image_tag("logo/app-store.svg", class: "logo-image")
-                = link_to "" do
-                  = image_tag("logo/google-play.svg", class: "logo-image")
-        .buy-item__delivery
-          .delivery-box
-            %h3.delivery-box__title
-              配送先
-            %p.delivery-box__main
-              〒000-0000
-              %br
-              大阪府 大阪市中央区 中央町0-0-0
-              %br
-              あい うえお
-            = link_to "", class: "delivery-box__input" do
-              %p
-                変更する
-                = fa_icon("angle-right")
-        .buy-item__delivery
-          .delivery-box
-            %h3.delivery-box__title
-              支払い方法
-            %p.delivery-box__main
-              %br
-                \/
-            = link_to "", class: "delivery-box__input" do
-              %p
-                変更する
-                = fa_icon("angle-right")
-    %footer.exhibit-check__container--footer
-      .footer-content
-        %nav.footer-content__rule-link
-          %ul.clearfix
-            %li
-              = link_to 'プライバシーポリシー', '' ,class:'footer-content__rule-link--agreement'
-            %li
-              = link_to 'メルカリ利用規約','',class:'footer-content__rule-link--agreement'
-            %li
-              =link_to '特定商取引に関する表記','',class:'footer-content__rule-link--agreement'
-        = link_to '',class:'footer-content__mercari-footer-logo' do
-          = image_tag("logo/logo-gray.svg")
-        %p.footer-content__copyright
-          %small.footer-content__copyright--content © 2019 Mercari
+                %span.buy-price__tax
+                送料込み
+            - else
+              %p.buy-price.bold
+                ¥ 
+                = number_with_delimiter(@item.price)
+                %span.buy-price__tax
+  
+              .buy-accordion
+                .buy-accordion__list
+                  ポイントを使う
+                  = fa_icon("angle-down")
+              .buy-price-table
+                .buy-price-table__cell
+                  支払い金額　
+                .buy-price-table__cell
+                  ¥
+                  = number_with_delimiter(@item.price)
+              %p.buy-has-text
+                この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
+            = form_tag(action: :create, method: :post, item: @item) do
+              %script.payjp-button{"data-key":ENV["PAYJP_PUBLIC_KEY"], src: "https://checkout.pay.jp", type: "text/javascript","data-text": "購入する"}
+              %p.buy-app-button
+                アプリをお持ちでない方は以下よりインストールしてご利用いただけます。
+                .buy-app-button__image
+                  = link_to "" do
+                    = image_tag("logo/app-store.svg", class: "logo-image")
+                  = link_to "" do
+                    = image_tag("logo/google-play.svg", class: "logo-image")
+          .buy-item__delivery
+            .delivery-box
+              %h3.delivery-box__title
+                配送先
+              %p.delivery-box__main
+                〒000-0000
+                %br
+                大阪府 大阪市中央区 中央町0-0-0
+                %br
+                あい うえお
+              = link_to "", class: "delivery-box__input" do
+                %p
+                  変更する
+                  = fa_icon("angle-right")
+          .buy-item__delivery
+            .delivery-box
+              %h3.delivery-box__title
+                支払い方法
+              %p.delivery-box__main
+                %br
+                  \/
+              = link_to "", class: "delivery-box__input" do
+                %p
+                  変更する
+                  = fa_icon("angle-right")
+      %footer.exhibit-check__container--footer
+        .footer-content
+          %nav.footer-content__rule-link
+            %ul.clearfix
+              %li
+                = link_to 'プライバシーポリシー', '' ,class:'footer-content__rule-link--agreement'
+              %li
+                = link_to 'メルカリ利用規約','',class:'footer-content__rule-link--agreement'
+              %li
+                =link_to '特定商取引に関する表記','',class:'footer-content__rule-link--agreement'
+          = link_to '',class:'footer-content__mercari-footer-logo' do
+            = image_tag("logo/logo-gray.svg")
+          %p.footer-content__copyright
+            %small.footer-content__copyright--content © 2019 Mercari
