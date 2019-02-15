@@ -2,7 +2,7 @@
 .user-logout
   .user-logout__area.clearfix
     .user-logout__area--box
-      - if google_user
+      - if sns_user
         = link_to "ログアウト", signout_path
       - else
         = link_to "ログアウト", destroy_user_session_path, method: :delete
