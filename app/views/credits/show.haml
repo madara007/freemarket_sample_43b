@@ -13,7 +13,7 @@
             = image_tag(@item.item_photos.first.photo.to_s, class: "buy-item-image")
           %p.buy-item__info--name
             = @item.name
-          %form.buy-item__info--form
+          .buy-item__info--form
             - if @item.delivery_fee.id ==  1
               %p.buy-price.bold
                 ¥ 
