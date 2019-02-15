@@ -107,7 +107,7 @@ for num in 1..100 do
     ship_method_id: 1,
     brand_id: brand,
     size_id: 1,
-    transaction: 1,
+    # transaction: 1,
     item_photos_attributes: [
       {
         photo: open("#{Rails.root}/app/assets/images/" + photo),
