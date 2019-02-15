@@ -17,8 +17,15 @@ class CreditsController < ApplicationController
   def create
     item = Item.find(params[:item])
     price = item.price
+    
+    if current_user
     user_id = current_user.id
     buyer_id = item.update( buyer_id: user_id)
+    else
+    sns_id =  sns_user.id
+    buyer_id = item.update( buyer_id: sns_id)
+    end
+
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     charge = Payjp::Charge.create(
       amount:price,

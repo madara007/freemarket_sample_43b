@@ -55,8 +55,8 @@
     %h3.user-side__nav--head-left 設定
     %ul.user-side__nav--list
       %li
-        - if google_user
-          = link_to "プロフィール", edit_user_path(google_user.id), class: "user-nav-box"
+        - if sns_user
+          = link_to "プロフィール", edit_user_path(sns_user.id), class: "user-nav-box"
         - else
           = link_to "プロフィール", edit_user_path(current_user.id), class: "user-nav-box"
         %i.fa.fa-angle-right
@@ -70,8 +70,8 @@
         = link_to "メール/パスワード", "", class: "user-nav-box"
         %i.fa.fa-angle-right
       %li
-        - if google_user
-          = link_to "本人情報", user_path(google_user.id), class: "user-nav-box"
+        - if sns_user
+          = link_to "本人情報", user_path(sns_user.id), class: "user-nav-box"
         - else
           = link_to "本人情報", user_path(current_user.id), class: "user-nav-box"
         %i.fa.fa-angle-right

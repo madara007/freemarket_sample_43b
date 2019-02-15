@@ -16,8 +16,9 @@
           %form.buy-item__info--form
             %p.buy-price.bold
               ¥ 
-              %span.buy-price__tax
               = number_with_delimiter(@item.price)
+              %span.buy-price__tax
+                送料込み
             .buy-accordion
               .buy-accordion__list
                 ポイントを使う
