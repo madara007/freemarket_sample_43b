@@ -14,7 +14,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.references :ship_method, foreign_key: true
       t.references :brand, foreign_key: true
       t.references :size, foreign_key: true
-      t.integer :transaction
+      t.integer :transaction, default: 1,null: false
       t.timestamps
     end
   end
