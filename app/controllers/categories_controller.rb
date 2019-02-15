@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
   layout false, except: [:index, :show]
   def index
-    @categories = Category.where(params[:id])
+    @categories = Category.roots
   end
 
   def  show

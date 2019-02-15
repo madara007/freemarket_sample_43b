@@ -1,3 +1,10 @@
 - breadcrumb :categories
-- @categories.each do |category|
-  = link_to category.name_i18n, category_path(category)
+.categories
+  .categories__index
+    .categories__index--nav
+      %h1 カテゴリー一覧
+      .nav-box
+        - @categories.each do |category|
+          = link_to category.name_i18n, "#" + "#{category.id}", class: "nav-box__button"
+    = render partial: "category-box", collection: @categories, as: "category"
+
