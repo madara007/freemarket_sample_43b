@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   resources :regions, only: [:index, :show]
   resources :brands, only: [:index, :show]
   resources :categories, only: [:index, :show]
-  resources :credits, only: [:index, :new, :create]
+  resources :credits, only: [:index, :new, :create, :show]
 end
