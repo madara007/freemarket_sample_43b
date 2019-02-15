@@ -1,17 +1,17 @@
 class CreditsController < ApplicationController
   layout  "session", only: [:index]
-  before_action set_item, only[:show, :create]
+  before_action :set_item, only: [:show]
+
   def index
     
   end
   
 
   def new
-
+    
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
   def create
@@ -26,5 +26,10 @@ class CreditsController < ApplicationController
       currency: 'jpy',
     )
     redirect_to  root_path
+  end
+
+  private
+  def set_item
+    @item = Item.find(params[:id])
   end
 end
