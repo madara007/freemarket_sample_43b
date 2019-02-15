@@ -48,7 +48,8 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name, :price, :description, :category_id, :shipping_date_id, :condition_id, :region_id, :delivery_fee_id, :ship_method_id, :brand_id, :size_id, :transaction, item_photos_attributes: [:id, :photo]).merge(saler_id: current_user.id, brand_id: (Brand.find_by(name: params[:item][:brand_name]).present?) ? (Brand.find_by(name: params[:item][:brand_name]).id) : nil)
+    brand = Brand.find_by(name: params[:item][:brand_name])
+    brand_id = (brand.present?) ? (brand.id) : nil
+    params.require(:item).permit(:name, :price, :description, :category_id, :shipping_date_id, :condition_id, :region_id, :delivery_fee_id, :ship_method_id, :brand_id, :size_id, :transaction, item_photos_attributes: [:id, :photo]).merge(saler_id: current_user.id, brand_id: brand_id)
   end
-
 end
