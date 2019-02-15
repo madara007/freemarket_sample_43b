@@ -17,12 +17,12 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback',    to: 'users#create'
   resources :regions, only: [:index, :show]
   resources :brands, only: [:index, :show]
-  resources :categories, only: [:index, :show]do
+  resources :categories, only: [:index, :show] do
     collection do
       get 'search'
     end
   end
   resources :sizes
   resources :ship_methods
-  resources :credits, only: [:index, :new, :create]
+  resources :credits, only: [:index, :new, :create, :show]
 end
