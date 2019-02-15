@@ -99,7 +99,6 @@ for num in 1..100 do
     price: num * 1000,
     description: "test",
     category_id: category_num,
-    buyer_id: num,
     saler_id: num,
     shipping_date_id: 1,
     condition_id: 1,
@@ -108,7 +107,7 @@ for num in 1..100 do
     ship_method_id: 1,
     brand_id: brand,
     size_id: 1,
-    transaction: "1",
+    # transaction: 1,
     item_photos_attributes: [
       {
         photo: open("#{Rails.root}/app/assets/images/" + photo),
