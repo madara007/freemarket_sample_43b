@@ -13,7 +13,7 @@
       %nav.item-nav
         全ての商品一覧
 
-      - if user_signed_in? || google_user
+      - if user_signed_in? || sns_user
         %nav.user-nav
           %ul.user-nav__button
             %li.user-nav__button--mypage

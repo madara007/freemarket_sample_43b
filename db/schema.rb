@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_11_103002) do
+ActiveRecord::Schema.define(version: 2019_02_15_031230) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 2019_02_11_103002) do
     t.bigint "ship_method_id"
     t.bigint "brand_id"
     t.bigint "size_id"
-    t.string "transaction"
+    t.integer "trading", default: 1, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["brand_id"], name: "index_items_on_brand_id"
@@ -80,6 +80,21 @@ ActiveRecord::Schema.define(version: 2019_02_11_103002) do
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_likes_on_item_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "avatar"
+    t.text "comment"
+    t.string "tel"
+    t.string "postal_code"
+    t.string "prefecture"
+    t.string "city"
+    t.string "number"
+    t.string "building"
+    t.integer "user_id"
+    t.integer "snscredential_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "regions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -131,19 +146,11 @@ ActiveRecord::Schema.define(version: 2019_02_11_103002) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "nickname", null: false
-    t.text "avatar"
-    t.text "profile_comment"
     t.string "last_name", null: false
     t.string "first_name", null: false
     t.string "last_name_kana", null: false
     t.string "first_name_kana", null: false
-    t.string "tel"
     t.date "birthday", null: false
-    t.string "postal_code"
-    t.string "prefecture"
-    t.string "city"
-    t.string "number"
-    t.string "building"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

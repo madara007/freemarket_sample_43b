@@ -9,7 +9,7 @@
       .item-image
         .item-image-main
           .big-photo-box
-            - if @item.buyer_id?
+            - if @item.trading > 1
               .sold-box
                 .sold-box__name SOLD
             - @item.item_photos.each_with_index do |photo, number|
@@ -30,16 +30,18 @@
         (税込)
         %span.postage
           送料込み
-    - if user_signed_in? && @item.saler_id != current_user.id
-      - if @item.buyer_id?
-        .show-item__main-buy-btn.buy-after
-          売り切れました
-    - else
-      = link_to "", class: "show-item__main-buy-btn" do
-        購入画面に進む
 
+    / 出品者のコメント
+    .show-item__main-exhibitor-comment
+      トップスの二枚セット
+    - if @item.trading == 1
+      = link_to "購入画面に進む",credit_path(@item),class: "show-item__main-buy-btn"
+    - if @item.trading > 1
+      .show-item__main-buy-btn.buy-after
+        売り切れました
     %p.show-item__main-exhibitor-comment
       = @item.description
+
     .show-item__main-btn-container
       .show-item__main-btn-container-left
         = link_to "", class: "like" do
