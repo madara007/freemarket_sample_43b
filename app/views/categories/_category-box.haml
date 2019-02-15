@@ -1,0 +1,6 @@
+.categories__index--box
+  %h2{id: category.id}
+    = category.name_i18n
+  .category
+    = link_to "すべて", category_path(category), class: "all"
+    = render partial: "category-leave", collection: category.children.includes(:children), as: "leave"
