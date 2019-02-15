@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 2019_02_15_031230) do
     t.bigint "ship_method_id"
     t.bigint "brand_id"
     t.bigint "size_id"
-    t.integer "transaction", default: 1, null: false
+    t.integer "trading", default: 1, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["brand_id"], name: "index_items_on_brand_id"
