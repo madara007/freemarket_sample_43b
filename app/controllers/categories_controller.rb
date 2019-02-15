@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+  before_action :authenticate_user!, only: :search
   layout false, except: [:index, :show]
   def index
     @categories = Category.where(params[:id])
