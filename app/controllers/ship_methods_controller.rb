@@ -1,5 +1,7 @@
 class ShipMethodsController < ApplicationController
+  before_action :authenticate_user!
   layout false
+
   def index
     if params[:id] == "1"
       @ship_methods = ShipMethod.all
