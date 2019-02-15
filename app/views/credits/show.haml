@@ -10,26 +10,27 @@
           購入を確定しますか？
         .buy-item__info
           %h3.buy-item__info--image
-            = image_tag("tmp/m53316857133_1.jpg", class: "buy-item-image")
+            = image_tag(@item.item_photos.first.photo.to_s, class: "buy-item-image")
           %p.buy-item__info--name
-            NAME-NAME-NAME-NAME-NAME-NAME-NAME-NAME-NAME-NAME-NAME-NAME-NAME-NAME
+            = @item.name
           %form.buy-item__info--form
             %p.buy-price.bold
-              ¥ 9,980
+              ¥ 
               %span.buy-price__tax
-                送料込み
+              = number_with_delimiter(@item.price)
             .buy-accordion
               .buy-accordion__list
                 ポイントを使う
                 = fa_icon("angle-down")
             .buy-price-table
               .buy-price-table__cell
-                支払い金額
+                支払い金額　
               .buy-price-table__cell
-                ¥ 9,980
+                ¥
+                = number_with_delimiter(@item.price)
             %p.buy-has-text
               この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
-          = form_tag(action: :create, method: :post) do
+          = form_tag(action: :create, method: :post, item: @item) do
             %script.payjp-button{"data-key":ENV["PAYJP_PUBLIC_KEY"], src: "https://checkout.pay.jp", type: "text/javascript","data-text": "購入する"}
             %p.buy-app-button
               アプリをお持ちでない方は以下よりインストールしてご利用いただけます。
