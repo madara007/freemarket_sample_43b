@@ -8,6 +8,7 @@
         %h3
           = item.name
       .other-items-item-box-price
-        = item.price
+        ¥
+        = number_with_delimiter(@item.price)
         %br
         %p (税込)
