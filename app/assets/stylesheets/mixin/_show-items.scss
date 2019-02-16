@@ -89,3 +89,76 @@
   display: block;
   text-align: center;
 }
+
+@mixin content-item {
+  background-color: #fff;
+  height: 330px;
+  width: 188px;
+  .content-item__photo {
+    width: 188px;
+    &--banner {
+      height: 213px;
+      width: 188px;
+    }
+    .sold-box{
+      overflow: hidden;
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      &:before {
+        content: '';
+        position: absolute;
+        top: -30px;
+        left: -55px;
+        width: 150px;
+        height: 150px;
+        background: #ea352d;
+        -webkit-transform-origin: left center;
+        -ms-transform-origin: left center;
+        transform-origin: left center;
+        -webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        }
+      &__name {
+        position: relative;
+        top: 5px;
+        left: -8px;
+        font-size: 23px;
+        color: #fff;
+        font-weight: 600;
+        transform: rotate(-45deg);
+      }
+    }
+  }
+  .content-item__body {
+    padding: 16px;
+    &--name {
+      font-weight: 400;
+      height: 3em;
+      line-height: 1.5;
+      word-break: break-word;
+      white-space: normal;
+      font-size: 16px;
+    }
+    &--info {
+      margin: 8px 0 0;
+      bottom: 10px;
+      height: 28px;
+      .item-price {
+        @include f-left;
+        font-size: 14px;
+      }
+      .item-like {
+        @include f-right;
+        .fa {
+          @include fa-icon();
+        }
+      }
+    }
+    .item-tax {
+      font-size: 10px;
+      clear: both;
+    }
+  }
+}

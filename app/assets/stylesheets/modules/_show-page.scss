@@ -1,0 +1,39 @@
+.show-page {
+  @include clearfix;
+  width: 1020px;
+  margin: 40px auto;
+  &__tag {
+    @include clearfix;
+    li {
+      float: left;
+      margin: 16px 16px 0 0;
+      .tag {
+        color: #0099e8;
+      }
+    }
+  }
+  &__index {
+    @include clearfix;
+    h1 {
+      margin: 24px 0 8px;
+      font-size: 22px;
+      font-weight: bold;
+      }
+    &--content {
+      @include clearfix;
+      .content-item {
+        margin: 0 0 20px 20px;
+        @include content-item;
+        float: left;
+      }
+      .content-item:nth-child(odd) {
+        margin: 0 0 20px 20px;
+        @include content-item;
+      }
+      .content-item:nth-child(5n+1) {
+        margin-left: 0;
+        @include content-item;
+      }
+    }
+  }
+}
