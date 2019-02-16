@@ -35,36 +35,7 @@
               width: 300px;
               display:none
             }
-            .sold-box{
-              overflow: hidden;
-              position: absolute;
-              width: 100px;
-              height: 100px;
-              &:before {
-                content: '';
-                position: absolute;
-                top: -30px;
-                left: -55px;
-                width: 150px;
-                height: 150px;
-                background: #ea352d;
-                -webkit-transform-origin: left center;
-                -ms-transform-origin: left center;
-                transform-origin: left center;
-                -webkit-transform: rotate(-45deg);
-                -ms-transform: rotate(-45deg);
-                transform: rotate(-45deg);
-                }
-              &__name {
-                position: relative;
-                top: 5px;
-                left: -8px;
-                font-size: 23px;
-                color: #fff;
-                font-weight: 600;
-                transform: rotate(-45deg);
-              }
-            }
+            @include sold-tag
           }
         }
         &-sub {
@@ -163,24 +134,22 @@
     margin: 8px auto;
     width: 700px;
     background-color: #fff;
-
     &--box {
-
-
       .comment-area {
         padding: 24px;
-
-
         &__list {
+          .image {
+            border-radius: 50%;
+            height: 40px;
+            width: 40px;
+          }
           list-style: none;
           padding: 0;
           margin: 0;
-
           .first-comment {
             margin: 0 1.5rem 0 0;
             @include comment-balloon();
           }
-
           li {
             width: 100%;
             margin: 60px 0 0;
@@ -195,7 +164,6 @@
         width: 650px;
         background-color: #fff6de;
         font-size: 14px;
-
         p {
           line-height: 1.0rem;
           padding: 8px;
@@ -203,14 +171,12 @@
         }
       }
     }
-
     .comment {
       margin-top: 8px;
       padding-left: 5px;
       width: 640px;
       height: 100px;
     }
-
     .comment-btn {
       @include btn();
       height: 50px;
@@ -220,9 +186,7 @@
       font-size: 12px;
       font-weight: bold;
     }
-
   }
-
   .show-item__next {
     height: 50px;
     &-item-left {
@@ -234,14 +198,12 @@
       @include next-item();
     }
   }
-
   .show-item__sns {
     margin-bottom: 24px;
     padding: 32px 0 24px;
     height: 100px;
     width: 100%;
     background-color: #fff;
-
     &-contents {
       padding-top: 40px;
       margin: 0 auto;
@@ -249,13 +211,10 @@
       width: 300px;
       list-style: none;
       text-align: center;
-
-
       .sns-box {
-          display: inline-block;
-          height: 40px;
-          width: 40px;
-
+        display: inline-block;
+        height: 40px;
+        width: 40px;
         &-facebook {
           display: block;
           background-color: #385185;
@@ -271,7 +230,6 @@
             }
           }
         }
-
         &-twitter {
           display: block;
           background-color: #0099e8;
@@ -305,9 +263,11 @@
       }
     }
   }
-
   .other {
     width: 700px;
+    h2 {
+      margin: 24px 0 8px;
+    }
     &-items-title {
       font-size: 22px;
       font-weight: bold;
@@ -318,9 +278,8 @@
       @include clearfix();
       width: 100%;
       margin-bottom: 24px;
-
-      &-item-first {
-        margin: 0 0 20px 0;
+      &-item {
+        margin: 0 0 20px 20px;
         color: #333;
         text-decoration: none;
         background-color: #fff;
@@ -328,6 +287,7 @@
         height: 330px;
         width: 220px;
         &-image {
+          @include sold-tag;
           height: 220px;
           width: 220px;
           .photo {
@@ -356,54 +316,12 @@
               font-size: 6px;
             }
           }
-
         }
-      }
-      &-item {
-        margin: 0 0 20px 20px;
-        color: #333;
-        text-decoration: none;
-        background-color: #fff;
-        float: left;
-        height: 330px;
-        width: 220px;
-        &-image {
-          height: 220px;
-          width: 220px;
-          .photo {
-            height: 220px;
-            width: 220px;
-          }
-        }
-        &-box {
-          padding: 16px;
-          height: 78px;
-          &-title {
-            h3 {
-              @include clearfix();
-                position: relative;
-                font-weight: 400;
-                height: 3em;
-                line-height: 1.5;
-                word-break: break-word;
-                white-space: normal;
-            }
-          }
-          &-price {
-            line-height: 1rem;
-            font-weight: bold;
-            p {
-              font-size: 6px;
-            }
-          }
+        &:nth-child(3n-2) {
+          margin-left: 0;
         }
       }
     }
   }
 }
 
-  .image {
-    border-radius: 50%;
-    height: 40px;
-    width: 40px;
-  }
