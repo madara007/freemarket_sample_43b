@@ -9,9 +9,7 @@
       .item-image
         .item-image-main
           .big-photo-box
-            - if @item.trading > 1
-              .sold-box
-                .sold-box__name SOLD
+            = render "sold-tag", item: @item
             - @item.item_photos.each_with_index do |photo, number|
               = image_tag photo.photo.to_s, class: "bigs", id: "big#{number+1}"
         .item-image-sub
@@ -90,15 +88,15 @@
         .sns-box-pinterest
           = link_to "", class: "pinterest" do
             = fa_icon "pinterest", class: "fa"
-
-  / 出品者のその他の出品リスト
   .other
-    =link_to "", class: "other-items-title" do
-      ちゃあさんのその他の商品
-    = render "items/other-items"
-
-  / ブランドのその他のリスト
+    %h2.other__title
+      = link_to "", class: "other-items-title" do
+        = "#{@item.saler.nickname}さんのその他の商品"
+    .other-items
+      = render partial: "other-items", collection: @other_user_items, as: "item"
   .other
-    =link_to "", class: "other-items-title" do
-      アーバンリサーチのその他の商品
-    = render "items/other-items"
+    %h2.other__title
+      =link_to "", class: "other-items-title" do
+        = "#{@item.category.name_i18n}のその他の商品"
+    .other-items
+      = render partial: "other-items", collection: @other_category_items, as: "item"
