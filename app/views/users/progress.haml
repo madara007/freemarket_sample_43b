@@ -10,12 +10,12 @@
           = link_to "取引中", "", class: "active"
         %li.select__tag
           = link_to "売却済み", complete_users_path, class: "differ"
-      / 商品の有無での条件分岐
-      / = image_tag "logo-gray-icon.svg", class: "logo"
-      / %h2 取引中の商品がありません
+      - if @items.length == 0
+        = image_tag "logo-gray-icon.svg", class: "logo"
+        %h2売却済みの商品がありません
       %ul.show
-        / 取引中の商品を取り出し
-        = render partial: "progress"
+        - if @items.length >= 1
+          = render partial: "progress"
 
     .user-item__box--button
       = link_to "", class: "button-left" do
