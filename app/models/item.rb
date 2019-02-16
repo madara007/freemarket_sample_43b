@@ -11,6 +11,10 @@ class Item < ApplicationRecord
   accepts_nested_attributes_for :item_photos
   has_many :likes
 
+  def like_user(id)
+    likes.find_by(user_id: id)
+  end
+
   belongs_to :saler, class_name: "User" ,optional: true
   belongs_to :buyer, class_name: "User" ,optional: true
 
