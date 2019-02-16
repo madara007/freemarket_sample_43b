@@ -19,10 +19,6 @@ class CategoriesController < ApplicationController
 
   private
 
-  def get_items_category(id)
-    return Item.where(category_id: id).order("id DESC")
-  end
-
   def get_categories_children
     return Category.find(params[:id]).self_and_children
   end
