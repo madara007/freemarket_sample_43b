@@ -61,13 +61,17 @@
       = render "items/comment-box"
 
       / コメント入力欄
-      .comment-box
-        .comment-detail
-          %p
-            相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-        %textarea.comment
-        = link_to "", class: "comment-btn" do
-          コメントする
+      - if current_user || sns_user
+        = form_with( url: item_comments_path(@item), local: true, method: :post ) do |f|
+          .comment-box
+            .comment-detail
+              %p
+                相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+            = f.text_area :comment, class: 'comment'
+            = f.submit type: "submit", value: "コメントする", class: "comment-btn"
+            / %input{type: "submit", :value => "コメントする", class: "comment-btn"}
+            / = link_to "", class: "comment-btn" do
+
 
   .show-item__next
     = link_to "", class: "show-item__next-item-left" do
