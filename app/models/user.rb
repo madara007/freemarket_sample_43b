@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :scores
   has_many :likes
   has_many :items, foreign_key: 'saler_id'
+  has_many :comments
   validates :nickname, presence: true
   validates :encrypted_password, presence: true
   validates :last_name, presence: true
