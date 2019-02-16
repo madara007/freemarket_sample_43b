@@ -1,25 +1,14 @@
-.other-items
-  - for num in 1..2 do
-    = link_to "", class: "other-items-item-first" do
-      .other-items-item-first-image
-        = image_tag "items/m22842714743_1.jpg", class: "photo"
-      .other-items-item-first-box
-        .other-items-item-first-box-title
-          %h3 Tのやつ
-        .other-items-item-first-box-price
-          ¥6,540
-          %br
-          %p (税込)
-    - for num in 1..2 do
-      = link_to "", class: "other-items-item" do
-        .other-items-item-image
-          = image_tag "items/m22842714743_1.jpg", class: "photo"
-        .other-items-item-box
-          .other-items-item-box-title
-            %h3 Tのやつ
-          .other-items-item-box-price
-            ¥6,540
-            %br
-            %p (税込)
-
-
+.other-items-item
+  = link_to item_path(item.id) do
+    .other-items-item-image
+      = render "sold-tag", item: item
+      = image_tag item.item_photos.first.photo.to_s, class: "photo"
+    .other-items-item-box
+      .other-items-item-box-title
+        %h3
+          = item.name
+      .other-items-item-box-price
+        ¥
+        = number_with_delimiter(@item.price)
+        %br
+        %p (税込)
