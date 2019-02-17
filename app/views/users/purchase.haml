@@ -11,8 +11,7 @@
       - if @items.length == 0
         = image_tag "logo-gray-icon.svg", class: "logo"
         %h2取引中の商品がありません
+      - else
       %ul.show
-        - if @items.length >= 1
-          = render partial: "purchase"
-
+        = render partial: "purchase"
     = render partial: 'user_side_bar'

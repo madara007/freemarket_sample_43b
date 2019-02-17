@@ -12,11 +12,10 @@
           = link_to "売却済み", complete_users_path, class: "differ"
       - if @items.length == 0
         = image_tag "logo-gray-icon.svg", class: "logo"
-        %h2売却済みの商品がありません
+        %h2取引中の商品がありません。
+      - else
       %ul.show
-        - if @items.length >= 1
-          = render partial: "progress"
-
+        = render partial: "progress"
     .user-item__box--button
       = link_to "", class: "button-left" do
         = fa_icon "angle-left"

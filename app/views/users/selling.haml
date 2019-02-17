@@ -13,9 +13,9 @@
       - if @items.length == 0
         = image_tag "logo-gray-icon.svg", class: "logo"
         %h2出品中の商品がありません
+      - else
       %ul.show
-        - if @items.length >= 1
-          = render partial: "selling"
+        = render partial: "selling"
     .user-item__box--button
       = link_to "", class: "button-left" do
         = fa_icon "angle-left"
