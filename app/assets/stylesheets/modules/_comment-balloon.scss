@@ -42,9 +42,15 @@
         right: 99%;
         top: 22%;
       }
+      .text {
+        font-size :14px;
+      }
       .icons{
         .clock {
           color: #aaa;
+        }
+        .time {
+          opacity: 0.6;
         }
         .flag {
           color: #aaa;

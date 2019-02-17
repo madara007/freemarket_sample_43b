@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :scores
   has_many :likes
   has_many :items, foreign_key: 'saler_id'
+  has_many :comments
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   VALID_KANA_REGEX = /[ァ-ヴ][ァ-ヴー・]*/
   validates :nickname, presence: true
