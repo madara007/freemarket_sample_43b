@@ -13,7 +13,7 @@
       %nav.item-nav
         カテゴリー一覧
         %ul.pulldown-parent
-          - @roots.includes(:children).each do |category|
+          - @category_roots.includes(:children).each do |category|
             %li.pulldown-parent__list
               = link_to category.name_i18n, category_path(category), class: "pulldown-parent__list--nav"
               %ul.pulldown-child

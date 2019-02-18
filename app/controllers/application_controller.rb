@@ -4,8 +4,9 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   helper_method :sns_user
   layout :layout_by_resource
-  include Roots
-  before_action :roots
+
+  include GetModules
+  before_action :get_category
 
   def sns_user
     Snscredential.find(session[:snscredential_id]) if session[:snscredential_id]
