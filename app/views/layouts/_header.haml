@@ -10,8 +10,8 @@
           = link_to "" do
             = fa_icon("search")
     .header__inner--lower.clearfix
-      %nav.item-nav
-        カテゴリー一覧
+      %nav.category-nav
+        カテゴリーから探す
         %ul.pulldown-parent
           - @category_roots.includes(:children).each do |category|
             %li.pulldown-parent__list
@@ -24,6 +24,15 @@
                       - child.children.includes(:children).each do |descendant|
                         %li.pulldown-descendant__list
                           = link_to descendant.name_i18n, category_path(descendant), class: "pulldown-child__list--nav"
+      %nav.brand-nav
+        ブランドから探す
+        %ul.pulldown-brand
+          - @brands.each do |brand|
+            %li.pulldown-brand__list
+              = link_to brand.name, brand_path(brand), class: "pulldown-brand__list--nav"
+          %li.pulldown-brand__list
+            = link_to "ブランド一覧", brands_path, class: "pulldown-brand__list--nav"
+
 
       - if user_signed_in? || sns_user
         %nav.user-nav
