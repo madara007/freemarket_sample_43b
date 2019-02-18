@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  var nav = $(".item-nav");
+  var nav = $(".category-nav");
   var parent = $(".pulldown-parent__list");
   var child = $(".pulldown-child__list");
   var descendant = $(".pulldown-descendant")
@@ -22,5 +22,15 @@ $(document).ready(function(){
   })
   $(nav).mouseout(function(){
     $(parent).hide();
+  })
+
+  var brand = $(".brand-nav");
+  var list = $(".pulldown-brand__list");
+
+  $(brand).mouseover(function(){
+    $(list).show();
+  })
+  $(brand).mouseout(function(){
+    $(list).hide();
   })
 })
