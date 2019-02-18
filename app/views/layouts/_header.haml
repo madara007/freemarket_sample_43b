@@ -24,6 +24,9 @@
                       - child.children.includes(:children).each do |descendant|
                         %li.pulldown-descendant__list
                           = link_to descendant.name_i18n, category_path(descendant), class: "pulldown-child__list--nav"
+          %li.pulldown-parent__list
+            = link_to "カテゴリー一覧", categories_path, class: "pulldown-parent__list--nav"
+
       %nav.brand-nav
         ブランドから探す
         %ul.pulldown-brand
