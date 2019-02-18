@@ -23,15 +23,15 @@ class UsersController < ApplicationController
   end
 
   def complete
-    @items = Item.where(trading: "3").order(id: "DESC")
+    @items = Item.where(trading: "3", saler_id: current_user.id).order(id: "DESC")
   end
 
   def purchase
-    @items = Item.where(trading: "2").order(id: "DESC")
+    @items = Item.where(trading: "2", buyer_id: current_user.id).order(id: "DESC")
   end
 
   def purchased
-    @items = Item.where(trading: "3").order(id: "DESC")
+    @items = Item.where(trading: "3", buyer_id: current_user.id).order(id: "DESC")
   end
 
   def logout
