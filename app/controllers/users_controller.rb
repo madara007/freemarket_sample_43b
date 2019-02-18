@@ -15,11 +15,11 @@ class UsersController < ApplicationController
   end
 
   def selling
-    @items = Item.where(trading: "1").order(id: "DESC")
+    @items = Item.where(trading: "1", saler_id: current_user.id).order(id: "DESC")
   end
 
   def progress
-    @items = Item.where(trading: "2").order(id: "DESC")
+    @items = Item.where(trading: "2", saler_id: current_user.id).order(id: "DESC")
   end
 
   def complete
