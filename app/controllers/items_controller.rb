@@ -20,6 +20,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @comments = @item.comments.includes(:user)
     @score = Score.all
     @categorys = []
     item_category = @item.category
