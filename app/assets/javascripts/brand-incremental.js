@@ -9,7 +9,6 @@ $(function() {
 
   $(document).on("keyup", ".input-brand", function() {
     var input = $(this).val();
-        console.log(this);
        $(".brand-box").empty();
     if (input !== ""){
      $.ajax({
