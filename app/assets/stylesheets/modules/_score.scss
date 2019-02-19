@@ -1,0 +1,91 @@
+.trading-score {
+  text-align: center;
+  h2 {
+    margin: 20px 0;
+    font-size: 30px;
+    font-weight: 600;
+  }
+  &__topix {
+    padding: 20px 0 20px;
+    background: #fffacd;
+    &--title {
+      font-size: 24px;
+      color: #f00;
+    }
+    &--body {
+      padding: 10px 0 10px;
+      span {
+        font-size: 18px;
+        line-height: 1.5;
+      }
+    }
+  }
+  &__info {
+    &--inbox {
+      text-align: right;
+      padding: 20px 20px 0 0;
+    }
+  }
+  &__select {
+    margin-top: 30px;
+    margin: 0 auto;
+    width: 440px;
+    &--box {
+      width: 100%;
+      margin: 0 auto;
+      text-align: center;
+      input[type="radio"] {
+        display: none;
+        &+label {
+          padding: 20px;
+          border-radius: 0.5em;
+          border: 1px solid gray;
+          display: block;
+        }
+        &:checked+label {
+          border: 3px solid red;
+          border-radius: 0.5em;
+          display: block;
+        }
+      }
+      .score-box {
+        @include f-left;
+        margin-left: 100px;
+        border-radius: 0.5em;
+        &:first-child{
+          margin-left: 0;
+        }
+        label {
+          i {
+            font-size: 30px;
+            margin-bottom: 10px;
+          }
+        }
+      }
+      .grin {
+        color: #ff1493;
+      }
+      .meh {
+        color: #ffa500;
+      }
+      .frown {
+        color: #4682b4;
+      }
+    }
+    &--submit {
+      .error-msg{
+        font-size: 20px;
+        color: red;
+        line-height: 2;
+      }
+      margin: 50px 0;
+      .btn-red {
+        width: 440px;
+        height: 50px;
+        background: #f00;
+        color: #fff;
+        font-size: 20px;
+      }
+    }
+  }
+}

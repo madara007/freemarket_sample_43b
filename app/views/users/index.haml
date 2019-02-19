@@ -1,7 +1,7 @@
 - breadcrumb :users
-.container
-  .container__during
-    %section.container__during--user-box
+.user-container
+  .user-container__during
+    %section.user-container__during--user-box
       = link_to "", class:  "user-link" do
         = image_tag("member_photo_noimage_thumb.png",class: "user-link__image")
         %h2
@@ -15,8 +15,8 @@
             %span
               出品数
               = current_user.items.length
-    %section.container__during--user-box__todo
-      %ul.container__during--user-box__todo-list
+    %section.user-container__during--user-box__todo
+      %ul.user-container__during--user-box__todo-list
         %li
           %h3
             = link_to "お知らせ", ""
