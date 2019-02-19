@@ -1,3 +1,15 @@
-- breadcrumb :brands, @brands
-- @brands.each do |brand|
-  = link_to brand.name, brand_path(brand)
+- breadcrumb :brands
+.brands__index
+  .brands__index--box
+    .title
+      %h1#top ブランド一覧
+      %span.brands__index--nav
+        = link_to "ページの最後へ", "#last", class: "last"
+    .brand
+      .brand__container
+        - @brand_index.each do |brand|
+          .brand__container--child
+            = link_to brand.name, brand_path(brand)
+    .last#last
+    = link_to "ページのトップへ", "#top", class: "top"
+
