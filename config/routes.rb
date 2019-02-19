@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   resources :items, except: [:edit, :destroy] do
     resources :comments, only: [:create]
     resources :scores, only:[:new, :create]
+    collection do
+      get 'search'
+    end
   end
   resources :users do
     collection do
