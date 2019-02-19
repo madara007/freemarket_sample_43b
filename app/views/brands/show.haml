@@ -1,1 +1,7 @@
 - breadcrumb :brand, @brand
+.show-page
+  .show-page__index
+    %h1
+      = @brand.name + "の商品一覧"
+    .show-page__index--content
+      = render partial: "items/content-item", collection: @brand.items.includes(:likes).order("id DESC"), as: "item"
