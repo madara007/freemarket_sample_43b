@@ -73,6 +73,11 @@
       }
     }
     &--submit {
+      .error-msg{
+        font-size: 20px;
+        color: red;
+        line-height: 2;
+      }
       margin: 50px 0;
       .btn-red {
         width: 440px;
