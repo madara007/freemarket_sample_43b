@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   layout  "session", except: [:index, :show]
+  layout false, only: [:search]
 
   def index
     pickup_categories(1, 138, 259, 683)
@@ -31,6 +32,14 @@ class ItemsController < ApplicationController
   end
 
   def update
+  end
+
+  def search
+    @brands = Brand.where('name LIKE(?)', "%#{params[:keyword]}%")
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   private
