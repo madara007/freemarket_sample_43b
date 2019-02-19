@@ -2,6 +2,7 @@
   .category-nav {
     @include f-left;
     .pulldown-parent {
+      border: 1px solid #eee;
       width: auto;
       position: absolute;
       top: 90px;
@@ -25,9 +26,9 @@
           background-color: #ea352d;
         }
         .pulldown-child {
+          border: 1px solid #eee;
           display: none;
           position: absolute;
-          border-left: 1px solid #eee;
           top: 0;
           left: 224px;
           height: 572px;
@@ -49,6 +50,7 @@
               background-color: #eee;
             }
             .pulldown-descendant {
+              border: 1px solid #eee;
               display: none;
               position: absolute;
               border-left: 1px solid #eee;
@@ -70,6 +72,7 @@
     @include f-left;
     margin: 0 0 0 20px;
     .pulldown-brand {
+      border: 1px solid #eee;
       width: auto;
       position: absolute;
       top: 90px;
