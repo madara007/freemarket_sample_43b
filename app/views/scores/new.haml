@@ -1,0 +1,45 @@
+.trading-score
+  %h2
+    取引画面
+  .trading-score__topix
+    %h3.trading-score__topix--title
+      = fa_icon "check"
+      評価をしてください
+    .trading-score__topix--body
+      %span
+        購入者に商品が到着し評価がありました。
+        %br
+        購入者の評価を行って取引を完了してください。
+        %br
+        ※評価は取引が終わった後で見ることができます。
+  .trading-score__info
+    .trading-score__info--inbox
+      商品が売れた後の流れ >
+    .trading-score__info--inbox
+      出品者のよくある質問 >
+  .trading-score__select
+    = form_with(url: item_scores_path(@item), local: true, method: :post) do |form|
+      .trading-score__select--box.clearfix
+        .score-box
+          = form.radio_button :type, 1
+          = label :type, 1 do
+            = fa_icon "grin", class: "grin"
+            %br
+            %span
+              良い
+        .score-box
+          = form.radio_button :type, 2
+          = label :type, 2 do
+            = fa_icon "meh-o", class: "meh"
+            %br
+            %span
+              普通
+        .score-box
+          = form.radio_button :type, 3
+          = label :type, 3 do
+            = fa_icon "frown-o", class: "frown"
+            %br
+            %span
+              悪い
+      .trading-score__select--submit
+        = form.submit '評価を投稿する' ,class:'btn-red'
