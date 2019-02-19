@@ -47,9 +47,7 @@
       height: 38px;
       line-height: 38px;
       margin-top: 8px;
-      .item-nav {
-        @include f-left;
-      }
+      @include pulldown;
       .login-nav {
         @include f-right;
         &__button {
