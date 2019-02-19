@@ -9,13 +9,13 @@ $(function() {
 
   $(document).on("keyup", ".input-brand", function() {
     var input = $(this).val();
-       $(".brand-box").empty();
+    $(".brand-box").empty();
     if (input !== ""){
      $.ajax({
         type: "GET",
         url: "/items/search",
         dataType: "json",
-        data: { keyword: input },
+        data: { name: input },
       })
      .done(function(brands) {
        $(".brand-box").empty();
