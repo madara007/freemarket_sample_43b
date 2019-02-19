@@ -60,7 +60,8 @@
 #     # password: "please use keys"
 #   }
 
-server "52.198.40.158", user: 'ec2-user', roles: %w{app db web}
+# server "52.198.40.158", user: 'ec2-user', roles: %w{app db web}
+server ENV["REPOSITORY_ELASTIC_IP"], user: 'ec2-user', roles: %w{app db web}
 
 set :rails_env, "production"
 set :unicorn_rack_env, "production"

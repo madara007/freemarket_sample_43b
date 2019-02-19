@@ -65,8 +65,8 @@ end
     nickname: "ユーザー_#{no}",
     last_name: "last_name_#{no}",
     first_name: "first_name_#{no}",
-    last_name_kana: "last_name_kana_#{no}",
-    first_name_kana: "first_name_kana_#{no}",
+    last_name_kana: "カナラストネーム",
+    first_name_kana: "カナファーストネーム",
     birthday: '1900-1-1'
   )
   user.save!
