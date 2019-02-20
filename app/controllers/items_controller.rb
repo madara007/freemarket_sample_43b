@@ -21,7 +21,8 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @comments = @item.comments.includes(:user)
-    @score = Score.all
+    saler = @item.saler_id
+    @score = Score.where(user_id: saler)
     @categorys = []
     item_category = @item.category
     while item_category
