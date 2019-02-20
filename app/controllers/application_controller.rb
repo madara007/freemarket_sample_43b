@@ -13,11 +13,7 @@ class ApplicationController < ActionController::Base
     snslike = Snslike.where(item_id: item)
     total = like.length + snslike.length
   end
-<<<<<<< HEAD
-
-=======
-   
->>>>>>> origin/いいね
+  
   def get_category
     @category_roots = Category.roots
   end
