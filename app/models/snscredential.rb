@@ -1,8 +1,8 @@
 class Snscredential < ApplicationRecord
- has_many :scores
-   has_many :snslikes
-   has_many :items
-   def self.from_omniauth(auth)
+  has_many :scores
+  has_many :snslikes
+  has_many :items
+  def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
       user.provider = auth.provider
       user.uid = auth.uid
@@ -14,5 +14,4 @@ class Snscredential < ApplicationRecord
       return user
     end
   end
-
 end
