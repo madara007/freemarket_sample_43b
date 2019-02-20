@@ -16,19 +16,17 @@
               評価
               - if current_user
                 = current_user.scores.length
-              - else 
+              - else
                 =  sns_user.scores.length
           %div
             %span
               出品数
-              
               - if current_user
                 = current_user.items.length
               - else
                 =  sns_user.scores.length
     %section.container__during--user-box__todo
       %ul.container__during--user-box__todo-list
-              = current_user.items.length
     %section.user-container__during--user-box__todo
       %ul.user-container__during--user-box__todo-list
         %li
@@ -51,7 +49,6 @@
               %i.fa.fa-chevron-right
           .user-go-list
             = link_to "一覧を見る", ""
-
   .purchase-item
     .purchase-item__box
       .purchase-item__box--main
@@ -63,9 +60,8 @@
             = link_to "過去の取引", "", class: "differ"
         - if @items.length == 0
           = image_tag "logo-gray-icon.svg", class: "logo"
-          %h2取引中の商品がありません
+          %h2 取引中の商品がありません
         - else
         %ul.show
           = render partial: "purchase"
-
   = render partial: 'user_side_bar'
