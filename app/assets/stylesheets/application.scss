@@ -6,7 +6,9 @@
 @import "mixin/position";
 @import "mixin/icon";
 @import "mixin/show-items";
+@import "mixin/sold-tag";
 
+@import "modules/pulldown-list";
 @import "modules/top";
 @import "modules/header";
 @import "modules/bread-crumbs";
@@ -15,6 +17,9 @@
 @import "modules/progress-bar";
 
 @import "like";
+@import "modules/brand-index";
+@import "modules/show-page";
+@import "modules/categories";
 @import "modules/user-items-box";
 @import "modules/user-items";
 @import "modules/purchase-items-box";
@@ -31,6 +36,7 @@
 @import "modules/registration-select";
 @import "modules/exhibit";
 @import "modules/buy-check";
+@import "modules/score";
 @import "users";
 @import "user_side_bar";
 @import "user_edit";

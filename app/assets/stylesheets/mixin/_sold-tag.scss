@@ -1,0 +1,32 @@
+@mixin sold-tag {
+  .sold-tag {
+    overflow: hidden;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    &:before {
+      content: '';
+      position: absolute;
+      top: -30px;
+      left: -55px;
+      width: 150px;
+      height: 150px;
+      background: #ea352d;
+      -webkit-transform-origin: left center;
+      -ms-transform-origin: left center;
+      transform-origin: left center;
+      -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+      }
+    &__name {
+      position: relative;
+      top: 5px;
+      left: -8px;
+      font-size: 23px;
+      color: #fff;
+      font-weight: 600;
+      transform: rotate(-45deg);
+    }
+  }
+}

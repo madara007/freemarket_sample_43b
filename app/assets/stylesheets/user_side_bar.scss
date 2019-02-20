@@ -1,6 +1,7 @@
 /* サイドバー */
 .user-side {
   width: 280px;
+  @include clearfix;
   &__nav{
     &--list{
       li {

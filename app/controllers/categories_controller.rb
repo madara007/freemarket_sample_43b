@@ -1,11 +1,14 @@
 class CategoriesController < ApplicationController
+  before_action :authenticate_user!, only: :search
   layout false, except: [:index, :show]
   def index
-    @categories = Category.where(params[:id])
+    @categories = Category.roots
   end
 
-  def  show
+  def show
     @category = Category.find(params[:id])
+    @children = get_categories_children
+    @descendants = get_categories_descendants
   end
 
   def search
@@ -13,5 +16,15 @@ class CategoriesController < ApplicationController
     respond_to do |format|
       format.json
     end
+  end
+
+  private
+
+  def get_categories_children
+    return Category.find(params[:id]).self_and_children
+  end
+
+  def get_categories_descendants
+    return Category.find(params[:id]).self_and_descendants
   end
 end

@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :basic_auth, if: :production?
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :get_category, :get_brand
   helper_method :sns_user
   helper_method :totals
   layout :layout_by_resource
@@ -13,6 +14,14 @@ class ApplicationController < ActionController::Base
    total = like.length + snslike.length
   end
    
+  def get_category
+    @category_roots = Category.roots
+  end
+
+  def get_brand
+    @brands = Brand.find(2440, 3802, 4790, 6142)
+  end
+
   def sns_user
     Snscredential.find(session[:snscredential_id]) if session[:snscredential_id]
   end
@@ -25,6 +34,10 @@ class ApplicationController < ActionController::Base
     else
       "application"
     end
+  end
+
+  def after_sign_in_path_for(resource)
+    root_path
   end
 
   private

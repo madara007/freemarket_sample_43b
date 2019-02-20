@@ -7,6 +7,7 @@ class Item < ApplicationRecord
   belongs_to :delivery_fee
   belongs_to :category
   belongs_to :brand ,optional: true
+  has_many :comments
   has_many :item_photos
   accepts_nested_attributes_for :item_photos
   has_many :likes

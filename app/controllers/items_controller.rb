@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
-
+  before_action :authenticate_user!, except: [:index, :show]
   layout  "session", except: [:index, :show]
+  layout false, only: [:search]
 
   def index
     pickup_categories(1, 138, 259, 683)
@@ -19,16 +20,28 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @score = Score.all
+    @comments = @item.comments.includes(:user)
+    saler = @item.saler_id
+    @score = Score.where(user_id: saler)
     @categorys = []
     item_category = @item.category
     while item_category
       @categorys.unshift(item_category)
       item_category = Category.find_by(name: item_category.parent_id)
     end
+    @other_user_items = Item.where(saler_id: @item.saler_id).order("id DESC").limit(6)
+    @other_category_items = Item.where(category: @item.category).order("id DESC").limit(6)
   end
 
   def update
+  end
+
+  def search
+    @brands = Brand.where('name LIKE(?)', "%#{params[:name]}%")
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   private
