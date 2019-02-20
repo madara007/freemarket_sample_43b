@@ -1,1 +1,7 @@
 - breadcrumb :region, @region
+.show-page
+  .show-page__index
+    %h1
+      = @region.name_i18n + "の商品一覧"
+    .show-page__index--content
+      = render partial: "items/content-item", collection: @region.items.includes(:likes).order("id DESC"), as: "item"
