@@ -11,7 +11,11 @@
 # It's strongly recommended that you check this file into your version control system.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_02_19_022139) do
+=======
+ActiveRecord::Schema.define(version: 2019_02_15_104143) do
+>>>>>>> Fippiy/master
 =======
 ActiveRecord::Schema.define(version: 2019_02_15_104143) do
 >>>>>>> Fippiy/master

@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   layout :layout_by_resource
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   def totals
    item = @item
    like = Like.where(item_id: item)
@@ -16,6 +17,8 @@ class ApplicationController < ActionController::Base
   end
    
 =======
+=======
+>>>>>>> Fippiy/master
 
   def get_category
     @category_roots = Category.roots
@@ -25,6 +28,9 @@ class ApplicationController < ActionController::Base
     @brands = Brand.find(2440, 3802, 4790, 6142)
   end
 
+<<<<<<< HEAD
+>>>>>>> Fippiy/master
+=======
 >>>>>>> Fippiy/master
   def sns_user
     Snscredential.find(session[:snscredential_id]) if session[:snscredential_id]

@@ -8,6 +8,10 @@ class Item < ApplicationRecord
   belongs_to :category
   belongs_to :brand ,optional: true
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+  has_many :comments
+>>>>>>> Fippiy/master
 =======
   has_many :comments
 >>>>>>> Fippiy/master
