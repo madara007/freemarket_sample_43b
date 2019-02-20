@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   layout  "session", except: [:index, :show, :edit, :logout, :selling, :progress, :complete, :purchase, :purchased]
 
   def index
-    @items = Item.where(trading: "2", buyer_id: current_user.id).order(id: "DESC")
+    @items = Item.where(trading: 2, buyer_id: current_user.id).order(id: "DESC")
   end
 
   def new
@@ -16,23 +16,23 @@ class UsersController < ApplicationController
   end
 
   def selling
-    @items = Item.where(trading: "1", saler_id: current_user.id).order(id: "DESC")
+    @items = Item.where(trading: 1, saler_id: current_user.id).order(id: "DESC")
   end
 
   def progress
-    @items = Item.where(trading: "2", saler_id: current_user.id).order(id: "DESC")
+    @items = Item.where(trading: 2, saler_id: current_user.id).order(id: "DESC")
   end
 
   def complete
-    @items = Item.where(trading: "3", saler_id: current_user.id).order(id: "DESC")
+    @items = Item.where(trading: 3, saler_id: current_user.id).order(id: "DESC")
   end
 
   def purchase
-    @items = Item.where(trading: "2", buyer_id: current_user.id).order(id: "DESC")
+    @items = Item.where(trading: 2, buyer_id: current_user.id).order(id: "DESC")
   end
 
   def purchased
-    @items = Item.where(trading: "3", buyer_id: current_user.id).order(id: "DESC")
+    @items = Item.where(trading: 3, buyer_id: current_user.id).order(id: "DESC")
   end
 
   def logout
