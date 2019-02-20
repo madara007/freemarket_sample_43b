@@ -10,24 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/いいね
-=======
-
->>>>>>> origin/いいね
 ActiveRecord::Schema.define(version: 2019_02_19_022139) do
-=======
-ActiveRecord::Schema.define(version: 2019_02_15_104143) do
->>>>>>> Fippiy/master
-=======
-ActiveRecord::Schema.define(version: 2019_02_15_104143) do
->>>>>>> Fippiy/master
-
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
