@@ -1,0 +1,8 @@
+%h3
+  = leave.name_i18n
+.category__box
+  .category__box--child
+    = link_to "すべて", category_path(leave)
+  - leave.children.each do |child|
+    .category__box--child
+      = link_to child.name_i18n, category_path(child)

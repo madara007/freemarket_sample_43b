@@ -1,20 +1,20 @@
-%li.show__item
-  = link_to "", class: "show__item--box" do
-    = fa_icon "angle-right", class: "angle"
-    = image_tag 'jcb.svg', class: "photo"
-    .discription
-      .discription__title
-        / 商品名
-        %h3
-          JCB
-      .discription__tag
-        %span.discription__tag--likes
-          %i.far{class: "fa-heart"}
-            %span.length
-              1
-        %span.discription__tag--comment
-          %i.far{class: "fa-comment-alt"}
-            %span.length
-              1
-        %label.discription__tag--selling
-          出品中
+- @items.each do |item|
+  %li.show__item
+    = link_to item_path(item), class: "show__item--box" do
+      = fa_icon "angle-right", class: "angle"
+      = image_tag item.item_photos.first.photo.to_s, class: "photo"
+      .discription
+        .discription__title
+          %h3
+            = item.name
+        .discription__tag
+          %span.discription__tag--likes
+            %i.far{class: "fa-heart"}
+              %span.length
+                1
+          %span.discription__tag--comment
+            %i.far{class: "fa-comment-alt"}
+              %span.length
+                1
+          %label.discription__tag--selling
+            出品中

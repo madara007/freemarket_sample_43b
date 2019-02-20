@@ -61,6 +61,6 @@ function addSize(sizes) {
   $("#select-content-category").append(add_size_html);
 }
 function addBrand(){
-  var add_brand_html = `<div class="sell-content__sell-form-box--form-group margin-top"><label>ブランド<span class="form-no-require">任意</span></label><div><input class="input-brand" value="" placeholder="例）シャネル" name="item[brand_name]"></div><!-- react-empty: 35 --></div>`
+  var add_brand_html = `<div class="sell-content__sell-form-box--form-group margin-top"><label>ブランド<span class="form-no-require">任意</span></label><div><input class="input-brand" value="" placeholder="例）シャネル" name="item[brand_name]" autocomplete="off"></div><div class="brand-box">`
   $("#select-content-category").append(add_brand_html);
 }

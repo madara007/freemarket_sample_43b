@@ -1,6 +1,6 @@
 class BrandsController < ApplicationController
   def index
-    @brands = Brand.where(params[:id])
+    @brand_index = Brand.where(params[:id])
   end
 
   def show

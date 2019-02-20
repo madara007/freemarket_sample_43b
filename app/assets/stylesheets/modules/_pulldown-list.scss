@@ -1,0 +1,104 @@
+@mixin pulldown(){
+  .category-nav {
+    @include f-left;
+    .pulldown-parent {
+      border: 1px solid #eee;
+      width: auto;
+      position: absolute;
+      top: 90px;
+      z-index: 1000;
+      &__list {
+        display: none;
+        width: 224px;
+        font-weight: 400;
+        font-size: 14px;
+        &--nav {
+          display: block;
+          background-color: #fff;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          padding: 0 16px;
+          line-height: 44px;
+        }
+        &--nav:hover {
+          color: #fff;
+          background-color: #ea352d;
+        }
+        .pulldown-child {
+          border: 1px solid #eee;
+          display: none;
+          position: absolute;
+          top: 0;
+          left: 224px;
+          height: 572px;
+          width: 224px;
+          background-color: #fff;
+          &__list {
+            font-weight: 400;
+            font-size: 14px;
+            &--nav {
+              display: block;
+              background-color: #fff;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              padding: 0 16px;
+              line-height: 32px;
+            }
+            &--nav:hover {
+              background-color: #eee;
+            }
+            .pulldown-descendant {
+              border: 1px solid #eee;
+              display: none;
+              position: absolute;
+              border-left: 1px solid #eee;
+              top: 0;
+              left: 224px;
+              height: 572px;
+              width: 300px;
+              background-color: #fff;
+            }
+          }
+        }
+      }
+    }
+  }
+  .category-nav:hover {
+    color: #0099e8;
+  }
+  .brand-nav {
+    @include f-left;
+    margin: 0 0 0 20px;
+    .pulldown-brand {
+      border: 1px solid #eee;
+      width: auto;
+      position: absolute;
+      top: 90px;
+      z-index: 1000;
+      &__list {
+        display: none;
+        width: 224px;
+        font-weight: 400;
+        font-size: 14px;
+        &--nav {
+          display: block;
+          background-color: #fff;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          padding: 0 16px;
+          line-height: 44px;
+        }
+        &--nav:hover {
+          color: #fff;
+          background-color: #ea352d;
+        }
+      }
+    }
+  }
+  .brand-nav:hover {
+    color: #0099e8;
+  }
+}

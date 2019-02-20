@@ -1,14 +1,15 @@
 class CreditsController < ApplicationController
   layout  "session", only: [:index]
   before_action :set_item, only: [:show]
+  before_action :authenticate_user!
 
   def index
-    
+
   end
-  
+
 
   def new
-    
+
   end
 
   def show
@@ -17,7 +18,7 @@ class CreditsController < ApplicationController
   def create
     item = Item.find(params[:item])
     price = item.price
-    
+
     if current_user
       user_id = current_user.id
       buyer_id = item.update( buyer_id: user_id)
@@ -25,7 +26,7 @@ class CreditsController < ApplicationController
       sns_id =  sns_user.id
       buyer_id = item.update( buyer_id: sns_id)
     end
-
+    item.update(trading: 2)
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     charge = Payjp::Charge.create(
       amount:price,
