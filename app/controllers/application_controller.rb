@@ -3,8 +3,16 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
   helper_method :sns_user
+  helper_method :totals
   layout :layout_by_resource
 
+  def totals
+   item = @item
+   like = Like.where(item_id: item)
+   snslike = Snslike.where(item_id: item)
+   total = like.length + snslike.length
+  end
+   
   def sns_user
     Snscredential.find(session[:snscredential_id]) if session[:snscredential_id]
   end
