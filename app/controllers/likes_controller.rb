@@ -1,6 +1,6 @@
 class LikesController < ApplicationController
-	before_action :set_item , only: [:create, :destroy]
-  layout false, only: [:create, :destroy ]
+	　before_action :set_item , only: [:create, :destroy]
+   layout false, only: [:create, :destroy ]
 
 	def create
   if current_user
