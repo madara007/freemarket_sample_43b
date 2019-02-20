@@ -36,9 +36,9 @@ class LikesController < ApplicationController
     end
   end
 
-	private
+  private
 
-	def set_item
+  def set_item
       @item = Item.find(params[:item_id])
-	end
+  end
 end
