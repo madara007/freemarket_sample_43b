@@ -47,11 +47,11 @@
             = link_to "取引中", "", class: "active"
           %li.select__tag
             = link_to "過去の取引", "", class: "differ"
-        / 商品の有無での条件分岐
-        = image_tag "logo-gray-icon.svg", class: "logo"
-        %h2 取引中の商品がありません
+        - if @items.length == 0
+          = image_tag "logo-gray-icon.svg", class: "logo"
+          %h2取引中の商品がありません
+        - else
         %ul.show
-          / 取引中の商品を取り出し
-          / = render partial: "purchase"
+          = render partial: "purchase"
 
   = render partial: 'user_side_bar'

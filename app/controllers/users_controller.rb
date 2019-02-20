@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   layout  "session", except: [:index, :show, :edit, :logout, :selling, :progress, :complete, :purchase, :purchased]
 
   def index
+    @items = Item.where(trading: "2", buyer_id: current_user.id).order(id: "DESC")
   end
 
   def new
