@@ -1,5 +1,5 @@
 class GooglesController < ApplicationController
-  
+
   def new
   end
 
@@ -17,6 +17,6 @@ class GooglesController < ApplicationController
    session.clear
    redirect_to root_path
   end
-  
+
 end
 
