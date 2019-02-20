@@ -10,12 +10,16 @@ class Item < ApplicationRecord
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   has_many :comments
 >>>>>>> Fippiy/master
 =======
   has_many :comments
 >>>>>>> Fippiy/master
+=======
+  has_many :comments
+>>>>>>> origin/いいね
 =======
   has_many :comments
 >>>>>>> origin/いいね

@@ -21,6 +21,7 @@
           %div
             %span
               出品数
+              
               - if current_user
                 = current_user.items.length
               - else

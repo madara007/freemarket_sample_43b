@@ -4,6 +4,7 @@ if Rails.env.development? || Rails.env.test?
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 end
 =======
 end
@@ -11,6 +12,11 @@ end
 =======
 end
 >>>>>>> Fippiy/master
+=======
+end
+
+
+>>>>>>> origin/いいね
 =======
 end
 
