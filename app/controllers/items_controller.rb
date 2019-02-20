@@ -35,6 +35,14 @@ class ItemsController < ApplicationController
   def update
   end
 
+  def destroy
+    item = Item.find(params[:id])
+    if item.saler_id == (current_user.id || sns_user.id)
+    item.destroy
+    end
+    redirect_to :selling_users
+  end
+
   def search
     @brands = Brand.where('name LIKE(?)', "%#{params[:name]}%")
     respond_to do |format|
