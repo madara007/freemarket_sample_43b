@@ -1,23 +1,13 @@
 Rails.application.routes.draw do
   root 'items#index'
   devise_for :users, controllers: { sessions: 'sessions' ,registrations: "registrations"}
-<<<<<<< HEAD
-<<<<<<< HEAD
-  resources :items, except: [:edit, :destroy] do 
-    resources :likes, only: [:create, :destroy]
-=======
-=======
->>>>>>> Fippiy/master
   resources :items, except: [:edit, :destroy] do
+    resources :likes, only: [:create, :destroy]
     resources :comments, only: [:create]
     resources :scores, only:[:new, :create]
     collection do
       get 'search'
     end
-<<<<<<< HEAD
->>>>>>> Fippiy/master
-=======
->>>>>>> Fippiy/master
   end
   resources :users do
     collection do

@@ -12,6 +12,10 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/いいね
 ActiveRecord::Schema.define(version: 2019_02_19_022139) do
 =======
 ActiveRecord::Schema.define(version: 2019_02_15_104143) do

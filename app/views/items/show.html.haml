@@ -10,6 +10,7 @@
         .item-image-main
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           .big-photo-box 
             - if @item.trading > 1
               .sold-box
@@ -22,6 +23,10 @@
           .big-photo-box
             = render "sold-tag", item: @item
 >>>>>>> Fippiy/master
+=======
+          .big-photo-box
+            = render "sold-tag", item: @item
+>>>>>>> origin/いいね
             - @item.item_photos.each_with_index do |photo, number|
               = image_tag photo.photo.to_s, class: "bigs", id: "big#{number+1}"
         .item-image-sub

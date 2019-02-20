@@ -3,6 +3,7 @@ if Rails.env.development? || Rails.env.test?
   Bullet.add_whitelist :type => :unused_eager_loading, :class_name => "Category", :association => :children
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 end
 =======
 end
@@ -10,3 +11,8 @@ end
 =======
 end
 >>>>>>> Fippiy/master
+=======
+end
+
+
+>>>>>>> origin/いいね
