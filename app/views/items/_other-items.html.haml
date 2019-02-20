@@ -1,5 +1,5 @@
 .other-items-item
-  = link_to item_path(item.id) do
+  = link_to item_path(item) do
     .other-items-item-image
       = render "sold-tag", item: item
       = image_tag item.item_photos.first.photo.to_s, class: "photo"
@@ -9,6 +9,6 @@
           = item.name
       .other-items-item-box-price
         ¥
-        = number_with_delimiter(@item.price)
+        = item.price.to_s(:delimited)
         %br
         %p (税込)
