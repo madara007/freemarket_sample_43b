@@ -1,5 +1,5 @@
 class Snscredential < ApplicationRecord
-has_many :scores
+ has_many :scores
    has_many :snslikes
    has_many :items
    def self.from_omniauth(auth)
