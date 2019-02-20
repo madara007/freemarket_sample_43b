@@ -47,17 +47,17 @@ class ItemsController < ApplicationController
   private
 
   def pickup_categories(women, menz, baby, cosume)
-    @ladies = Item.includes(:likes).get_items_category(Category.get_categorys_lineup(women))
-    @menzes = Item.includes(:likes).get_items_category(Category.get_categorys_lineup(menz))
-    @babies = Item.includes(:likes).get_items_category(Category.get_categorys_lineup(baby))
-    @cosumes = Item.includes(:likes).get_items_category(Category.get_categorys_lineup(cosume))
+    @ladies = Item.includes(:likes, :snslikes).get_items_category(Category.get_categorys_lineup(women))
+    @menzes = Item.includes(:likes, :snslikes).get_items_category(Category.get_categorys_lineup(menz))
+    @babies = Item.includes(:likes, :snslikes).get_items_category(Category.get_categorys_lineup(baby))
+    @cosumes = Item.includes(:likes, :snslikes).get_items_category(Category.get_categorys_lineup(cosume))
   end
 
   def pickup_brands(chanel, nike, puma, vuitton)
-    @chanels = Item.includes(:likes).get_items_brand(chanel)
-    @nikes = Item.includes(:likes).get_items_brand(nike)
-    @pumas = Item.includes(:likes).get_items_brand(puma)
-    @vuittons = Item.includes(:likes).get_items_brand(vuitton)
+    @chanels = Item.includes(:likes, :snslikes).get_items_brand(chanel)
+    @nikes = Item.includes(:likes, :snslikes).get_items_brand(nike)
+    @pumas = Item.includes(:likes, :snslikes).get_items_brand(puma)
+    @vuittons = Item.includes(:likes, :snslikes).get_items_brand(vuitton)
   end
 
   def item_params

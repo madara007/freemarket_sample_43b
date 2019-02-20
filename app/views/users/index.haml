@@ -4,16 +4,30 @@
     %section.user-container__during--user-box
       = link_to "", class:  "user-link" do
         = image_tag("member_photo_noimage_thumb.png",class: "user-link__image")
-        %h2
-          = current_user.nickname
+        -if current_user
+          %h2
+            = current_user.nickname
+        - else
+          %h2
+            = sns_user.name
         .user-the-history
           %div
             %span
               評価
-              = current_user.scores.length
+              - if current_user
+                = current_user.scores.length
+              - else 
+                =  sns_user.scores.length
           %div
             %span
               出品数
+              
+              - if current_user
+                = current_user.items.length
+              - else
+                =  sns_user.scores.length
+    %section.container__during--user-box__todo
+      %ul.container__during--user-box__todo-list
               = current_user.items.length
     %section.user-container__during--user-box__todo
       %ul.user-container__during--user-box__todo-list

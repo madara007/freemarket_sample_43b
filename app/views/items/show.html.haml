@@ -8,6 +8,10 @@
     .show-item__main--content
       .item-image
         .item-image-main
+          .big-photo-box 
+            - if @item.trading > 1
+              .sold-box
+                .sold-box__name SOLD
           .big-photo-box
             = render "sold-tag", item: @item
             - @item.item_photos.each_with_index do |photo, number|
@@ -40,11 +44,8 @@
       = @item.description
 
     .show-item__main-btn-container
-      .show-item__main-btn-container-left
-        = link_to "", class: "like" do
-          = fa_icon "heart", class: ""
-          %span いいね!
-          = @item.likes.length
+      #like-link-item.id.show-item__main-btn-container-left
+        = render @item
         = link_to "", class: "report" do
           = fa_icon "flag", class: ""
           %span 不適切な商品の報告

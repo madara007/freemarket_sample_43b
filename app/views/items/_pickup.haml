@@ -13,6 +13,6 @@
           .item-like
             = link_to "" , class: "" do
               = fa_icon "heart-o"
-              = item.likes.length
+              = item.likes.length + item.snslikes.length
         %p.item-tax
           (税込)

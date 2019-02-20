@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'items#index'
   devise_for :users, controllers: { sessions: 'sessions' ,registrations: "registrations"}
   resources :items, except: [:edit, :destroy] do
+    resources :likes, only: [:create, :destroy]
     resources :comments, only: [:create]
     resources :scores, only:[:new, :create]
     collection do
