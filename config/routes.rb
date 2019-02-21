@@ -15,7 +15,6 @@ Rails.application.routes.draw do
       get "progress"
       get "complete"
       get "purchase"
-      get "purchased"
       get "logout"
     end
   end
