@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, except: :new
-  layout  "session", except: [:index, :show, :edit, :logout, :selling, :progress, :complete, :purchase, :purchased]
+  layout  "session", except: [:index, :show, :edit, :logout, :selling, :progress, :complete, :purchase]
 
   def index
     @purchase = Item.item_buyer_list(2, current_user.id)
