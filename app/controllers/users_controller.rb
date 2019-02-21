@@ -31,7 +31,7 @@ class UsersController < ApplicationController
   def purchase
     @purchase = Item.item_buyer_list(trading_status[:progress], current_user.id)
     @purchased = Item.item_buyer_list(trading_status[:complete], current_user.id)
-    @page = params[:format].to_i
+    @select_page = params[:format]
   end
 
   def logout
