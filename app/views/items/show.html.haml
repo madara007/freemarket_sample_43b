@@ -1,8 +1,6 @@
 - breadcrumb :item_show, @item
 .show-item
-  / 商品の詳細
   .show-item__main
-
     %h1.show-item__main--name
       = @item.name
     .show-item__main--content
@@ -17,11 +15,8 @@
           - @item.item_photos.each_with_index do |photo, number|
             .image-sub
               = image_tag photo.photo.to_s, class: "mini", id: "mini#{number+1}"
-
-      / 出品の詳細テーブル
       .item-detail-table
         = render "items/item-info"
-
     .show-item__main-price
       ¥
       = number_with_delimiter(@item.price)
@@ -29,17 +24,14 @@
         (税込)
         %span.postage
           送料込み
-
-    / 出品者のコメント
     .show-item__main-exhibitor-comment
-    - if @item.trading == 1
-      = link_to "購入画面に進む",credit_path(@item),class: "show-item__main-buy-btn"
     - if @item.trading > 1
       .show-item__main-buy-btn.buy-after
         売り切れました
+    - elsif (current_user || sns_user) && (current_user.id || sns_user.id) != @item.saler_id
+      = link_to "購入画面に進む",credit_path(@item),class: "show-item__main-buy-btn"
     %p.show-item__main-exhibitor-comment
       = @item.description
-
     .show-item__main-btn-container
       #like-link-item.id.show-item__main-btn-container-left
         = render @item
@@ -49,7 +41,6 @@
       = link_to "", class: "show-item__main-btn-container-right" do
         = fa_icon "lock", class: ""
         %span あんしん・あんぜんへの取り組み
-
   - if (current_user || sns_user) && (current_user.id || sns_user.id) == @item.saler_id
     .button-list
       = link_to "商品の編集","", class: "button-list__edit"
@@ -69,8 +60,6 @@
     .show-item__user-comment
       .show-item__user-comment--box
         = render "items/comment-box"
-
-  / SNSボタンの欄
   .show-item__sns
     %ul.show-item__sns-contents
       %li.sns-box
