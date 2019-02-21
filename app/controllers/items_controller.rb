@@ -9,12 +9,18 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @item.item_photos.build
+    4.times {@item.item_photos.build}
   end
 
   def create
     @item = Item.new(item_params)
-    @item.save
+    if @item.save
+      render "new"
+    else
+      t = 4 - @item.item_photos.length
+      t.times {@item.item_photos.build}
+      render "new"
+    end
   end
 
   def show
