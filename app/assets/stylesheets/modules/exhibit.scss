@@ -482,11 +482,11 @@
   }
 }
 
-.is-fixed{
+.is-fixed {
   overflow: hidden;
 }
-.opacity_box{
-  &.is-visible{
+.opacity_box {
+  &.is-visible {
     visibility: visible;
   }
   opacity: 0.6;
@@ -513,29 +513,26 @@
 .brands {
   padding: 10px 0;
 }
-.brands:hover{
+.brands:hover {
   background-color: #66CCFF;
 }
 
 
-.box-display-none{
+.box-display-none {
   display: none;
 }
 
-.image-box-1{
-  .image-box-2{
+.image-box-1 {
+  .image-box-2 {
     padding-top: 20px;
     height: 108px;
     margin-right: 10px;
     background: #f5f5f5;
-    .img{
-
-    }
   }
-  .edit-delete-button{
+  .edit-delete-button {
     font-size: 14px;
     width: 150px;
-    .edit-button{
+    .edit-button {
       display: inline-block;
       width: 50%;
       background: #f5f5f5;
@@ -545,7 +542,7 @@
       text-decoration: none;
       float: left;
     }
-    .delete-button{
+    .delete-button {
       border-left: 1px solid #eee;
       display: inline-block;
       width: calc(50% - 1px);
