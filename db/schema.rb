@@ -11,6 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2019_02_19_022139) do
+
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
@@ -116,10 +117,8 @@ ActiveRecord::Schema.define(version: 2019_02_19_022139) do
   create_table "scores", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "type", null: false
     t.bigint "user_id"
-    t.bigint "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_scores_on_item_id"
     t.index ["user_id"], name: "index_scores_on_user_id"
   end
 
@@ -194,7 +193,6 @@ ActiveRecord::Schema.define(version: 2019_02_19_022139) do
   add_foreign_key "items", "sizes"
   add_foreign_key "likes", "items"
   add_foreign_key "likes", "users"
-  add_foreign_key "scores", "items"
   add_foreign_key "scores", "users"
   add_foreign_key "snslikes", "items"
   add_foreign_key "snslikes", "snscredentials"

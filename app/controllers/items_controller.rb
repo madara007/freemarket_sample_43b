@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :get_item, only: [:show, :destroy]
   layout  "session", except: [:index, :show]
   layout false, only: [:search]
 
@@ -19,7 +20,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
     @comments = @item.comments.includes(:user)
     saler = @item.saler_id
     @score = Score.where(user_id: saler)
@@ -34,6 +34,13 @@ class ItemsController < ApplicationController
   end
 
   def update
+  end
+
+  def destroy
+    if @item.saler_id == (current_user.id || sns_user.id)
+      @item.destroy
+    end
+    redirect_to :selling_users
   end
 
   def search
@@ -64,5 +71,9 @@ class ItemsController < ApplicationController
     brand = Brand.find_by(name: params[:item][:brand_name])
     brand_id = (brand.present?) ? (brand.id) : nil
     params.require(:item).permit(:name, :price, :description, :category_id, :shipping_date_id, :condition_id, :region_id, :delivery_fee_id, :ship_method_id, :brand_id, :size_id, item_photos_attributes: [:id, :photo]).merge(saler_id: current_user.id, brand_id: brand_id)
+  end
+
+  def get_item
+    @item = Item.find(params[:id])
   end
 end
