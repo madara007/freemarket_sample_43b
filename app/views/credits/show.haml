@@ -16,16 +16,16 @@
           .buy-item__info--form
             - if @item.delivery_fee.id ==  1
               %p.buy-price.bold
-                ¥ 
+                ¥
                 = number_with_delimiter(@item.price)
                 %span.buy-price__tax
                 送料込み
             - else
               %p.buy-price.bold
-                ¥ 
+                ¥
                 = number_with_delimiter(@item.price)
                 %span.buy-price__tax
-  
+
               .buy-accordion
                 .buy-accordion__list
                   ポイントを使う
