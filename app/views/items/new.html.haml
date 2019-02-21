@@ -22,16 +22,15 @@
                       %p.sell-content__image-upload-box--content
                         最大4枚までアップロードできます
                         .sell-content__image-upload-box--sell-dropbox-container.clearfix.state-image-number-4
-                          - 4.times do |i|
-                            = f.fields_for :item_photos do |fin|
-                              = fin.label :photo, class: 'form-mask-image' do
-                                .form-mask-image{class: "photos#{i + 1}"}
-                                  .sell-upload-drop-box{class: "box#{i + 1}"}
-                                    = fin.file_field :photo, class: 'hiddens'
-                                    %pre.sell-upload-drop-box__visible-pc
-                                      ドラッグアンドドロップ
-                                      %br>/
-                                      またはクリックしてファイルをアップロード
+                          = f.fields_for :item_photos do |item_photo|
+                            = item_photo.label :photo, class: 'form-mask-image box-display-none' do
+                              .form-mask-image{class: "photos"}
+                                .sell-upload-drop-box{class: "box"}
+                                  = item_photo.file_field :photo, class: 'hiddens'
+                                  %pre.sell-upload-drop-box__visible-pc
+                                    ドラッグアンドドロップ
+                                    %br>/
+                                    またはクリックしてファイルをアップロード
                   .sell-content
                     .sell-content__name
                       %label
