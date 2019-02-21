@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, except: :new
   layout  "session", except: [:index, :show, :edit, :logout, :selling, :progress, :complete, :purchase]
-
+  before_action :trading_status, only: [:index,:selling,:progress,:complete,:purchase]
   def index
     @purchase = Item.item_buyer_list(2, current_user.id)
     @purchased = Item.item_buyer_list(3, current_user.id)
@@ -17,20 +17,20 @@ class UsersController < ApplicationController
   end
 
   def selling
-    @items = Item.item_saler_list(1, current_user.id)
+    @items = Item.item_saler_list(trading_status[:selling], current_user.id)
   end
 
   def progress
-    @items = Item.item_saler_list(2, current_user.id)
+    @items = Item.item_saler_list(trading_status[:progress], current_user.id)
   end
 
   def complete
-    @items = Item.item_saler_list(3, current_user.id)
+    @items = Item.item_saler_list(trading_status[:complete], current_user.id)
   end
 
   def purchase
-    @purchase = Item.item_buyer_list(2, current_user.id)
-    @purchased = Item.item_buyer_list(3, current_user.id)
+    @purchase = Item.item_buyer_list(trading_status[:progress], current_user.id)
+    @purchased = Item.item_buyer_list(trading_status[:complete], current_user.id)
     @page = params[:format].to_i
   end
 
@@ -46,5 +46,10 @@ class UsersController < ApplicationController
     else
       redirect_to auth_failure_path
     end
+  end
+
+  private
+  def trading_status
+    trading_status = {stopping: 0, selling: 1, progress: 2, complete: 3}
   end
 end
