@@ -9,9 +9,6 @@
       .item-image
         .item-image-main
           .big-photo-box
-            - if @item.trading > 1
-              .sold-box
-                .sold-box__name SOLD
           .big-photo-box
             = render "sold-tag", item: @item
             - @item.item_photos.each_with_index do |photo, number|
@@ -72,11 +69,6 @@
     .show-item__user-comment
       .show-item__user-comment--box
         = render "items/comment-box"
-  .show-item__next
-    = link_to "", class: "show-item__next-item-left" do
-      < ネイル用品
-    = link_to "", class: "show-item__next-item-right" do
-      amiibo アミーボ splatoon トリプルセット >
 
   / SNSボタンの欄
   .show-item__sns
