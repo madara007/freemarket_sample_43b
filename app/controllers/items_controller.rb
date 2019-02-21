@@ -5,8 +5,16 @@ class ItemsController < ApplicationController
   layout false, only: [:search]
 
   def index
-    pickup_categories(1, 138, 259, 683)
-    pickup_brands(2440, 3802, 4790, 6142)
+    @lady = Category.ladies
+    @menz = Category.menz
+    @baby = Category.baby
+    @cosume = Category.cosume
+    pickup_categories(@lady, @menz, @baby, @cosume)
+    @chanel = Brand.chanel
+    @nike = Brand.nike
+    @puma = Brand.puma
+    @vuitton = Brand.vuitton
+    pickup_brands(@chanel, @nike, @puma, @vuitton)
   end
 
   def new
@@ -60,10 +68,10 @@ class ItemsController < ApplicationController
   private
 
   def pickup_categories(women, menz, baby, cosume)
-    @ladies = Item.includes(:likes, :snslikes).get_items_category(Category.get_categorys_lineup(women))
-    @menzes = Item.includes(:likes, :snslikes).get_items_category(Category.get_categorys_lineup(menz))
-    @babies = Item.includes(:likes, :snslikes).get_items_category(Category.get_categorys_lineup(baby))
-    @cosumes = Item.includes(:likes, :snslikes).get_items_category(Category.get_categorys_lineup(cosume))
+    @ladies = Item.includes(:likes, :snslikes).get_items_category(women.self_and_descendants)
+    @menzes = Item.includes(:likes, :snslikes).get_items_category(menz.self_and_descendants)
+    @babies = Item.includes(:likes, :snslikes).get_items_category(baby.self_and_descendants)
+    @cosumes = Item.includes(:likes, :snslikes).get_items_category(cosume.self_and_descendants)
   end
 
   def pickup_brands(chanel, nike, puma, vuitton)
