@@ -8,7 +8,7 @@
     .show-item__main--content
       .item-image
         .item-image-main
-          .big-photo-box 
+          .big-photo-box
             - if @item.trading > 1
               .sold-box
                 .sold-box__name SOLD
@@ -52,21 +52,31 @@
       = link_to "", class: "show-item__main-btn-container-right" do
         = fa_icon "lock", class: ""
         %span あんしん・あんぜんへの取り組み
-
-  / ユーザー間のコメント一覧
-  .show-item__user-comment
-    .show-item__user-comment--box
-      = render "items/comment-box"
-
-      / コメント入力欄
-      - if current_user || sns_user
-        = form_with( url: item_comments_path(@item), local: true, method: :post ) do |f|
-          .comment-box
-            .comment-detail
-              %p
-                相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-            = f.text_area :comment, class: 'comment'
-            = f.submit type: "submit", value: "コメントする", class: "comment-btn"
+  - if (current_user || sns_user) && (current_user.id || sns_user.id) == @item.saler_id
+    .button-list
+      = link_to "商品の編集","", class: "button-list__edit"
+      %p.button-list__center or
+      = link_to "出品を一旦停止する","", class: "button-list__stop"
+      = link_to "この商品を削除する", "/items/#{@item.id}", class: "button-list__delite test-popup-link", method: :delete, data: { confirm: '削除すると二度と復活できません。本当に削除しますか？' }
+    .show-item__user-comment
+      .show-item__user-comment--box
+        = render "items/comment-box"
+        = render "items/add-comment"
+  - elsif current_user || sns_user
+    .show-item__user-comment
+      .show-item__user-comment--box
+        = render "items/comment-box"
+        = render "items/add-comment"
+  - elsif @comments.length >= 1
+    .show-item__user-comment
+      .show-item__user-comment--box
+        = render "items/comment-box"
+  .show-item__next
+    = link_to "", class: "show-item__next-item-left" do
+      < ネイル用品
+    = link_to "", class: "show-item__next-item-right" do
+      amiibo アミーボ splatoon トリプルセット >
+>>>>>>> origin/master
 
   / SNSボタンの欄
   .show-item__sns

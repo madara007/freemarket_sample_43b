@@ -1,0 +1,7 @@
+= form_with( url: item_comments_path(@item), local: true, method: :post ) do |f|
+  .comment-box
+    .comment-detail
+      %p
+        相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+    = f.text_area :comment, class: 'comment'
+    = f.submit type: "submit", value: "コメントする", class: "comment-btn"
