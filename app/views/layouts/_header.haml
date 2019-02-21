@@ -74,10 +74,10 @@
                   = link_to "出品した商品 - 売却済み", complete_users_path, class: "nav"
                   = fa_icon "angle-right", class: "angle"
                 %li.mymenu__link--nav
-                  = link_to "購入した商品 - 取引中", purchase_users_path, class: "nav"
+                  = link_to "購入した商品 - 取引中", purchase_users_path("progress"), class: "nav"
                   = fa_icon "angle-right", class: "angle"
                 %li.mymenu__link--nav
-                  = link_to "購入した商品 - 過去の取引", purchased_users_path, class: "nav"
+                  = link_to "購入した商品 - 過去の取引", purchase_users_path("complete"), class: "nav"
                   = fa_icon "angle-right", class: "angle"
 
           .nav-box__info
