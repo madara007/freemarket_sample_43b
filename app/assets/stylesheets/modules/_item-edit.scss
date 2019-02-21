@@ -1,18 +1,18 @@
 .button-list {
-  margin: 24px 0 24px 0;
-  background-color:#fff;
+  margin: 24px 0;
+  background-color: #fff;
   width: 100%;
   padding: 15px 0;
   &__edit {
     background: #ea352d;
     color: #fff;
-    width:90%;
+    width: 90%;
     display: block;
     line-height: 48px;
     font-size: 14px;
     border: 1px solid transparent;
     text-align: center;
-    margin-left:35px;
+    margin-left: 35px;
   }
   &__center {
     text-align: center;
@@ -31,15 +31,15 @@
     display: block;
   }
   &__delite {
-  background: #aaa;
-  color: #fff;
-  width:90%;
-  border: 1px solid #ea352d;
-  display: block;
-  line-height: 48px;
-  font-size: 14px;
-  border: 1px solid transparent;
-  text-align: center;
-  margin-left:35px;
+    background: #aaa;
+    color: #fff;
+    width: 90%;
+    border: 1px solid #ea352d;
+    display: block;
+    line-height: 48px;
+    font-size: 14px;
+    border: 1px solid transparent;
+    text-align: center;
+    margin-left: 35px;
   }
 }
