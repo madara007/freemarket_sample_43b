@@ -14,6 +14,9 @@ class Item < ApplicationRecord
   has_many :snslikes
   has_many :snscredential
 
+  scope :item_saler_list, -> (trading, current_user) { where(trading: trading, saler_id: current_user).order(updated_at: "DESC") }
+  scope :item_buyer_list, -> (trading, current_user) { where(trading: trading, buyer_id: current_user).order(updated_at: "DESC") }
+
   def like_user(id)
     likes.find_by(user_id: id)
   end
