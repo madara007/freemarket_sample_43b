@@ -3,7 +3,8 @@ class UsersController < ApplicationController
   layout  "session", except: [:index, :show, :edit, :logout, :selling, :progress, :complete, :purchase, :purchased]
 
   def index
-    @items = Item.where(trading: 2, buyer_id: current_user.id).order(id: "DESC")
+    @purchase = Item.where(trading: 2, buyer_id: current_user.id).order(id: "DESC")
+    @purchased = Item.where(trading: 3, buyer_id: current_user.id).order(id: "DESC")
   end
 
   def new
@@ -28,11 +29,9 @@ class UsersController < ApplicationController
   end
 
   def purchase
-    @items = Item.where(trading: 2, buyer_id: current_user.id).order(id: "DESC")
-  end
-
-  def purchased
-    @items = Item.where(trading: 3, buyer_id: current_user.id).order(id: "DESC")
+    @purchase = Item.where(trading: 2, buyer_id: current_user.id).order(id: "DESC")
+    @purchased = Item.where(trading: 3, buyer_id: current_user.id).order(id: "DESC")
+    @page = params[:format].to_i
   end
 
   def logout
