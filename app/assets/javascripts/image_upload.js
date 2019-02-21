@@ -5,9 +5,6 @@ $(function() {
     previewFile(event,$preview)
     $(this).parent().addClass("box-display-none");
     $(this).parent().parent().parent().addClass("box-display-none");
-    // $(this).parent().parent().parent().next().removeClass("box-display-none");
-    // $(this).parent().parent().parent().next().children().children().removeClass("box-display-none");
-    // console.log($(".image-box-1:last"))
     $(this).parent().parent().parent().next('.form-mask-image').removeClass("box-display-none");
     $(this).parent().parent().parent().next('.form-mask-image').children().children().removeClass("box-display-none");
   })
@@ -43,7 +40,6 @@ $(function() {
           c.val('');
           $(this).parent().parent().prev().children().children().children("").replaceWith(c);
           c.remove()
-          // $(this).parent().parent().prev().children().children().removeClass("box-display-none")
           $(this).parent().parent().prev().addClass("box-display-none")
 
           $(this).parent().parent().prev().appendTo('.sell-content__image-upload-box--sell-dropbox-container');
