@@ -3,8 +3,8 @@ class UsersController < ApplicationController
   layout  "session", except: [:index, :show, :edit, :logout, :selling, :progress, :complete, :purchase, :purchased]
 
   def index
-    @purchase = Item.where(trading: 2, buyer_id: current_user.id).order(updated_at: "DESC")
-    @purchased = Item.where(trading: 3, buyer_id: current_user.id).order(updated_at: "DESC")
+    @purchase = Item.item_buyer_list(2, current_user.id)
+    @purchased = Item.item_buyer_list(3, current_user.id)
   end
 
   def new
@@ -17,20 +17,20 @@ class UsersController < ApplicationController
   end
 
   def selling
-    @items = Item.where(trading: 1, saler_id: current_user.id).order(updated_at: "DESC")
+    @items = Item.item_saler_list(1, current_user.id)
   end
 
   def progress
-    @items = Item.where(trading: 2, saler_id: current_user.id).order(updated_at: "DESC")
+    @items = Item.item_saler_list(2, current_user.id)
   end
 
   def complete
-    @items = Item.where(trading: 3, saler_id: current_user.id).order(updated_at: "DESC")
+    @items = Item.item_saler_list(3, current_user.id)
   end
 
   def purchase
-    @purchase = Item.where(trading: 2, buyer_id: current_user.id).order(updated_at: "DESC")
-    @purchased = Item.where(trading: 3, buyer_id: current_user.id).order(updated_at: "DESC")
+    @purchase = Item.item_buyer_list(2, current_user.id)
+    @purchased = Item.item_buyer_list(3, current_user.id)
     @page = params[:format].to_i
   end
 
