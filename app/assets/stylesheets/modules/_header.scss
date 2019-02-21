@@ -76,42 +76,42 @@
           }
         }
       }
-      .user-nav {
+      .nav-box {
+        width: 350px;
         @include f-right;
-        &__button {
-          li {
+        .mypage-nav {
+          width: 120px;
+          @include f-left;
+          position: relative;
+          @include mymenu;
+          &__avatar {
             @include f-left;
-          }
-          &--mypage {
-            .mypage {
-              &-avatar {
-                @include f-left;
-                  img {
-                    @include circle;
-                    height: 32px;
-                    width: 32px;
-                  }
-              }
-              &-title {
-                @include f-left;
-                margin-left: 8px;
-              }
+            img {
+              @include circle;
+              height: 32px;
+              width: 32px;
             }
           }
-          &--info {
-            padding-left: 16px;
-            position: relative;
-            .fa-bell-o {
-              @include fa-icon();
-              font-size: 16px;
-            }
-            @include count-icon;
+          &-title {
+            @include f-left;
+            margin-left: 8px;
           }
-          &--playlist {
-            padding-left: 16px;
-            .fa-check {
-              font-size: 16px;
-            }
+        }
+        &__info {
+          @include f-left;
+          padding-left: 16px;
+          position: relative;
+          .fa-bell-o {
+            @include fa-icon();
+            font-size: 16px;
+          }
+          @include count-icon;
+        }
+        &__playlist {
+          @include f-left;
+          padding-left: 16px;
+          .fa-check {
+            font-size: 16px;
           }
         }
       }
