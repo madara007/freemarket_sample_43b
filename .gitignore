@@ -27,3 +27,6 @@
 /config/master.key
 config/secrets.yml
 public/uploads/*
+
+
+app/assets/javascripts/exhibit-complete.js

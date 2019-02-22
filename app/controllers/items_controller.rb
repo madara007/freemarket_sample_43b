@@ -2,7 +2,6 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :get_item, only: [:show, :destroy]
   layout  "session", except: [:index, :show]
-  layout false, only: [:search]
 
   def index
     @lady = Category.ladies
@@ -25,7 +24,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      render "new"
+      redirect_to root_path
     else
       t = 4 - @item.item_photos.length
       t.times {@item.item_photos.build}
@@ -61,7 +60,7 @@ class ItemsController < ApplicationController
     @brands = Brand.where('name LIKE(?)', "%#{params[:name]}%")
     respond_to do |format|
       format.html
-      format.json
+      format.json { render :layout => false }
     end
   end
 
