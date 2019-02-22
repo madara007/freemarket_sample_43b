@@ -34,7 +34,7 @@
       = @item.description
     .show-item__main-btn-container
       #like-link-item.id.show-item__main-btn-container-left
-        = render @item
+        = render partial: 'likes/like', locals:{ item: @item }
         = link_to "", class: "report" do
           = fa_icon "flag", class: ""
           %span 不適切な商品の報告
