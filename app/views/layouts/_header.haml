@@ -37,7 +37,7 @@
             = link_to "ブランド一覧", brands_path, class: "pulldown-brand__list--nav"
 
 
-      - if user_signed_in? || sns_user
+      - if current_user
         .nav-box
           %nav.mypage-nav
             = link_to users_path do
@@ -92,8 +92,62 @@
             = link_to "" , class: "" do
               = fa_icon "check"
               %span やることリスト
+      - elsif sns_user
+        .nav-box
+          %nav.mypage-nav
+            = link_to users_path do
+              %figure.mypage-nav__avatar
+                .mypage-nav__avatar--image
+                  = image_tag("logo/member_photo_noimage_thumb.png")
+              .mypage-title
+                マイページ
+            .mymenu
+              .mymenu__box
+                .mymenu__box--image
+                  = image_tag("user-bg.jpg", class: "back-image")
+                = image_tag("logo/member_photo_noimage_thumb.png", class: "avator")
+                .mymenu__box--describe
+                  %h2
+                    = sns_user.name
+                  .describe__box
+                    .score
+                      評価
+                      %span
+                        = sns_user.name
+                    .selling-item
+                      出品数
+                      %span
+                        = sns_user.name
+              %ul.mymenu__link
+                %li.mymenu__link--nav
+                  = link_to "出品した商品 - 出品中", selling_users_path, class: "nav"
+                  = fa_icon "angle-right", class: "angle"
+                %li.mymenu__link--nav
+                  = link_to "出品した商品 - 取引中", progress_users_path, class: "nav"
+                  = fa_icon "angle-right", class: "angle"
+                %li.mymenu__link--nav
+                  = link_to "出品した商品 - 売却済み", complete_users_path, class: "nav"
+                  = fa_icon "angle-right", class: "angle"
+                %li.mymenu__link--nav
+                  = link_to "購入した商品 - 取引中", purchase_users_path, class: "nav"
+                  = fa_icon "angle-right", class: "angle"
+                %li.mymenu__link--nav
+                  = link_to "購入した商品 - 過去の取引", purchased_users_path, class: "nav"
+                  = fa_icon "angle-right", class: "angle"
 
-      - else
+          .nav-box__info
+            = link_to "" , class: "" do
+              = fa_icon "bell-o"
+
+              / if 件数があればだす
+              %span.count-icon 9
+
+              %span お知らせ
+          .nav-box__playlist
+            = link_to "" , class: "" do
+              = fa_icon "check"
+              %span やることリスト
+      -else
         %nav.login-nav
           %ul.login-nav__button
             %li.login-nav__button--login
