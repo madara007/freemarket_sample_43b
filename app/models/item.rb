@@ -26,7 +26,7 @@ class Item < ApplicationRecord
   validates :region_id, presence: true
   validates :delivery_fee_id, presence: true
   validates :ship_method_id, presence: true
-  validates :item_photos, length: { minimum: 1}
+  validates :item_photos, length: { minimum: 1 }
 
   scope :item_saler_list, -> (trading, current_user) { where(trading: trading, saler_id: current_user).order(updated_at: "DESC") }
   scope :item_buyer_list, -> (trading, current_user) { where(trading: trading, buyer_id: current_user).order(updated_at: "DESC") }
