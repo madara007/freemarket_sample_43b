@@ -7,8 +7,13 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
-    @children = get_categories_children
-    @descendants = get_categories_descendants
+    if @category.root?
+      @select_items = Item.where(category: get_categories_descendants).includes(:likes).order("updated_at DESC")
+    elsif @category.leaf?
+      @select_items = Item.where(category: @category).includes(:likes).order("updated_at DESC")
+    else
+      @select_items = Item.where(category: get_categories_children).includes(:likes).order("updated_at DESC")
+    end
   end
 
   def search
