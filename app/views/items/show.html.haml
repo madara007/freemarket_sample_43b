@@ -7,7 +7,6 @@
       .item-image
         .item-image-main
           .big-photo-box
-          .big-photo-box
             = render "sold-tag", item: @item
             - @item.item_photos.each_with_index do |photo, number|
               = image_tag photo.photo.to_s, class: "bigs", id: "big#{number+1}"
