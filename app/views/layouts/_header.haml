@@ -13,17 +13,18 @@
       %nav.category-nav
         カテゴリーから探す
         %ul.pulldown-parent
-          - @category_roots.includes(:children).each do |category|
-            %li.pulldown-parent__list
-              = link_to category.name_i18n, category_path(category), class: "pulldown-parent__list--nav"
-              %ul.pulldown-child
-                - category.children.includes(:children).each do |child|
-                  %li.pulldown-child__list{id: child.id}
-                    = link_to child.name_i18n, category_path(child), class: "pulldown-child__list--nav"
-                    %ul.pulldown-descendant
-                      - child.children.includes(:children).each do |descendant|
-                        %li.pulldown-descendant__list
-                          = link_to descendant.name_i18n, category_path(descendant), class: "pulldown-child__list--nav"
+          - @category_roots.each do |category|
+            - cache category do
+              %li.pulldown-parent__list
+                = link_to category.name_i18n, category_path(category), class: "pulldown-parent__list--nav"
+                %ul.pulldown-child
+                  - category.children.each do |child|
+                    %li.pulldown-child__list{id: child.id}
+                      = link_to child.name_i18n, category_path(child), class: "pulldown-child__list--nav"
+                      %ul.pulldown-descendant
+                        - child.children.each do |descendant|
+                          %li.pulldown-descendant__list
+                            = link_to descendant.name_i18n, category_path(descendant), class: "pulldown-child__list--nav"
           %li.pulldown-parent__list
             = link_to "カテゴリー一覧", categories_path, class: "pulldown-parent__list--nav"
 

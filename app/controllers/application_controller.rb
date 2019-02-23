@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   end
 
   def get_category
-    @category_roots = Category.roots
+    @category_roots = Category.roots.includes(:children)
   end
 
   def get_brand
