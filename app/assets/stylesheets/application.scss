@@ -19,6 +19,12 @@
 @import "modules/whole/footer";
 @import "modules/whole/app-banner";
 
+@import "modules/user/users";
+@import "modules/user/user_side_bar";
+@import "modules/user/user_edit";
+@import "modules/user/user-items";
+@import "modules/user/user-identity";
+
 @import "modules/bread-crumbs";
 @import "modules/brand-index";
 @import "modules/show-page";
@@ -32,12 +38,10 @@
 @import "modules/brand-index";
 @import "modules/show-page";
 @import "modules/categories";
-@import "modules/user-items";
 @import "modules/purchase-items";
 @import "modules/regions-index";
 @import "modules/signout";
 @import "modules/index";
-@import "modules/user-identity";
 @import "modules/item-show";
 @import "modules/credit";
 @import "modules/session";
@@ -48,6 +52,3 @@
 @import "modules/score";
 @import "modules/item-edit";
 @import "like";
-@import "users";
-@import "user_side_bar";
-@import "user_edit";
