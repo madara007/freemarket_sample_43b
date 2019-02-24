@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, except: :new
-  layout  "session", only: [:new, :create]
+  layout "logo-layout", only: [:new, :create]
   before_action :trading_status, except: [:new, :edit, :show, :logout, :create]
   def index
     @purchase = Item.item_buyer_list(trading_status[:progress], current_user.id)
