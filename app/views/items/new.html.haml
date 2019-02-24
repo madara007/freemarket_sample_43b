@@ -1,9 +1,5 @@
 .exhibit-body
   .exhibit-body__container
-    %header.exhibit-body__container--header
-      %h1
-        = link_to '' do
-          = image_tag("//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?1966943736", class: "mercari-image", alt: "mercari")
     %main.exhibit-body__container--main
       %section.main-container
         .main-container__sell-container
@@ -131,21 +127,6 @@
                     =f.submit '出品する' ,class:'btn-red'
                     =link_to('もどる','',class:'btn-default btn-gray')
               .overlay
-    %footer.exhibit-body__container--footer
-      .footer-content
-        %nav.footer-content__rule-link
-          %ul.clearfix
-            %li
-              = link_to 'プライバシーポリシー', 'https://www.mercari.com/jp/privacy/' ,class:'footer-content__rule-link--agreement'
-            %li
-              = link_to 'メルカリ利用規約','https://www.mercari.com/jp/tos/',class:'footer-content__rule-link--agreement'
-            %li
-              =link_to '特定商取引に関する表記','https://www.mercari.com/jp/tokutei/',class:'footer-content__rule-link--agreement'
-        = link_to 'https://www.mercari.com/jp/',class:'footer-content__mercari-footer-logo' do
-          = image_tag('//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?1966943736"')
-        %p.footer-content__copyright
-          %small.footer-content__copyright--content © 2019 Mercari
-
 .modal
   .modal__inner
     .modal__inner--box
