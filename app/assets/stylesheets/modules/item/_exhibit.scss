@@ -8,7 +8,6 @@
   line-height: 1;
   background: rgb(245, 245, 245);
   &__container {
-    padding: 0 0 220px;
     background-repeat: no-repeat;
     margin: 0;
     &--header {
@@ -32,7 +31,6 @@
       background-repeat: no-repeat;
       margin: 0;
       padding: 0;
-
       .main-container {
         width: 700px;
         margin: 0 auto;
@@ -49,7 +47,6 @@
           }
           &__form{
             width: 100%;
-
             .sell-content {
               width: 620px;
               padding: 40px;
@@ -122,24 +119,24 @@
                   }
                 }
               }
-.photos2,.photos3,.photos4 {
-  display: none;
-}
-.box1{
-   width: 540px;
-}
-.box2 {
-  width: 385px;
-  margin-left: 5px;
-}
-.box3 {
-  width: 230px;
-  margin-left: 5px;
-}
-.box4 {
-  width: 75px;
-  margin-left: 5px;
-}
+              .photos2,.photos3,.photos4 {
+                display: none;
+              }
+              .box1{
+                 width: 540px;
+              }
+              .box2 {
+                width: 385px;
+                margin-left: 5px;
+              }
+              .box3 {
+                width: 230px;
+                margin-left: 5px;
+              }
+              .box4 {
+                width: 75px;
+                margin-left: 5px;
+              }
               &__name {
                 width: 620px;
                 &--input {
@@ -175,15 +172,11 @@
                 float: right;
                 width: 400px;
                 margin: 0;
-
                 .margin-top {
                   margin-top: 40px;
                 }
-
-
-
                 &--form-group {
-                  .input-brand{
+                  .input-brand {
                     width: 100%;
                     margin: 8px 0 0;
                     height: 48px;
@@ -200,7 +193,7 @@
                     margin: 8px 0 0;
                     position: relative;
                     background: #fff;
-                    .select-default{
+                    .select-default {
                       width: 100%;
                       position: relative;
                       z-index: 2;
@@ -284,12 +277,7 @@
                 text-align: center;
                 text-decoration: none;
               }
-
-
-
-
             }
-
             .sell-btn-box {
               &__notion {
                 margin: 0 0 0;
@@ -331,13 +319,9 @@
                 text-decoration: none;
               }
             }
-
-
           }
         }
       }
-
-
     }
     &--footer {
       position: absolute;
@@ -350,7 +334,7 @@
       .footer-content{
         &__rule-link {
           text-decoration: none;
-          li{
+          li {
             display: inline-block;
             margin: 0 16px 0 0;
           }
@@ -369,16 +353,11 @@
         }
         &__copyright {
           margin: 8px 0 0;
-          &--content{
+          &--content {
             font-size: 12px;
           }
         }
       }
-
-
-
-
-
     }
   }
   .clearfix::after {
@@ -396,7 +375,7 @@
     background-color: #ea352d;
     font-weight: 600;
   }
-  .form-no-require{
+  .form-no-require {
     margin: 0 0 0 8px;
     padding: 2px 4px;
     border-radius: 2px;
@@ -427,7 +406,7 @@
   height: 100px;
 }
 
-.modal{
+.modal {
   z-index: 1000;
   position: fixed;
   height: 100%;
@@ -435,27 +414,27 @@
   top: 0;
   left: 0;
   visibility: hidden;
-  &.is-visible{
+  &.is-visible {
     visibility: visible;
   }
-  &__inner{
+  &__inner {
   background-color: #fff;
   width: 600px;
   height: 287px;
   margin: 20px auto;
   position: relative;
   color: #000;
-    &--box{
-      .modal-head{
+    &--box {
+      .modal-head {
         font-size: 16px;
         text-align: center;
         line-height: 80px;
         font-weight: 700;
       }
-      .sell-modal-body{
+      .sell-modal-body {
         border-top: 1px solid #eee;
         padding: 40px;
-        .btn-red-2{
+        .btn-red-2 {
           margin: 40px auto 0;
           background: #ea352d;
           border: 1px solid #ea352d;
@@ -466,7 +445,7 @@
           font-size: 14px;
           text-align: center;
         }
-        .text-center{
+        .text-center {
           margin: 8px 0 0;
           width: 100%;
           .btn-blue{
@@ -517,7 +496,6 @@
   background-color: #66CCFF;
 }
 
-
 .box-display-none {
   display: none;
 }
@@ -555,5 +533,3 @@
     }
   }
 }
-
-
