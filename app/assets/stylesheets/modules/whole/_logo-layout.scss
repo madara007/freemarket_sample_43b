@@ -2,13 +2,14 @@
   &__logo-layout {
     &--header {
       height: 128px;
+      text-align: center;
       .logo {
         padding-top: 40px;
-        margin: 0 auto;
-        display: block;
+        display: inline-block;
         height: 49px;
         width: 185px;
       }
+      @include progress-bar();
     }
     &--footer {
       width: 456px;
