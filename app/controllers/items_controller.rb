@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :get_item, only: [:show, :destroy]
-  layout  "session", except: [:index, :show]
+  layout "logo-layout", except: [:index, :show]
 
   def index
     @lady = Category.ladies
