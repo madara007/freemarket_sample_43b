@@ -1,12 +1,4 @@
 .user-login__page {
-  height: 100%;
-  width: 100%;
-  &--header {
-    height: 128px;
-    .logo {
-      @include mercari-logo();
-    }
-  }
   &--box {
     width: 456px;
     background-color: #fff;
@@ -94,41 +86,6 @@
           color: #0099e8;
         }
       }
-    }
-  }
-  &--footer {
-    height: 220px;
-    width: 456px;
-    margin: 70px auto 0;
-    padding: 60px 0;
-    color: #fff;
-    nav {
-      ul {
-        @include clearfix();
-        font-size: 12px;
-        text-align: center;
-        li {
-          &:first-child {
-            margin: 0;
-          }
-          margin-left: 16px;
-          display: inline-block;
-        }
-      }
-    }
-    .top-link {
-      @include btn();
-      margin-top: 16px;
-      .logo-gray {
-        height: 65px;
-        width: 80px;
-      }
-    }
-    h2 {
-      margin-top: 10px;
-      color: #333;
-      font-size: 12px;
-      text-align: center;
     }
   }
 }
