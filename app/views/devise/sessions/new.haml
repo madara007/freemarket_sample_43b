@@ -1,7 +1,4 @@
 .user-login__page
-  %header.user-login__page--header
-    = link_to root_path, class: "logo" do
-      = image_tag "logo/logo.svg", class: "top-logo"
   .user-login__page--box
     .registration
       %h1 アカウントをお持ちでない方はこちら
@@ -10,8 +7,8 @@
 
     .session
       = link_to "Facebookログイン","/auth/facebook", class: "session-facebook"
-  
-      = link_to "Googleログイン",  "/auth/google_oauth2",class: "session-google" 
+
+      = link_to "Googleログイン",  "/auth/google_oauth2",class: "session-google"
 
     = form_with(model: @user, url: new_user_session_path, method: :post, local: true, class: "login-form") do |form|
       .login-form__inner
@@ -26,18 +23,3 @@
 
         = link_to "", class: "forget-pass" do
           パスワードをお忘れの方
-  .user-login__page--footer
-    %nav
-      %ul
-        %li
-          = link_to "", class: "rule-link" do
-            プライバシーポリシー
-        %li
-          = link_to "", class: "rule-link" do
-            メルカリ利用規約
-        %li
-          = link_to "", class: "rule-link" do
-            特定商取引に関する表記
-    = link_to root_path, class: "top-link" do
-      = image_tag "logo/logo-gray.svg", class: "logo-gray"
-    %h2 © 2019 Mercari
