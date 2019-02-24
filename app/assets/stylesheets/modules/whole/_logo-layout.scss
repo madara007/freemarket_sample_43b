@@ -1,0 +1,48 @@
+.container {
+  &__logo-layout {
+    &--header {
+      height: 128px;
+      .logo {
+        padding-top: 40px;
+        margin: 0 auto;
+        display: block;
+        height: 49px;
+        width: 185px;
+      }
+    }
+    &--footer {
+      width: 456px;
+      margin: 0 auto;
+      padding: 40px 0;
+      color: #fff;
+      nav {
+        ul {
+          @include clearfix();
+          font-size: 12px;
+          text-align: center;
+          li {
+            &:first-child {
+              margin: 0;
+            }
+            margin-left: 16px;
+            display: inline-block;
+          }
+        }
+      }
+      .top-link {
+        @include btn();
+        margin-top: 40px;
+        .logo-gray {
+          height: 65px;
+          width: 80px;
+        }
+      }
+      h2 {
+        margin-top: 10px;
+        color: #333;
+        font-size: 12px;
+        text-align: center;
+      }
+    }
+  }
+}
