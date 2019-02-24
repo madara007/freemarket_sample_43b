@@ -5,15 +5,34 @@
     %title FreemarketSample43b
     = csrf_meta_tags
     = csp_meta_tag
-    = stylesheet_link_tag 'application', media: 'all'
-    %link{href: "https://use.fontawesome.com/releases/v5.6.1/css/all.css", rel:"stylesheet"}
+    = stylesheet_link_tag    'application', media: 'all'
+    %link{href:"https://use.fontawesome.com/releases/v5.6.1/css/all.css", rel:"stylesheet"}
     %script{src: "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"}
+    %script{src: "https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"}
     = javascript_include_tag 'application'
   %body
     .container
       .container__logo-layout--header
         = link_to root_path, class: "logo" do
           = image_tag "logo/logo.svg", class: "top-logo"
+        - if controller_name == "registrations" && action_name == "new"
+          %nav.progress-bar
+            %ol.clearfix
+              %li.active
+                会員情報
+                .progress-status
+              %li.inactive
+                電話番号認証
+                .progress-status
+              %li.inactive
+                お届け先住所入力
+                .progress-status
+              %li.inactive
+                支払い方法
+                .progress-status
+              %li.last
+                完了
+                .progress-status
       = yield
       .container__logo-layout--footer
         %nav
