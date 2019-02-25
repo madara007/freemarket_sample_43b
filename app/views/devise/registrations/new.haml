@@ -8,7 +8,7 @@
             = profile.label :nickname
             %span.require-tag 必須
             = profile.text_field :nickname, autofocus: true, placeholder: "例) メルカリ太郎",class: "field"
-            - @user.errors.full_messages_for(:nickname).each do |error|
+            - @user.errors.full_messages_for(:"profile.nickname").each do |error|
               .span.error-msg
                 = error
           .form-group
@@ -42,28 +42,28 @@
             = profile.label :last_name
             %span.require-tag 必須
             = profile.text_field :last_name, autofocus: true, placeholder: "例) 山田",class: "field"
-            - @user.errors.full_messages_for(:last_name).each do |error|
+            - @user.errors.full_messages_for(:"profile.last_name").each do |error|
               .span.error-msg
                 = error
           .form-group
             = profile.label :first_name
             %span.require-tag 必須
             = profile.text_field :first_name, autofocus: true, placeholder: "例) 彩",class: "field"
-            - @user.errors.full_messages_for(:first_name).each do |error|
+            - @user.errors.full_messages_for(:"profile.first_name").each do |error|
               .span.error-msg
                 = error
           .form-group
             = profile.label :last_name_kana
             %span.require-tag 必須
             = profile.text_field :last_name_kana, autofocus: true, placeholder: "例) ヤマダ",class: "field"
-            - @user.errors.full_messages_for(:last_name_kana).each do |error|
+            - @user.errors.full_messages_for(:"profile.last_name_kana").each do |error|
               .span.error-msg
                 = error
           .form-group
             = profile.label :first_name_kana
             %span.require-tag 必須
             = profile.text_field :first_name_kana, autofocus: true, placeholder: "例) アヤ",class: "field"
-            - @user.errors.full_messages_for(:first_name_kana).each do |error|
+            - @user.errors.full_messages_for(:"profile.first_name_kana").each do |error|
               .span.error-msg
                 = error
           .form-group
@@ -75,7 +75,7 @@
                 = fa_icon "angle-down", class: "angle-down", id: "down1"
                 = fa_icon "angle-down", class: "angle-down", id: "down2"
                 = fa_icon "angle-down", class: "angle-down", id: "down3"
-              - @user.errors.full_messages_for(:birthday).each do |error|
+              - @user.errors.full_messages_for(:"profile.birthday").each do |error|
                 .span.error-msg
                   = error
 
