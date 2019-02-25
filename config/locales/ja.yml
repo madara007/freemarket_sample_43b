@@ -1345,6 +1345,20 @@ ja:
     attributes:
       user:
         encrypted_password: パスワード (確認)
+      user/profile:
+        nickname: ニックネーム
+        last_name: 姓
+        first_name: 名
+        last_name_kana: 姓カナ
+        first_name_kana: 名カナ
+        birthday: 生年月日
+      profile:
+        nickname: ニックネーム
+        last_name: 姓 (全角)
+        first_name: 名 (全角)
+        last_name_kana: 姓カナ (全角)
+        first_name_kana: 名カナ (全角)
+        birthday: 生年月日
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
