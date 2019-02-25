@@ -1,22 +1,35 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :get_item, only: [:show, :destroy]
-  layout  "session", except: [:index, :show]
-  layout false, only: [:search]
+  layout "logo-layout", except: [:index, :show]
 
   def index
-    pickup_categories(1, 138, 259, 683)
-    pickup_brands(2440, 3802, 4790, 6142)
+    @lady = Category.ladies
+    @menz = Category.menz
+    @baby = Category.baby
+    @cosume = Category.cosume
+    pickup_categories(@lady, @menz, @baby, @cosume)
+    @chanel = Brand.chanel
+    @nike = Brand.nike
+    @puma = Brand.puma
+    @vuitton = Brand.vuitton
+    pickup_brands(@chanel, @nike, @puma, @vuitton)
   end
 
   def new
     @item = Item.new
-    @item.item_photos.build
+    4.times {@item.item_photos.build}
   end
 
   def create
     @item = Item.new(item_params)
-    @item.save
+    if @item.save
+      redirect_to root_path
+    else
+      t = 4 - @item.item_photos.length
+      t.times {@item.item_photos.build}
+      render "new"
+    end
   end
 
   def show
@@ -47,17 +60,17 @@ class ItemsController < ApplicationController
     @brands = Brand.where('name LIKE(?)', "%#{params[:name]}%")
     respond_to do |format|
       format.html
-      format.json
+      format.json { render :layout => false }
     end
   end
 
   private
 
   def pickup_categories(women, menz, baby, cosume)
-    @ladies = Item.includes(:likes, :snslikes).get_items_category(Category.get_categorys_lineup(women))
-    @menzes = Item.includes(:likes, :snslikes).get_items_category(Category.get_categorys_lineup(menz))
-    @babies = Item.includes(:likes, :snslikes).get_items_category(Category.get_categorys_lineup(baby))
-    @cosumes = Item.includes(:likes, :snslikes).get_items_category(Category.get_categorys_lineup(cosume))
+    @ladies = Item.includes(:likes, :snslikes).get_items_category(women.self_and_descendants)
+    @menzes = Item.includes(:likes, :snslikes).get_items_category(menz.self_and_descendants)
+    @babies = Item.includes(:likes, :snslikes).get_items_category(baby.self_and_descendants)
+    @cosumes = Item.includes(:likes, :snslikes).get_items_category(cosume.self_and_descendants)
   end
 
   def pickup_brands(chanel, nike, puma, vuitton)

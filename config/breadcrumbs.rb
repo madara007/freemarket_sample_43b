@@ -88,12 +88,7 @@ crumb :complete do
 end
 
 crumb :purchase do
-  link "購入した商品・取引中"
-  parent :users
-end
-
-crumb :purchased do
-  link "購入した商品・過去の取引"
+  link "購入した商品"
   parent :users
 end
 

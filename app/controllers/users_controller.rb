@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, except: :new
-  layout  "session", except: [:index, :show, :edit, :logout, :selling, :progress, :complete, :purchase, :purchased]
-
+  layout "logo-layout", only: [:new, :create]
+  before_action :trading_status, except: [:new, :edit, :show, :logout, :create]
   def index
-    @items = Item.where(trading: 2, buyer_id: current_user.id).order(id: "DESC")
+    @purchase = Item.item_buyer_list(trading_status[:progress], current_user.id)
+    @purchased = Item.item_buyer_list(trading_status[:complete], current_user.id)
   end
 
   def new
@@ -16,23 +17,21 @@ class UsersController < ApplicationController
   end
 
   def selling
-    @items = Item.where(trading: 1, saler_id: current_user.id).order(id: "DESC")
+    @items = Item.item_saler_list(trading_status[:selling], current_user.id)
   end
 
   def progress
-    @items = Item.where(trading: 2, saler_id: current_user.id).order(id: "DESC")
+    @items = Item.item_saler_list(trading_status[:progress], current_user.id)
   end
 
   def complete
-    @items = Item.where(trading: 3, saler_id: current_user.id).order(id: "DESC")
+    @items = Item.item_saler_list(trading_status[:complete], current_user.id)
   end
 
   def purchase
-    @items = Item.where(trading: 2, buyer_id: current_user.id).order(id: "DESC")
-  end
-
-  def purchased
-    @items = Item.where(trading: 3, buyer_id: current_user.id).order(id: "DESC")
+    @purchase = Item.item_buyer_list(trading_status[:progress], current_user.id)
+    @purchased = Item.item_buyer_list(trading_status[:complete], current_user.id)
+    @select_page = params[:format]
   end
 
   def logout
@@ -47,5 +46,10 @@ class UsersController < ApplicationController
     else
       redirect_to auth_failure_path
     end
+  end
+
+  private
+  def trading_status
+    trading_status = {stopping: 0, selling: 1, progress: 2, complete: 3}
   end
 end

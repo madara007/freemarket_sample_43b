@@ -13,6 +13,23 @@ class Item < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :snslikes
   has_many :snscredential
+  validates :name, presence: true
+  validates :name, length: { maximum: 40 }
+  validates :price, presence: true
+  validates :price, presence: true
+  validates :description, presence: true
+  validates :description, length: { maximum: 1000 }
+  validates :category_id, presence: true
+  validates :saler_id, presence: true
+  validates :shipping_date_id, presence: true
+  validates :condition_id, presence: true
+  validates :region_id, presence: true
+  validates :delivery_fee_id, presence: true
+  validates :ship_method_id, presence: true
+  validates :item_photos, length: { minimum: 1 }
+
+  scope :item_saler_list, -> (trading, current_user) { where(trading: trading, saler_id: current_user).order(updated_at: "DESC") }
+  scope :item_buyer_list, -> (trading, current_user) { where(trading: trading, buyer_id: current_user).order(updated_at: "DESC") }
 
   def like_user(id)
     likes.find_by(user_id: id)

@@ -1,14 +1,4 @@
 .registration-select {
-  height: 100%;
-  width: 100%;
-
-  &__header {
-    height: 128px;
-    .logo {
-      @include mercari-logo();
-    }
-  }
-
   &__box {
     background-color: #fff;
     width: 700px;
@@ -75,41 +65,6 @@
           }
         }
       }
-    }
-  }
-  &__footer {
-    bottom: 0;
-    width: 456px;
-    margin: 200px auto 0;
-    padding-top: 60px;
-    color: #fff;
-    nav {
-      ul {
-        @include clearfix();
-        font-size: 12px;
-        text-align: center;
-        li {
-          &:first-child {
-            margin: 0;
-          }
-          margin-left: 16px;
-          display: inline-block;
-        }
-      }
-    }
-    .top-link {
-      @include btn();
-      margin-top: 16px;
-      .logo-gray {
-        height: 65px;
-        width: 80px;
-      }
-    }
-    h2 {
-      margin-top: 10px;
-      color: #333;
-      font-size: 12px;
-      text-align: center;
     }
   }
 }

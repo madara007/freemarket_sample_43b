@@ -8,11 +8,4 @@
     %h1
       = @category.name_i18n + "の商品一覧"
     .show-page__index--content
-      - if @category.root?
-        - @descendants.each do |descendant|
-          = render partial: "items/content-item", collection: descendant.items.includes(:likes).order("id DESC"), as: "item"
-      - elsif @category.leaf?
-        = render partial: "items/content-item", collection: @category.items.includes(:likes).order("id DESC"), as: "item"
-      - else
-        - @children.each do |child|
-          = render partial: "items/content-item", collection: child.items.includes(:likes).order("id DESC"), as: "item"
+      = render partial: "items/content-item", collection: @select_items, as: "item"

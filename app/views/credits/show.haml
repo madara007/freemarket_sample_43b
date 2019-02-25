@@ -1,9 +1,5 @@
 .exhibit-check
   .exhibit-check__container
-    %header.exhibit-check__container--header
-      %h1
-        = link_to '' do
-          = image_tag("logo/logo.svg", class: "mercari-image", alt: "mercari")
     .exhibit-check__container--main
       %selection.buy-item
         %h2
@@ -16,23 +12,22 @@
           .buy-item__info--form
             - if @item.delivery_fee.id ==  1
               %p.buy-price.bold
-                ¥ 
+                ¥
                 = number_with_delimiter(@item.price)
                 %span.buy-price__tax
                 送料込み
             - else
               %p.buy-price.bold
-                ¥ 
+                ¥
                 = number_with_delimiter(@item.price)
                 %span.buy-price__tax
-  
               .buy-accordion
                 .buy-accordion__list
                   ポイントを使う
                   = fa_icon("angle-down")
               .buy-price-table
                 .buy-price-table__cell
-                  支払い金額　
+                  支払い金額
                 .buy-price-table__cell
                   ¥
                   = number_with_delimiter(@item.price)
@@ -72,17 +67,3 @@
                 %p
                   変更する
                   = fa_icon("angle-right")
-      %footer.exhibit-check__container--footer
-        .footer-content
-          %nav.footer-content__rule-link
-            %ul.clearfix
-              %li
-                = link_to 'プライバシーポリシー', '' ,class:'footer-content__rule-link--agreement'
-              %li
-                = link_to 'メルカリ利用規約','',class:'footer-content__rule-link--agreement'
-              %li
-                =link_to '特定商取引に関する表記','',class:'footer-content__rule-link--agreement'
-          = link_to '',class:'footer-content__mercari-footer-logo' do
-            = image_tag("logo/logo-gray.svg")
-          %p.footer-content__copyright
-            %small.footer-content__copyright--content © 2019 Mercari

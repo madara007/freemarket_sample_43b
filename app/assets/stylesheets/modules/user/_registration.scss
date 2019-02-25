@@ -1,16 +1,4 @@
 .registration {
-
-  &__header {
-    height: 128px;
-    text-align: center;
-    .logo {
-      padding-top: 40px;
-      display: inline-block;
-      height: 49px;
-      width: 185px;
-    }
-    @include progress-bar();
-  }
   &__box {
     background-color: #fff;
     width: 700px;
@@ -201,42 +189,6 @@
           }
         }
       }
-    }
-  }
-
-  &__footer {
-    bottom: 0;
-    width: 456px;
-    margin: 40px auto 0;
-    padding-top: 60px;
-    color: #fff;
-    nav {
-      ul {
-        @include clearfix();
-        font-size: 12px;
-        text-align: center;
-        li {
-          &:first-child {
-            margin: 0;
-          }
-          margin-left: 16px;
-          display: inline-block;
-        }
-      }
-    }
-    .top-link {
-      @include btn();
-      margin-top: 16px;
-      .logo-gray {
-        height: 65px;
-        width: 80px;
-      }
-    }
-    h2 {
-      margin-top: 10px;
-      color: #333;
-      font-size: 12px;
-      text-align: center;
     }
   }
 }

@@ -4,32 +4,19 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|nickname|string|null: false|
 |email|string|null: false, unipue: true|
-|avator|text||
+|nickname|string|null: false|
 |last_name|string|null: false|
 |first_name|string|null: false|
 |last_name_kana|string|null: false|
 |first_name_kana|string|null: false|
-|tel|string||
 |birthday|integer||
 
 ### Association(user)
-- has_many :buyed_items, foreign_key: "buyer_id", class_name: :Item
-- has_many :saling_items, -> { where("buyer_id is NULL") }, foreign_key: "saler_id", class_name: :Item
-- has_many :sold_items, -> { where("buyer_id is not NULL") }, foreign_key: "saler_id", class_name: :Item
-- has_many :transactions
-- has_many :likes
-- has_many :shipping_dates
-- has_many :states
-- has_many :regions
-- has_many :item_photos
-- has_many :delivery_fees
-- has_many :ship_methods
 - has_many :scores
-- has_many :sizes
+- has_many :likes
+- has_many :items, foreign_key: 'saler_id'
 - has_many :comments
-- has_one :adress
 
 ## adressテーブル
 
@@ -40,7 +27,7 @@
 |city|string|null: false|
 |number|string|null: false|
 |building|string||
-|user_id|references|foreign_key: true|
+|user|references|foreign_key: true|
 
 ### Association(score)
 - belongs_to: user
@@ -52,59 +39,61 @@
 |name|string|null: false|
 |price|integer|null: false|
 |description|text|null: false|
-|category_id|references|foreign_key: true|
-|buyer_id|references|foreign_key: true|
-|saler_id|references|foreign_key: true|
+|category|references|foreign_key: true|
+|buyer_id|integer||
+|saler_id|integer|null, false|
+|shipping_date|references|foreign_key: true|
+|condition|references|foreign_key: true|
+|region|references|foreign_key: true|
+|delivery_fee|references|foreign_key: true|
+|ship_method|references|foreign_key: true|
+|brand|references|foreign_key: true|
+|size|references|foreign_key: true|
+|trading|integer|null: false,default: 1|
 
 ### Association(item)
-- belongs_to :saler, class_name: "User"
-- belongs_to :buyer, class_name: "User"
-- belongs_to :bland
-- has_many :transactions
-- has_many :likes
-- has_many :shipping_dates
-- has_many :states
-- has_many :regions
-- has_many :item_photos
-- has_many :delivery_fees
-- has_many :ship_methods
-- has_many :comments
-- has_many :sizes
+- belongs_to :size, optional:true
+- belongs_to :shipping_date
+- belongs_to :condition
+- belongs_to :region
+- belongs_to :ship_method ,optional: true
+- belongs_to :delivery_fee
+- belongs_to :category
+- belongs_to :brand ,optional: true
+- has_many :comments, dependent: :destroy
+- has_many :item_photos, dependent: :destroy
+- has_many :likes, dependent: :destroy
+- has_many :snslikes
+- has_many :snscredential
+- accepts_nested_attributes_for :item_photos
 
 ## categoriesテーブル
 
 |Colum|Type|Option|
 |-----|----|------|
-|name|string|null:false|
-|item_id|references|foreign_key: true|
-|parent_id|references|foreign_key: true|
+|name|integer|null:false|
+|parent_id|integer|index: true|
+|group|integer||
 
 ### Association(category)
 - has_many :items
-- belongs_to :parent, class_name: :Category
-- has_many :children, class_name: :Category, foreign_key: :parent_id
-- has_many :category_sizes
-- has_many :sizes, through: :category_sizes
 
 ## sizesテーブル
 
 |Colum|Type|Option|
 |-----|----|------|
-|user_id|references|foreign_key: true|
-|item_id|references|foreign_key: true|
+|type|integer|null: false, default: 0|
+|group|integer||
 
 ### Association(size)
-- belongs_to: user
-- belongs_to: item
-- has_many :category_sizes
-- has_many :categories, through: :category_sizes
+- has_many :items
 
 ## category_sizesテーブル
 
 |Colum|Type|Option|
 |-----|----|------|
-|category_id|references|foreign_key: true|
-|size_id|references|foreign_key: true|
+|category|references|foreign_key: true|
+|size|references|foreign_key: true|
 
 ### Association(category_sizes)
 - belongs_to :category
@@ -124,8 +113,8 @@
 |Colum|Type|Option|
 |-----|----|------|
 |status|string|null: false|
-|item_id|references|foreign_key: true|
-|user_id|references|foreign_key: true|
+|item|references|foreign_key: true|
+|user|references|foreign_key: true|
 
 ### Association(transaction)
 - belongs_to: user
@@ -135,32 +124,31 @@
 
 |Colum|Type|Option|
 |-----|----|------|
-|user_id|references|foreign_key: true|
-|item_id|references|foreign_key: true|
+|user|references|foreign_key: true|
+|item|references|foreign_key: true|
 
 ### Association(like)
-- belongs_to: user
+- belongs_to: user belongs_to :item
+  belongs_to :item
+
 - belongs_to: item
 
 ## shipping_datesテーブル
 
 |Colum|Type|Option|
 |-----|----|------|
-|days|string|null: false|
-|user_id|references|foreign_key: true|
-|item_id|references|foreign_key: true|
+|day|integer|null: false|
 
 ### Association(shippng_date)
-- belongs_to: user
-- belongs_to: item
+- has_many :items
 
 ## statesテーブル
 
 |Colum|Type|Option|
 |-----|----|------|
 |type|string|null: false|
-|user_id|references|foreign_key: true|
-|item_id|references|foreign_key: true|
+|user|references|foreign_key: true|
+|item|references|foreign_key: true|
 
 ### Association(state)
 - belongs_to: user
@@ -170,13 +158,10 @@
 
 |Colum|Type|Option|
 |-----|----|------|
-|name|string|null: false|
-|user_id|references|foreign_key: true|
-|item_id|references|foreign_key: true|
+|name|integer|null: false|
 
 ### Association(regions)
-- belongs_to: user
-- belongs_to: item
+- has_many :items
 
 
 ## item_photosテーブル
@@ -184,44 +169,36 @@
 |Colum|Type|Option|
 |-----|----|------|
 |photo|text|null: false|
-|user_id|references|foreign_key: true|
-|item_id|references|foreign_key: true|
+|item|references|foreign_key: true|
 
 ### Association(item_photo)
-- belongs_to: user
-- belongs_to: item
+  belongs_to :item
 
 ## delivery_feesテーブル
 
 |Colum|Type|Option|
 |-----|----|------|
-|type|boolean|null: false|
-|user_id|references|foreign_key: true|
-|item_id|references|foreign_key: true|
+|type|integer|null: false|
 
 ### Association(delivery_fee)
-- belongs_to: user
-- belongs_to:
-- has_many: ship_methods
+- has_many :items
 
 ## ship_methodsテーブル
 
 |Colum|Type|Option|
 |-----|----|------|
-|user_id|references|foreign_key: true|
-|item_id|references|foreign_key: true|
+|type|integer|null: false|
 
 ### Association(ship_method)
-- belongs_to: user
-- belongs_to: item
-- belongs_to: delivery_fee
+- has_many :items
 
 ## scoresテーブル
 
 |Colum|Type|Option|
 |-----|----|------|
-|type|string|null: false|
-|user_id|references|foreign_key: true|
+|type|integer|null: false|
+|user|references|foreign_key: true|
+|item|references|foreign_key: true|
 
 ### Association(score)
 - belongs_to: user
@@ -230,11 +207,63 @@
 
 |Colum|Type|Option|
 |-----|----|------|
-|text|text|null: false|
-|user_id|references|foreign_key: true|
-|item_id|references|foreign_key: true|
+|user|references|foreign_key: true|
+|item|references|foreign_key: true|
+|comment|text||
 
 ### Association(comment)
 - belongs_to: user
 - belongs_to: item
 
+## conditionsテーブル
+
+|Colum|Type|Option|
+|-----|----|------|
+|type|integer|null: false|
+
+### Association(condition)
+- has_many: items
+
+
+## snscredentialsテーブル
+
+|Colum|Type|Option|
+|-----|----|------|
+|provider|string||
+|uid|string||
+|name|string||
+|email|string||
+|oauth_token|string||
+|oauth_expires_at|datetime||
+
+### Association(snscredential)
+- has_many :scores
+- has_many :snslikes
+- has_many :items
+
+## snslikeテーブル
+
+|Colum|Type|Option|
+|-----|----|------|
+|snscredential|references|foreign_key: true|
+|item|references|foreign_key: true|
+
+### Association(snscredential)
+- belongs_to :item
+- belongs_to :snscredential
+
+## profilesテーブル
+
+|Colum|Type|Option|
+|avator|text||
+|comment|text||
+|tel|string|unique: true|
+|postal_code|string||
+|prefectuer|string||
+|city|string||
+|number|string||
+|building|string||
+|user_id|integer||
+|snscredential_id|integer||
+
+### Association(profile)
