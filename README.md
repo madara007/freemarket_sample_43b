@@ -17,6 +17,7 @@
 - has_many :likes
 - has_many :items, foreign_key: 'saler_id'
 - has_many :comments
+  has_one :profile, dependent: :destroy
 
 ## adressテーブル
 
@@ -264,6 +265,7 @@
 |number|string||
 |building|string||
 |user_id|integer||
-|snscredential_id|integer||
 
 ### Association(profile)
+- belongs_to: user
+
