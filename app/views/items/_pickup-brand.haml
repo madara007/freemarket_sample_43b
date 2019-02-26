@@ -2,26 +2,26 @@
   ピックアップブランド
 %selection.pickup-container__box
   %h3.topix
-    = link_to "シャネル 新着アイテム"
+    = link_to "シャネル 新着アイテム", brand_path(@chanel)
   .pickup-container__box--content.clearfix
     = render partial: "pickup", collection: @chanels, as: "item"
   .item-all
-    = link_to "すべての商品を見る"
+    = link_to "すべての商品を見る", brand_path(@chanel)
   %h3.topix
-    = link_to "ナイキ 新着アイテム"
+    = link_to "ナイキ 新着アイテム", brand_path(@nike)
   .pickup-container__box--content.clearfix
     = render partial: "pickup", collection: @nikes, as: "item"
   .item-all
-    = link_to "すべての商品を見る"
+    = link_to "すべての商品を見る", brand_path(@nike)
   %h3.topix
-    = link_to "プーマ 新着アイテム"
+    = link_to "プーマ 新着アイテム", brand_path(@puma)
   .pickup-container__box--content.clearfix
     = render partial: "pickup", collection: @pumas, as: "item"
   .item-all
-    = link_to "すべての商品を見る"
+    = link_to "すべての商品を見る", brand_path(@puma)
   %h3.topix
-    = link_to "ルイ ヴィトン 新着アイテム"
+    = link_to "ルイ ヴィトン 新着アイテム", brand_path(@vuitton)
   .pickup-container__box--content.clearfix
     = render partial: "pickup", collection: @vuittons, as: "item"
   .item-all
-    = link_to "すべての商品を見る"
+    = link_to "すべての商品を見る", brand_path(@vuitton)

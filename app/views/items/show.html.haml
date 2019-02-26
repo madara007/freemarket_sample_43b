@@ -1,17 +1,11 @@
 - breadcrumb :item_show, @item
 .show-item
-  / 商品の詳細
   .show-item__main
-
     %h1.show-item__main--name
       = @item.name
     .show-item__main--content
       .item-image
         .item-image-main
-          .big-photo-box
-            - if @item.trading > 1
-              .sold-box
-                .sold-box__name SOLD
           .big-photo-box
             = render "sold-tag", item: @item
             - @item.item_photos.each_with_index do |photo, number|
@@ -20,11 +14,8 @@
           - @item.item_photos.each_with_index do |photo, number|
             .image-sub
               = image_tag photo.photo.to_s, class: "mini", id: "mini#{number+1}"
-
-      / 出品の詳細テーブル
       .item-detail-table
         = render "items/item-info"
-
     .show-item__main-price
       ¥
       = number_with_delimiter(@item.price)
@@ -32,27 +23,23 @@
         (税込)
         %span.postage
           送料込み
-
-    / 出品者のコメント
     .show-item__main-exhibitor-comment
-    - if @item.trading == 1
-      = link_to "購入画面に進む",credit_path(@item),class: "show-item__main-buy-btn"
     - if @item.trading > 1
       .show-item__main-buy-btn.buy-after
         売り切れました
+    - elsif (current_user || sns_user) && (current_user.id || sns_user.id) != @item.saler_id
+      = link_to "購入画面に進む",credit_path(@item),class: "show-item__main-buy-btn"
     %p.show-item__main-exhibitor-comment
       = @item.description
-
     .show-item__main-btn-container
       #like-link-item.id.show-item__main-btn-container-left
-        = render @item
+        = render partial: 'likes/like', locals:{ item: @item }
         = link_to "", class: "report" do
           = fa_icon "flag", class: ""
           %span 不適切な商品の報告
       = link_to "", class: "show-item__main-btn-container-right" do
         = fa_icon "lock", class: ""
         %span あんしん・あんぜんへの取り組み
-
   - if (current_user || sns_user) && (current_user.id || sns_user.id) == @item.saler_id
     .button-list
       = link_to "商品の編集","", class: "button-list__edit"
@@ -72,13 +59,6 @@
     .show-item__user-comment
       .show-item__user-comment--box
         = render "items/comment-box"
-  .show-item__next
-    = link_to "", class: "show-item__next-item-left" do
-      < ネイル用品
-    = link_to "", class: "show-item__next-item-right" do
-      amiibo アミーボ splatoon トリプルセット >
-
-  / SNSボタンの欄
   .show-item__sns
     %ul.show-item__sns-contents
       %li.sns-box
@@ -101,7 +81,7 @@
       = render partial: "other-items", collection: @other_user_items, as: "item"
   .other
     %h2.other__title
-      =link_to "", class: "other-items-title" do
+      =link_to category_path(@item.category), class: "other-items-title" do
         = "#{@item.category.name_i18n}のその他の商品"
     .other-items
       = render partial: "other-items", collection: @other_category_items, as: "item"

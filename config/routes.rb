@@ -15,7 +15,6 @@ Rails.application.routes.draw do
       get "progress"
       get "complete"
       get "purchase"
-      get "purchased"
       get "logout"
     end
   end
@@ -31,5 +30,5 @@ Rails.application.routes.draw do
   end
   resources :sizes
   resources :ship_methods
-  resources :credits, only: [:index, :new, :create, :show]
+  resources :credits, only: [:new, :create, :show]
 end

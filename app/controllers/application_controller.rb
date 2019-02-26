@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   end
 
   def get_category
-    @category_roots = Category.roots
+    @category_roots = Category.roots.includes(:children)
   end
 
   def get_brand
@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
 
   def layout_by_resource
     if devise_controller?
-      "session"
+      "logo-layout"
     else
       "application"
     end

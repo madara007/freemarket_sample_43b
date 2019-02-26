@@ -13,17 +13,18 @@
       %nav.category-nav
         カテゴリーから探す
         %ul.pulldown-parent
-          - @category_roots.includes(:children).each do |category|
-            %li.pulldown-parent__list
-              = link_to category.name_i18n, category_path(category), class: "pulldown-parent__list--nav"
-              %ul.pulldown-child
-                - category.children.includes(:children).each do |child|
-                  %li.pulldown-child__list{id: child.id}
-                    = link_to child.name_i18n, category_path(child), class: "pulldown-child__list--nav"
-                    %ul.pulldown-descendant
-                      - child.children.includes(:children).each do |descendant|
-                        %li.pulldown-descendant__list
-                          = link_to descendant.name_i18n, category_path(descendant), class: "pulldown-child__list--nav"
+          - @category_roots.each do |category|
+            - cache category do
+              %li.pulldown-parent__list
+                = link_to category.name_i18n, category_path(category), class: "pulldown-parent__list--nav"
+                %ul.pulldown-child
+                  - category.children.each do |child|
+                    %li.pulldown-child__list{id: child.id}
+                      = link_to child.name_i18n, category_path(child), class: "pulldown-child__list--nav"
+                      %ul.pulldown-descendant
+                        - child.children.each do |descendant|
+                          %li.pulldown-descendant__list
+                            = link_to descendant.name_i18n, category_path(descendant), class: "pulldown-child__list--nav"
           %li.pulldown-parent__list
             = link_to "カテゴリー一覧", categories_path, class: "pulldown-parent__list--nav"
 
@@ -74,10 +75,10 @@
                   = link_to "出品した商品 - 売却済み", complete_users_path, class: "nav"
                   = fa_icon "angle-right", class: "angle"
                 %li.mymenu__link--nav
-                  = link_to "購入した商品 - 取引中", purchase_users_path, class: "nav"
+                  = link_to "購入した商品 - 取引中", purchase_users_path("progress"), class: "nav"
                   = fa_icon "angle-right", class: "angle"
                 %li.mymenu__link--nav
-                  = link_to "購入した商品 - 過去の取引", purchased_users_path, class: "nav"
+                  = link_to "購入した商品 - 過去の取引", purchase_users_path("complete"), class: "nav"
                   = fa_icon "angle-right", class: "angle"
 
           .nav-box__info
@@ -99,4 +100,4 @@
             %li.login-nav__button--login
               = link_to "ログイン", new_user_session_path
             %li.login-nav__button--signup
-              = link_to "新規登録", new_user_path
+              = link_to "新規会員登録", new_user_path

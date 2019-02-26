@@ -4,14 +4,25 @@
     .purchase-item__box--main
       %h1 購入した商品
       %ul.select
-        %li.select__tag
-          = link_to "取引中", "", class: "active"
-        %li.select__tag
-          = link_to "過去の取引", purchased_users_path, class: "differ"
-      - if @items.length == 0
-        = image_tag "logo-gray-icon.svg", class: "logo"
-        %h2取引中の商品がありません
-      - else
-      %ul.show
-        = render partial: "purchase"
+        %li.select__tag{ @select_page == "progress" ? {class: "active"} : {}}
+          %span
+            取引中
+        %li.select__tag{ @select_page == "complete" ? {class: "active"} : {}}
+          %span
+            過去の取引
+      .select__items{ @select_page == "complete" ? {hidden: "hidden"} : {}}
+        - if @purchase.length == 0
+          = image_tag "logo-gray-icon.svg", class: "logo"
+          %h2 取引中の商品がありません
+        - else
+          %ul.show
+            = render partial: "purchase", collection: @purchase, as: "item"
+      .select__items{ @select_page == "progress" ? {hidden: "hidden"} : {}}
+        - if @purchased.length == 0
+          = image_tag "logo-gray-icon.svg", class: "logo"
+          %h2 購入した商品がありません
+        - else
+          %ul.show
+            = render partial: "purchased", collection: @purchased, as: "item"
+
     = render partial: 'user_side_bar'

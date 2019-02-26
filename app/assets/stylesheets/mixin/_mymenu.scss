@@ -50,7 +50,7 @@
       }
     }
     &__link {
-      &--nav  {
+      &--nav {
         position: relative;
         .nav {
           padding: 0 15px;
@@ -61,6 +61,7 @@
         }
         .nav:hover {
           background-color: #eee;
+          padding-left: 7px;
         }
         .fa {
           position: absolute;

@@ -1,12 +1,11 @@
-- @items.each do |item|
-  %li.show__item
-    = link_to item_path(item), class: "show__item--box" do
-      = fa_icon "angle-right", class: "angle"
-      = image_tag item.item_photos.first.photo.to_s, class: "photo"
-      .discription
-        .discription__title
-          %h3
-            = item.name
-        .discription__tag
-          %label.discription__tag--complete
-            購入済
+%li.show__item
+  = link_to item_path(item), class: "show__item--box" do
+    = fa_icon "angle-right", class: "angle"
+    = image_tag item.item_photos.first.photo.to_s, class: "photo"
+    .discription
+      .discription__title
+        %h3
+          = item.name
+      .discription__tag
+        %label.discription__tag--complete
+          購入済
