@@ -40,12 +40,7 @@
       = link_to "", class: "show-item__main-btn-container-right" do
         = fa_icon "lock", class: ""
         %span あんしん・あんぜんへの取り組み
-<<<<<<< HEAD
-
-  - if (current_user || sns_user) || (current_user.id || sns_user.id) == @item.saler_id
-=======
   - if (current_user || sns_user) && (current_user.id || sns_user.id) == @item.saler_id
->>>>>>> Fippiy/master
     .button-list
       = link_to "商品の編集","", class: "button-list__edit"
       %p.button-list__center or
