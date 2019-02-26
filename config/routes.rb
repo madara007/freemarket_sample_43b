@@ -8,10 +8,8 @@ Rails.application.routes.draw do
   }
   devise_scope :user do
     delete :sign_out, to: 'devise/sessions#destroy'
-    # , as: :destroy_user_session
   end
-
-    resources :items, except: [:edit] do
+  resources :items, except: [:edit] do
     resources :likes, only: [:create, :destroy]
     resources :comments, only: [:create]
     resources :scores, only:[:new, :create]
