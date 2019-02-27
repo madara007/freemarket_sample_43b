@@ -4,12 +4,9 @@
       %h1 アカウントをお持ちでない方はこちら
       = link_to new_user_path, class: "registration-btn" do
         新規会員登録
-
     .session
       = link_to "Facebookログイン", user_facebook_omniauth_authorize_path, class: "session-facebook"
-
       = link_to "Googleログイン",  "/auth/google_oauth2",class: "session-google"
-
     = form_with(model: @user, url: new_user_session_path, method: :post, local: true, class: "login-form") do |form|
       .login-form__inner
         .form-column
@@ -17,9 +14,7 @@
         .form-column
           = form.password_field :password, autocomplete: "current-password", placeholder: "パスワード"
         .form-column
-          / サーバーサイド実装時に作成
           = recaptcha_tags
         = form.submit("ログイン", class: "login-btn")
-
         = link_to "", class: "forget-pass" do
           パスワードをお忘れの方
