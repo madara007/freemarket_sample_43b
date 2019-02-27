@@ -9,12 +9,12 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :nickname, null: false
       # t.text   :avatar
       # t.text   :profile_comment
-      t.string :last_name, null: false
-      t.string :first_name, null: false
-      t.string :last_name_kana, null: false
-      t.string :first_name_kana, null: false
+      t.string :last_name
+      t.string :first_name
+      t.string :last_name_kana
+      t.string :first_name_kana
       # t.string :tel, unique: true
-      t.date   :birthday, null: false
+      t.date   :birthday
       # t.string :postal_code
       # t.string :prefecture
       # t.string :city
@@ -27,6 +27,10 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
 
       ## Rememberable
       t.datetime :remember_created_at
+
+      ## SNS uid
+      t.string :uid
+      t.string :provider
 
       ## Trackable
       # t.integer  :sign_in_count, default: 0, null: false
