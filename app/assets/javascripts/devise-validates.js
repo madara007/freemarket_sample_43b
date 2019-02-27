@@ -1,14 +1,14 @@
 $(function(){
-  function error_message(error_message, error_msg_box) {
+  function error_message_output(error_message, error_msg_box) {
     var messages = {
-      "nickname": "ニックネームを入力してください",
-      "email": "メールアドレスを入力してください",
-      "password": "パスワードを入力してください",
-      "password_confirmation": "パスワード (確認)を入力してください",
-      "last_name": "姓 (全角)を入力してください",
-      "first_name": "名 (全角)を入力してください",
-      "last_name_kana": "姓カナ (全角)を入力してください",
-      "first_name_kana": "名カナ (全角)を入力してください"
+      "[nickname]": "ニックネームを入力してください",
+      "[email]": "メールアドレスを入力してください",
+      "[password]": "パスワードを入力してください",
+      "[password_confirmation]": "パスワード (確認)を入力してください",
+      "[last_name]": "姓を入力してください",
+      "[first_name]": "名を入力してください",
+      "[last_name_kana]": "姓カナを入力してください",
+      "[first_name_kana]": "名カナを入力してください"
     }
     $.each(messages,function(err_name, text){
       if (error_message == err_name) {
@@ -31,9 +31,9 @@ $(function(){
     var error_msg_box = input_field_parent.children().last();
     if ($(this).val().length == 0 ) {
       var error_name = $(this).attr("name");
-      var error_RegExp = RegExp(/\[(.*)\]/);
-      var err_message = error_name.match(error_RegExp)[1];
-      error_message(err_message, error_msg_box);
+      var error_RegExp = RegExp(/\[([^\[]*?)$/);
+      var err_message = error_name.match(error_RegExp)[0];
+      error_message_output(err_message, error_msg_box);
     } else {
       error_msg_box.text("");
     }

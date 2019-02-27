@@ -97,15 +97,20 @@ ActiveRecord::Schema.define(version: 2019_02_19_022139) do
     t.text "avatar"
     t.text "comment"
     t.string "tel"
+    t.string "last_name"
+    t.string "first_name"
+    t.string "last_name_kana"
+    t.string "first_name_kana"
+    t.date "birthday"
     t.string "postal_code"
     t.string "prefecture"
     t.string "city"
     t.string "number"
     t.string "building"
-    t.integer "user_id"
-    t.integer "snscredential_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "regions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -168,11 +173,6 @@ ActiveRecord::Schema.define(version: 2019_02_19_022139) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "nickname", null: false
-    t.string "last_name"
-    t.string "first_name"
-    t.string "last_name_kana"
-    t.string "first_name_kana"
-    t.date "birthday"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -197,6 +197,7 @@ ActiveRecord::Schema.define(version: 2019_02_19_022139) do
   add_foreign_key "items", "sizes"
   add_foreign_key "likes", "items"
   add_foreign_key "likes", "users"
+  add_foreign_key "profiles", "users"
   add_foreign_key "scores", "items"
   add_foreign_key "scores", "users"
   add_foreign_key "snslikes", "items"
