@@ -1,6 +1,7 @@
 $(function(){
   function error_message_output(error_message, error_msg_box) {
     var messages = {
+      "[nickname]": "ニックネームを入力してください",
       "[email]": "メールアドレスを入力してください",
       "[password]": "パスワードを入力してください",
       "[password_confirmation]": "パスワード (確認)を入力してください",
