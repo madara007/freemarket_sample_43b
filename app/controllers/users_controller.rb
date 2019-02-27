@@ -1,11 +1,24 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, except: :new
-  layout "logo-layout", only: [:new, :create]
-  before_action :trading_status, except: [:new, :edit, :show, :logout, :create]
+  before_action :selection_page, only: [:selling, :purchase]
+  before_action :purchase_data, only: [:index, :purchase]
+  before_action :trading_status, except: [:new, :edit, :show, :logout]
+  layout "logo-layout", only: [:new]
+
   def index
-    @purchase = Item.item_buyer_list(trading_status[:progress], current_user.id)
-    @purchased = Item.item_buyer_list(trading_status[:complete], current_user.id)
+    @select_page = "progress"
   end
+
+  # def create
+  #   @user = Snscredential.from_omniauth(request.env["omniauth.auth"])
+  #   result = @user.save(context: :facebook_login)
+  #   if result
+  #     log_in @user
+  #     redirect_to @user
+  #   else
+  #     redirect_to auth_failure_path
+  #   end
+  # end
 
   def new
   end
@@ -17,39 +30,28 @@ class UsersController < ApplicationController
   end
 
   def selling
-    @items = Item.item_saler_list(trading_status[:selling], current_user.id)
-  end
-
-  def progress
-    @items = Item.item_saler_list(trading_status[:progress], current_user.id)
-  end
-
-  def complete
-    @items = Item.item_saler_list(trading_status[:complete], current_user.id)
+    @selling = Item.item_saler_list(trading_status[:selling], current_user.id)
+    @progress = Item.item_saler_list(trading_status[:progress], current_user.id)
+    @complete = Item.item_saler_list(trading_status[:complete], current_user.id)
   end
 
   def purchase
-    @purchase = Item.item_buyer_list(trading_status[:progress], current_user.id)
-    @purchased = Item.item_buyer_list(trading_status[:complete], current_user.id)
-    @select_page = params[:format]
   end
 
   def logout
   end
 
-  def create
-    @user = Snscredential.from_omniauth(request.env["omniauth.auth"])
-    result = @user.save(context: :facebook_login)
-    if result
-      log_in @user
-      redirect_to @user
-    else
-      redirect_to auth_failure_path
-    end
-  end
-
   private
   def trading_status
     trading_status = {stopping: 0, selling: 1, progress: 2, complete: 3}
+  end
+
+  def selection_page
+    @select_page = params[:format]
+  end
+
+  def purchase_data
+    @purchase = Item.item_buyer_list(trading_status[:progress], current_user.id)
+    @purchased = Item.item_buyer_list(trading_status[:complete], current_user.id)
   end
 end
