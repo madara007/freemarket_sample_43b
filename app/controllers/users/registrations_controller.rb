@@ -3,6 +3,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
+  prepend_before_action :check_captcha, only: [:create]
 
   # GET /resource/sign_up
   # def new
@@ -44,8 +45,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def configure_sign_up_params
     # devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
     devise_parameter_sanitizer.permit(:sign_up) do |params|
-      params.permit(:email, :password, :password_confirmation, :current_password,
-                    profile_attributes: [:user_id, :nickname, :last_name, :first_name, :last_name_kana, :first_name_kana, :birthday])
+      params.permit(:nickname, :email, :password, :password_confirmation, :current_password,
+                    profile_attributes: [:user_id, :last_name, :first_name, :last_name_kana, :first_name_kana, :birthday])
     end
   end
   # If you have extra params to permit, append them to the sanitizer.
@@ -62,4 +63,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+  private
+
+  def check_captcha
+    unless verify_recaptcha
+      self.resource = resource_class.new sign_up_params
+      resource.validate
+      set_minimum_password_length
+      respond_with_navigational(resource) { render :new }
+    end
+  end
 end

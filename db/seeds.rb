@@ -62,12 +62,12 @@ end
   user = User.create(
     email: "email_#{no}@example.com",
     password: "#{no}password#{no}",
-    nickname: "ユーザー_#{no}",
-    last_name: "last_name_#{no}",
-    first_name: "first_name_#{no}",
-    last_name_kana: "カナラストネーム",
-    first_name_kana: "カナファーストネーム",
-    birthday: '1900-1-1'
+    nickname: "ユーザー_#{no}"
+    # last_name: "last_name_#{no}",
+    # first_name: "first_name_#{no}",
+    # last_name_kana: "カナラストネーム",
+    # first_name_kana: "カナファーストネーム",
+    # birthday: '1900-1-1'
   )
   user.save!
 end

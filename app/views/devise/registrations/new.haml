@@ -5,10 +5,10 @@
       = form.fields_for :profile, Profile.new do |profile|
         .content
           .form-group
-            = profile.label :nickname
+            = form.label :nickname
             %span.require-tag 必須
-            = profile.text_field :nickname, autofocus: true, placeholder: "例) メルカリ太郎",class: "field"
-            - @user.errors.full_messages_for(:"profile.nickname").each do |error|
+            = form.text_field :nickname, autofocus: true, placeholder: "例) メルカリ太郎",class: "field"
+            - @user.errors.full_messages_for(:nickname).each do |error|
               .span.error-msg
                 = error
           .form-group
