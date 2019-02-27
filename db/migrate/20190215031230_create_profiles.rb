@@ -9,8 +9,7 @@ class CreateProfiles < ActiveRecord::Migration[5.2]
       t.string :city
       t.string :number
       t.string :building
-      t.integer :user_id
-      t.integer :snscredential_id
+      t.references :user, foreign_key: true
       t.timestamps
     end
   end
