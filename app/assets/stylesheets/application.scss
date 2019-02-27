@@ -8,10 +8,8 @@
 @import "mixin/position";
 @import "mixin/progress-bar";
 @import "mixin/pulldown-list";
-@import "mixin/purchase-items-box";
 @import "mixin/show-items";
 @import "mixin/sold-tag";
-@import "mixin/user-items-box";
 @import "modules/whole/whole";
 @import "modules/whole/header";
 @import "modules/whole/footer";
@@ -24,7 +22,6 @@
 @import "modules/user/user_edit";
 @import "modules/user/user-items";
 @import "modules/user/user-identity";
-@import "modules/user/purchase-items";
 @import "modules/user/registration";
 @import "modules/user/registration-select";
 @import "modules/user/session";
