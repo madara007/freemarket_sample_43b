@@ -9,6 +9,7 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :profile
   validates_associated :profile
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :nickname, presence: true
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
   validates :encrypted_password, presence: true
   validates :password, length: { in: 6..128, message: "パスワードは6文字以上128文字以下で入力してください" }
