@@ -15,16 +15,16 @@
         = link_to "いいね一覧", "", class: "user-nav-box"
         %i.fa.fa-angle-right
       %li
-        = link_to "出品する", "", class: "user-nav-box"
+        = link_to "出品する", selling_users_path("selling"), class: "user-nav-box"
         %i.fa.fa-angle-right
       %li
-        = link_to "出品した商品-出品中", selling_users_path, class: "user-nav-box"
+        = link_to "出品した商品-出品中", selling_users_path("selling"), class: "user-nav-box"
         %i.fa.fa-angle-right
       %li
-        = link_to "出品した商品 - 取引中", progress_users_path, class: "user-nav-box"
+        = link_to "出品した商品 - 取引中", selling_users_path("progress"), class: "user-nav-box"
         %i.fa.fa-angle-right
       %li
-        = link_to "出品した商品 - 売却済み", complete_users_path, class: "user-nav-box"
+        = link_to "出品した商品 - 売却済み", selling_users_path("complete"), class: "user-nav-box"
         %i.fa.fa-angle-right
       %li
         = link_to "購入した商品 - 取引中", purchase_users_path("progress"), class: "user-nav-box"

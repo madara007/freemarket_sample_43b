@@ -4,18 +4,36 @@
     .user-item__box--main
       %h1 出品した商品
       %ul.select
-        %li.select__tag
-          = link_to "出品中", "", class: "active"
-        %li.select__tag
-          = link_to "取引中", progress_users_path, class: "differ"
-        %li.select__tag
-          = link_to "売却済み", complete_users_path, class: "differ"
-      - if @items.length == 0
-        = image_tag "logo-gray-icon.svg", class: "logo"
-        %h2出品中の商品がありません
-      - else
-      %ul.show
-        = render partial: "selling"
+        %li.select__tag.third{ @select_page == "selling" ? {class: "active"} : {}}
+          %span
+            出品中
+        %li.select__tag.third{ @select_page == "progress" ? {class: "active"} : {}}
+          %span
+            取引中
+        %li.select__tag.third{ @select_page == "complete" ? {class: "active"} : {}}
+          %span
+            売却済み
+      .select__items{ @select_page == "selling" ? {} : {hidden: "hidden"}}
+        - if @selling.length == 0
+          = image_tag "logo-gray-icon.svg", class: "logo"
+          %h2 出品中の商品がありません
+        - else
+          %ul.show
+            = render partial: "selling", collection: @selling, as: "item"
+      .select__items{ @select_page == "progress" ? {} : {hidden: "hidden"}}
+        - if @progress.length == 0
+          = image_tag "logo-gray-icon.svg", class: "logo"
+          %h2 取引中の商品がありません
+        - else
+          %ul.show
+            = render partial: "selling", collection: @progress, as: "item"
+      .select__items{ @select_page == "complete" ? {} : {hidden: "hidden"}}
+        - if @complete.length == 0
+          = image_tag "logo-gray-icon.svg", class: "logo"
+          %h2 売却済みの商品がありません
+        - else
+          %ul.show
+            = render partial: "selling", collection: @selling, as: "item"
     .user-item__box--button
       = link_to "", class: "button-left" do
         = fa_icon "angle-left"

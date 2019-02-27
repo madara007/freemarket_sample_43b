@@ -19,8 +19,6 @@ Rails.application.routes.draw do
   resources :users do
     collection do
       get "selling"
-      get "progress"
-      get "complete"
       get "purchase"
       get "logout"
     end
