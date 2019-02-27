@@ -2,6 +2,7 @@
 
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
+  prepend_before_action :captcha_valid, only: [:create]
 
   # GET /resource/sign_in
   # def new
@@ -17,6 +18,15 @@ class Users::SessionsController < Devise::SessionsController
   # def destroy
   #   super
   # end
+
+  def captcha_valid
+    if verify_recaptcha
+      true
+    else
+      self.resource = resource_class.new(sign_in_params)
+      respond_with_navigational(resource) { render :new }
+    end
+  end
 
   # protected
 
