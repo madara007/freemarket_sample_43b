@@ -4,6 +4,11 @@ class CreateProfiles < ActiveRecord::Migration[5.2]
       t.text   :avatar
       t.text   :comment
       t.string :tel, unique: true
+      t.string :last_name
+      t.string :first_name
+      t.string :last_name_kana
+      t.string :first_name_kana
+      t.date :birthday
       t.string :postal_code
       t.string :prefecture
       t.string :city
