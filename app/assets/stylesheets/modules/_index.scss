@@ -21,8 +21,8 @@
 }
 
 .pickup-container {
-    padding-top: 40px;
-    width: 100%;
+  padding-top: 40px;
+  width: 100%;
   &__head {
     font-size: 28px;
     text-align: center;
@@ -30,9 +30,10 @@
     font-weight: bold;
   }
   &__box {
-      display: block;
-      width: 940px;
-      margin: 0 auto;
+    display: block;
+    width: 940px;
+    margin: 0 auto;
+    @include item-list(330px, 100%, 20px, 4);
     .topix {
       text-align: center;
       margin: 26px 11px;
@@ -40,68 +41,6 @@
       a {
         color: #0099c8;
         font-weight: bold;
-      }
-      a:hover {
-        opacity: 0.8;
-        text-decoration: underline;
-      }
-    }
-    &--content {
-      margin: 0 auto;
-      height: 330px;
-      width: 940px;
-      .item-box {
-        background-color: #fff;
-        @include f-left;
-        height: 330px;
-        width: 213px;
-        margin-left: 20px;
-        &__photo {
-          width: 213px;
-          &--banner {
-            height: 213px;
-            width: 213px;
-          }
-          @include sold-tag;
-        }
-        &__body {
-          padding: 16px;
-          &--name {
-            font-weight: 400;
-            height: 3em;
-            line-height: 1.5;
-            word-break: break-word;
-            white-space: normal;
-            font-size: 16px;
-          }
-          &--info {
-            margin: 8px 0 0;
-            bottom: 10px;
-            height: 28px;
-            .item-price {
-              @include f-left;
-              font-size: 14px;
-            }
-            .item-like {
-              @include f-right;
-              .fa {
-                @include fa-icon();
-              }
-            }
-          }
-          .item-tax {
-            font-size: 10px;
-            clear: both;
-          }
-        }
-      }
-    }
-    .item-all {
-      text-align: right;
-      clear: both;
-      padding: 20px 0 30px;
-      a {
-        color: #0099e8;
       }
       a:hover {
         opacity: 0.8;
