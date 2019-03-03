@@ -1,28 +1,18 @@
-- if user_signed_in?
-  - if item.like_user(current_user.id)
-    = link_to item_like_path(item, item.like_user(current_user)),method: :delete ,remote: true, class: "like" do
-      = fa_icon "heart", class: "heart"
-      %span いいね
-      = totals
+.btn-likes
+  - if user_signed_in?
+    - if item.like_user(current_user)
+      = link_to item_like_path(item, item.like_user(current_user)),method: :delete ,remote: true, class: "like" do
+        = fa_icon "heart", class: "heart"
+        %span いいね
+        = item.likes.length
+    - else
+      = link_to item_likes_path(item),method: :post, remote: true, class: "like" do
+        = fa_icon "heart"
+        %span いいね
+        = item.likes.length
   - else
-    = link_to item_likes_path(item),method: :post, remote: true ,class: "like" do
-      = fa_icon "heart", class: ""
+    = link_to new_user_session_path, class: "like" do
+      = fa_icon "heart"
       %span いいね
-      = totals
-- elsif sns_user
-  - if item.like_sns(sns_user.id)
-    = link_to item_like_path(item, item.like_sns(sns_user)),method: :delete ,remote: true, class: "like" do
-      = fa_icon "heart", class: "heart"
-      %span いいね
-      = totals
-  - else
-    = link_to item_likes_path(item),method: :post, remote: true ,class: "like" do
-      = fa_icon "heart", class: ""
-      %span いいね
-      = totals
-- else
-  = link_to item_likes_path(item),method: :post, remote: true ,class: "like" do
-    = fa_icon "heart", class: "heart"
-    %span いいね
-    = totals
+      = item.likes.length
 

@@ -1,1 +1,1 @@
-$("#like-link-item.id.show-item__main-btn-container-left").html('<%= j(render partial: 'likes/like', locals:{ item: @item }) %><a class="report"><i class="fa fa-flag "></i><span> 不適切な商品の報告</span></a>');
+$(".btn-likes").html(`<%= j( render partial: 'likes/like', locals:{ item: @item }) %>`);
