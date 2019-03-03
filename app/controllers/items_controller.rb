@@ -50,7 +50,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    if @item.saler_id == (current_user.id || sns_user.id)
+    if @item.saler_id == current_user.id
       @item.destroy
     end
     redirect_to :selling_users
@@ -67,17 +67,17 @@ class ItemsController < ApplicationController
   private
 
   def pickup_categories(women, menz, baby, cosume)
-    @ladies = Item.includes(:likes, :snslikes).get_items_category(women.self_and_descendants)
-    @menzes = Item.includes(:likes, :snslikes).get_items_category(menz.self_and_descendants)
-    @babies = Item.includes(:likes, :snslikes).get_items_category(baby.self_and_descendants)
-    @cosumes = Item.includes(:likes, :snslikes).get_items_category(cosume.self_and_descendants)
+    @ladies = Item.includes(:likes).get_items_category(women.self_and_descendants)
+    @menzes = Item.includes(:likes).get_items_category(menz.self_and_descendants)
+    @babies = Item.includes(:likes).get_items_category(baby.self_and_descendants)
+    @cosumes = Item.includes(:likes).get_items_category(cosume.self_and_descendants)
   end
 
   def pickup_brands(chanel, nike, puma, vuitton)
-    @chanels = Item.includes(:likes, :snslikes).get_items_brand(chanel)
-    @nikes = Item.includes(:likes, :snslikes).get_items_brand(nike)
-    @pumas = Item.includes(:likes, :snslikes).get_items_brand(puma)
-    @vuittons = Item.includes(:likes, :snslikes).get_items_brand(vuitton)
+    @chanels = Item.includes(:likes).get_items_brand(chanel)
+    @nikes = Item.includes(:likes).get_items_brand(nike)
+    @pumas = Item.includes(:likes).get_items_brand(puma)
+    @vuittons = Item.includes(:likes).get_items_brand(vuitton)
   end
 
   def item_params
