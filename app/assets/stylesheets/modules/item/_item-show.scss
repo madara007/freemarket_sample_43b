@@ -245,6 +245,7 @@
   }
   .other {
     width: 700px;
+    margin-bottom: 40px;
     h2 {
       margin: 24px 0 8px;
     }
@@ -254,54 +255,7 @@
       text-decoration: none;
       color: #1cd0dd;
     }
-    &-items {
-      @include clearfix();
-      width: 100%;
-      margin-bottom: 24px;
-      &-item {
-        margin: 0 0 20px 20px;
-        color: #333;
-        text-decoration: none;
-        background-color: #fff;
-        float: left;
-        height: 330px;
-        width: 220px;
-        &-image {
-          @include sold-tag;
-          height: 220px;
-          width: 220px;
-          .photo {
-            height: 220px;
-            width: 220px;
-          }
-        }
-        &-box {
-          padding: 16px;
-          height: 78px;
-          &-title {
-            h3 {
-              @include clearfix();
-              position: relative;
-              font-weight: 400;
-              height: 3em;
-              line-height: 1.5;
-              word-break: break-word;
-              white-space: normal;
-            }
-          }
-          &-price {
-            line-height: 1rem;
-            font-weight: bold;
-            p {
-              font-size: 6px;
-            }
-          }
-        }
-        &:nth-child(3n-2) {
-          margin-left: 0;
-        }
-      }
-    }
+    @include item-list(330px, 100%, 20px, 3);
   }
 }
 
