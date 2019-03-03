@@ -55,17 +55,14 @@
           }
         }
       }
-
       .item-detail-table {
         float: right;
         width: 300px;
-
         table {
           @include table();
         }
       }
     }
-
     &-price {
       font-size: 50px;
       font-weight: bold;
@@ -93,23 +90,21 @@
     .buy-after {
     background-color: #888;
     }
-
     &-exhibitor-comment {
       padding: 32px 0 0;
       word-break: break-all;
     }
-
     &-btn-container {
       @include clearfix();
       margin: 16px 0 0;
-
       &-left {
+        .btn-likes {
         border-radius: 40px;
         float: left;
-        .like {
-          @include mini-btn();
+          .like {
+            @include mini-btn();
+          }
         }
-
         .report {
           margin-left: 16px;
           @include mini-btn();
@@ -124,9 +119,7 @@
       }
     }
   }
-
   &__user-comment {
-
     margin: 8px auto;
     width: 700px;
     background-color: #fff;
@@ -156,7 +149,6 @@
     }
     .comment-box {
       padding: 0 24px 24px 24px ;
-
       .comment-detail {
         width: 650px;
         background-color: #fff6de;
@@ -184,17 +176,6 @@
       font-size: 12px;
       font-weight: bold;
       width: 650px;
-    }
-  }
-  .show-item__next {
-    height: 50px;
-    &-item-left {
-      float: left;
-      @include next-item();
-    }
-    &-item-right {
-      float: right;
-      @include next-item();
     }
   }
   .show-item__sns {
