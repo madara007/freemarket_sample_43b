@@ -11,8 +11,6 @@ class Item < ApplicationRecord
   has_many :item_photos, dependent: :destroy
   accepts_nested_attributes_for :item_photos
   has_many :likes, dependent: :destroy
-  has_many :snslikes
-  has_many :snscredential
   validates :name, presence: true
   validates :name, length: { maximum: 40 }
   validates :price, presence: true
@@ -33,10 +31,6 @@ class Item < ApplicationRecord
 
   def like_user(id)
     likes.find_by(user_id: id)
-  end
-
-   def like_sns(id)
-    snslikes.find_by(snscredential_id: id)
   end
 
   belongs_to :saler, class_name: "User" ,optional: true
