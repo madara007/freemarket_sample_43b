@@ -7,5 +7,5 @@
   .show-page__index
     %h1
       = @category.name_i18n + "の商品一覧"
-    .show-page__index--content
-      = render partial: "items/content-item", collection: @select_items, as: "item"
+    .item-list.clearfix
+      = render partial: "items/item-box", collection: @select_items, as: "item"
