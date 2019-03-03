@@ -1,4 +1,0 @@
-class Snslike < ApplicationRecord
-  belongs_to  :item
-  belongs_to  :snscredential
-end
