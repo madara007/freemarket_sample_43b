@@ -47,5 +47,17 @@
         text-decoration: underline;
       }
     }
+    .item-all {
+      text-align: right;
+      clear: both;
+      padding: 20px 0 30px;
+      a {
+        color: #0099e8;
+      }
+      a:hover {
+        opacity: 0.8;
+        text-decoration: underline;
+      }
+    }
   }
 }
