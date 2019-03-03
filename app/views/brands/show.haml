@@ -1,7 +1,7 @@
-- breadcrumb :brand, @brand
+- breadcrumb :brand, @brand_name
 .show-page
   .show-page__index
     %h1
-      = @brand.name + "の商品一覧"
+      = @brand_name.name + "の商品一覧"
     .item-list.clearfix
-      = render partial: "items/item-box", collection: @brand, as: "item"
+      = render partial: "items/item-box", collection: @brand_list, as: "item"
