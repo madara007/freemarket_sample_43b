@@ -64,8 +64,6 @@
 - has_many :comments, dependent: :destroy
 - has_many :item_photos, dependent: :destroy
 - has_many :likes, dependent: :destroy
-- has_many :snslikes
-- has_many :snscredential
 - accepts_nested_attributes_for :item_photos
 
 ## categoriesテーブル
@@ -224,34 +222,6 @@
 
 ### Association(condition)
 - has_many: items
-
-
-## snscredentialsテーブル
-
-|Colum|Type|Option|
-|-----|----|------|
-|provider|string||
-|uid|string||
-|name|string||
-|email|string||
-|oauth_token|string||
-|oauth_expires_at|datetime||
-
-### Association(snscredential)
-- has_many :scores
-- has_many :snslikes
-- has_many :items
-
-## snslikeテーブル
-
-|Colum|Type|Option|
-|-----|----|------|
-|snscredential|references|foreign_key: true|
-|item|references|foreign_key: true|
-
-### Association(snscredential)
-- belongs_to :item
-- belongs_to :snscredential
 
 ## profilesテーブル
 
