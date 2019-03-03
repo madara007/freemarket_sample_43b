@@ -4,6 +4,7 @@ class BrandsController < ApplicationController
   end
 
   def show
-    @brand = Brand.find(params[:id]).items.includes(:likes).order("id DESC")
+    @brand_name = Brand.find(params[:id])
+    @brand_list = Brand.find(params[:id]).items.includes(:likes).order("id DESC")
   end
 end
