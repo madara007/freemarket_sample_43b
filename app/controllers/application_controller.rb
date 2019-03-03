@@ -2,7 +2,6 @@ class ApplicationController < ActionController::Base
   before_action :basic_auth, if: :production?
   protect_from_forgery with: :exception
   before_action :get_category, :get_brand
-  helper_method :sns_user
   layout :layout_by_resource
 
   def get_category
@@ -11,10 +10,6 @@ class ApplicationController < ActionController::Base
 
   def get_brand
     @brands = Brand.find(2440, 3802, 4790, 6142)
-  end
-
-  def sns_user
-    Snscredential.find(session[:snscredential_id]) if session[:snscredential_id]
   end
 
   protected

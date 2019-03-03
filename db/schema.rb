@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_19_022139) do
+ActiveRecord::Schema.define(version: 2019_02_15_104143) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -148,27 +148,6 @@ ActiveRecord::Schema.define(version: 2019_02_19_022139) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "snscredentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "provider"
-    t.string "uid"
-    t.string "name"
-    t.string "email"
-    t.string "image"
-    t.string "oauth_token"
-    t.datetime "oauth_expires_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "snslikes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "snscredential_id"
-    t.bigint "item_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_snslikes_on_item_id"
-    t.index ["snscredential_id"], name: "index_snslikes_on_snscredential_id"
-  end
-
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -200,6 +179,4 @@ ActiveRecord::Schema.define(version: 2019_02_19_022139) do
   add_foreign_key "profiles", "users"
   add_foreign_key "scores", "items"
   add_foreign_key "scores", "users"
-  add_foreign_key "snslikes", "items"
-  add_foreign_key "snslikes", "snscredentials"
 end

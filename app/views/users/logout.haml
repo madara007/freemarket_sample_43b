@@ -2,9 +2,6 @@
 .user-logout
   .user-logout__area.clearfix
     .user-logout__area--box
-      - if sns_user
-        = link_to "ログアウト", signout_path
-      - else
-        = link_to "ログアウト", destroy_user_session_path, method: :delete
+      = link_to "ログアウト", destroy_user_session_path, method: :delete
     = render partial: 'user_side_bar'
 

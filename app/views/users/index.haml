@@ -4,27 +4,17 @@
     %section.user-container__during--user-box
       = link_to "", class:  "user-link" do
         = image_tag("member_photo_noimage_thumb.png",class: "user-link__image")
-        -if current_user
-          %h2
-            = current_user.nickname
-        - else
-          %h2
-            = sns_user.name
+        %h2
+          = current_user.nickname
         .user-the-history
           %div
             %span
               評価
-              - if current_user
-                = current_user.scores.length
-              - else
-                =  sns_user.scores.length
+              = current_user.scores.length
           %div
             %span
               出品数
-              - if current_user
-                = current_user.items.length
-              - else
-                =  sns_user.scores.length
+              = current_user.items.length
     %section.container__during--user-box__todo
       %ul.container__during--user-box__todo-list
     %section.user-container__during--user-box__todo
@@ -51,5 +41,5 @@
             = link_to "一覧を見る", ""
   .user-item
     .user-item__box
-    = render partial: "purchase_area"
+      = render partial: "purchase_area"
   = render partial: 'user_side_bar'
