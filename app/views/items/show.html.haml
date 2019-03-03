@@ -32,7 +32,7 @@
     %p.show-item__main-exhibitor-comment
       = @item.description
     .show-item__main-btn-container
-      #like-link-item.id.show-item__main-btn-container-left
+      .show-item__main-btn-container-left
         = render partial: 'likes/like', locals:{ item: @item }
         = link_to "", class: "report" do
           = fa_icon "flag", class: ""
