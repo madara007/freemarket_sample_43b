@@ -18,22 +18,7 @@
       margin: 24px 0 8px;
       font-size: 22px;
       font-weight: bold;
-      }
-    &--content {
-      @include clearfix;
-      .content-item {
-        margin: 0 0 20px 20px;
-        @include content-item;
-        float: left;
-      }
-      .content-item:nth-child(odd) {
-        margin: 0 0 20px 20px;
-        @include content-item;
-      }
-      .content-item:nth-child(5n+1) {
-        margin-left: 0;
-        @include content-item;
-      }
     }
+    @include item-list(330px, 100%, 20px, 5);
   }
 }
