@@ -42,8 +42,8 @@ class ItemsController < ApplicationController
       @categorys.unshift(item_category)
       item_category = Category.find_by(name: item_category.parent_id)
     end
-    @other_user_items = Item.where(saler_id: @item.saler_id).order("id DESC").limit(6)
-    @other_category_items = Item.where(category: @item.category).order("id DESC").limit(6)
+    @other_user_items = Item.where(saler_id: @item.saler_id).includes(:likes).order("id DESC").limit(6)
+    @other_category_items = Item.where(category: @item.category).includes(:likes).order("id DESC").limit(6)
   end
 
   def update
