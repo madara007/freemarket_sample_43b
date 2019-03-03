@@ -12,6 +12,7 @@ class RegionsController < ApplicationController
   end
 
   def show
-    @region = Region.find(params[:id])
+    @region_name = Region.find(params[:id])
+    @region_list = Region.find(params[:id]).items.includes(:likes).order("id DESC")
   end
 end

@@ -73,15 +73,15 @@
         .sns-box-pinterest
           = link_to "", class: "pinterest" do
             = fa_icon "pinterest", class: "fa"
-  .other
+  .other.clearfix
     %h2.other__title
       = link_to "", class: "other-items-title" do
         = "#{@item.saler.nickname}さんのその他の商品"
-    .other-items
-      = render partial: "other-items", collection: @other_user_items, as: "item"
-  .other
+    .item-list
+      = render partial: "item-box", collection: @other_user_items, as: "item"
+  .other.clearfix
     %h2.other__title
       =link_to category_path(@item.category), class: "other-items-title" do
         = "#{@item.category.name_i18n}のその他の商品"
-    .other-items
-      = render partial: "other-items", collection: @other_category_items, as: "item"
+    .item-list
+      = render partial: "item-box", collection: @other_category_items, as: "item"

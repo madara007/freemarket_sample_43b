@@ -1,8 +1,8 @@
-%selection.item-box
+.item-box
   = link_to item_path(item) do
-    %figure.item-box__photo
-      = render "sold-tag", item: item
-      = image_tag(item.item_photos.first.photo.to_s, class: "item-box__photo--banner")
+    .item-box__photo
+      = render "items/sold-tag", item: item
+      = image_tag(item.item_photos.first.photo.to_s)
     .item-box__body
       %h3.item-box__body--name
         = item.name

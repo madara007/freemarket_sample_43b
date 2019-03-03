@@ -1,7 +1,7 @@
-- breadcrumb :region, @region
+- breadcrumb :region, @region_name
 .show-page
   .show-page__index
     %h1
-      = @region.name_i18n + "の商品一覧"
-    .show-page__index--content
-      = render partial: "items/content-item", collection: @region.items.includes(:likes).order("id DESC"), as: "item"
+      = @region_name.name_i18n + "の商品一覧"
+    .item-list.clearfix
+      = render partial: "items/item-box", collection: @region_list, as: "item"
