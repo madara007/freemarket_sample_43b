@@ -1,0 +1,49 @@
+.entry-box
+  .entry-box__box
+    %h1 個人情報入力
+    = form_with(model: @profile, url: user_entry_path, local: true, class: "entry-box__box--form") do |form|
+      .content
+        .form-group
+          = form.label :postal_code
+          %span.require-tag 必須
+          = form.text_field :postal_code, autofocus: true, placeholder: "postal_code",class: "field"
+          - @profile.errors.full_messages_for(:postal_code).each do |error|
+            .span.error-msg
+              = error
+        .form-group
+          = form.label :prefecture
+          %span.require-tag 必須
+          = form.text_field :prefecture, autofocus: true, placeholder: "prefecture",class: "field"
+          - @profile.errors.full_messages_for(:prefecture).each do |error|
+            .span.error-msg
+              = error
+        .form-group
+          = form.label :city
+          %span.require-tag 必須
+          = form.text_field :city, autofocus: true, placeholder: "city",class: "field"
+          - @profile.errors.full_messages_for(:city).each do |error|
+            .span.error-msg
+              = error
+        .form-group
+          = form.label :number
+          %span.require-tag 必須
+          = form.text_field :number, autofocus: true, placeholder: "number",class: "field"
+          - @profile.errors.full_messages_for(:number).each do |error|
+            .span.error-msg
+              = error
+        .form-group
+          = form.label :building
+          %span.require-tag 必須
+          = form.text_field :building, autofocus: true, placeholder: "building",class: "field"
+          - @profile.errors.full_messages_for(:building).each do |error|
+            .span.error-msg
+              = error
+        %p.form-group__info
+          ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+      .content
+        = form.submit("次へ進む", class: "btn-next")
+        .form-group.text-info
+          %p
+            = link_to "", class: "link" do
+              本人情報の登録について
+              = fa_icon "angle-right", class: "arrow-right"
