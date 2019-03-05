@@ -5,35 +5,35 @@
       .content
         .form-group
           = form.label :postal_code
-          %span.require-tag 必須
-          = form.text_field :postal_code, autofocus: true, placeholder: "郵便番号",class: "field"
+          %span.label-tag.require 必須
+          = form.number_field :postal_code, autofocus: true, placeholder: "郵便番号(ハイフンなし)",class: "field", maxlength: 7
           - @profile.errors.full_messages_for(:postal_code).each do |error|
             .span.error-msg
               = error
         .form-group
           = form.label :prefecture
-          %span.require-tag 必須
+          %span.label-tag.require 必須
           = form.text_field :prefecture, autofocus: true, placeholder: "都道府県",class: "field"
           - @profile.errors.full_messages_for(:prefecture).each do |error|
             .span.error-msg
               = error
         .form-group
           = form.label :city
-          %span.require-tag 必須
+          %span.label-tag.require 必須
           = form.text_field :city, autofocus: true, placeholder: "市区町村",class: "field"
           - @profile.errors.full_messages_for(:city).each do |error|
             .span.error-msg
               = error
         .form-group
           = form.label :number
-          %span.require-tag 必須
+          %span.label-tag.require 必須
           = form.text_field :number, autofocus: true, placeholder: "番地",class: "field"
           - @profile.errors.full_messages_for(:number).each do |error|
             .span.error-msg
               = error
         .form-group
           = form.label :building
-          %span.require-tag 必須
+          %span.label-tag.option 任意
           = form.text_field :building, autofocus: true, placeholder: "建物名",class: "field"
           - @profile.errors.full_messages_for(:building).each do |error|
             .span.error-msg
