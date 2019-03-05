@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :purchase_data, only: [:index, :purchase]
   before_action :trading_status, except: [:new, :edit, :show, :logout]
   before_action :get_profile, only: [:profile, :entry]
-  layout "logo-layout", only: [:new, :profile]
+  layout "logo-layout", only: [:new, :profile, :entry]
 
   def index
     @select_page = "progress"
@@ -33,9 +33,7 @@ class UsersController < ApplicationController
 
   def entry
     if current_user.id == @profile.user_id
-      if @profile.update(profile_params)
-        redirect_to root_path
-      else
+      unless @profile.update(profile_params)
         render "profile"
       end
     end
