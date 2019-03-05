@@ -29,15 +29,20 @@
             font-weight: 600;
             display: inline-block;
           }
-          .require-tag {
+          .label-tag {
             @include f-left;
-            background-color: #ea352d;
             margin: 0 0 0 8px;
             padding: 2px 4px;
             border-radius: 2px;
             color: #fff;
             font-size: 12px;
             vertical-align: top;
+            &.require {
+              background-color: #ea352d;
+            }
+            &.option {
+              background-color: #ccc;
+            }
           }
           .field {
             height: 36px;
@@ -139,6 +144,11 @@
             }
             span {
             }
+          }
+          input[type=number]::-webkit-inner-spin-button,
+          input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
           }
           &__info {
             margin: 8px 0 0;
