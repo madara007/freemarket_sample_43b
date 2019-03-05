@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :purchase_data, only: [:index, :purchase]
   before_action :trading_status, except: [:new, :edit, :show, :logout]
   before_action :get_profile, only: [:profile, :entry]
-  layout "logo-layout", only: [:new]
+  layout "logo-layout", only: [:new, :profile]
 
   def index
     @select_page = "progress"
