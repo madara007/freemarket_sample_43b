@@ -51,6 +51,24 @@
               %li.point.last
                 完了
                 .progress-status
+        - elsif controller_name == "users" && action_name == "entry"
+          %nav.progress-bar
+            %ol.clearfix
+              %li.point.first
+                会員情報
+                .progress-status
+              %li.point.unknown
+                電話番号認証
+                .progress-status
+              %li.point
+                お届け先住所入力
+                .progress-status
+              %li.point.unknown
+                支払い方法
+                .progress-status
+              %li.point.last.active
+                完了
+                .progress-status
       = yield
       .container__logo-layout--footer
         %nav
