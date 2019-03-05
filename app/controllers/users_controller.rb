@@ -33,8 +33,11 @@ class UsersController < ApplicationController
 
   def entry
     if current_user.id == @profile.user_id
-      @profile.update(profile_params)
-      redirect_to root_path
+      if @profile.update(profile_params)
+        redirect_to root_path
+      else
+        render "profile"
+      end
     end
   end
 
