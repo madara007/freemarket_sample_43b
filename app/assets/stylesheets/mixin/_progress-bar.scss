@@ -5,41 +5,13 @@
     vertical-align: top;
     .clearfix {
       @include clearfix();
-      .active {
-        margin: 0 40px 0 0;
-        font-size: 12px;
-        font-weight: 600;
-        color: #ea352d;
-        position: relative;
-        z-index: 1;
-        display: inline-block;
-        .progress-status {
-          border-radius: 50%;
-          background: #ea352d;
-          z-index: 3;
-          width: 12px;
-          height: 12px;
-          margin: 8px auto 0;
-          &:after {
-            position: absolute;
-            bottom: 5px;
-            z-index: -1;
-            display: block;
-            content: '';
-            width: 100%;
-            height: 2px;
-            background: #ccc;
-          }
-        }
-      }
-      .inactive {
+      .point {
         margin: 0 40px 0 0;
         font-size: 12px;
         color: #888;
         position: relative;
         z-index: 1;
         display: inline-block;
-
         .progress-status {
           border-radius: 50%;
           background: #ccc;
@@ -69,31 +41,32 @@
             background: #ccc;
           }
         }
-      }
-      .last {
-        margin: 0 40px 0 0;
-        font-size: 12px;
-        color: #888;
-        position: relative;
-        z-index: 1;
-        display: inline-block;
-        .progress-status {
-          border-radius: 50%;
-          background: #ccc;
-          width: 12px;
-          height: 12px;
-          margin: 8px auto 0;
-          &:before {
-            right: 60%;
-            position: absolute;
-            bottom: 5px;
-            z-index: -1;
-            display: block;
-            content: '';
-            width: 100%;
-            height: 2px;
-            background: #ccc;
+        &.active {
+          color: #ea352d;
+          font-weight: 600;
+          .progress-status {
+            background: #ea352d;
           }
+        }
+        &.first {
+          .progress-status {
+            &:before {
+              display: none;
+            }
+          }
+        }
+        &.last {
+          .progress-status {
+            &:before {
+              right: 60%;
+            }
+            &:after {
+              display: none;
+            }
+          }
+        }
+        &.unknown {
+          display: none;
         }
       }
     }

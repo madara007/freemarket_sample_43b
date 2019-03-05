@@ -3,7 +3,8 @@ class UsersController < ApplicationController
   before_action :selection_page, only: [:selling, :purchase]
   before_action :purchase_data, only: [:index, :purchase]
   before_action :trading_status, except: [:new, :edit, :show, :logout]
-  layout "logo-layout", only: [:new]
+  before_action :get_profile, only: [:profile, :entry]
+  layout "logo-layout", only: [:new, :profile, :entry]
 
   def index
     @select_page = "progress"
@@ -27,6 +28,17 @@ class UsersController < ApplicationController
   def purchase
   end
 
+  def profile
+  end
+
+  def entry
+    if current_user.id == @profile.user_id
+      unless @profile.update(profile_params)
+        render "profile"
+      end
+    end
+  end
+
   def logout
   end
 
@@ -42,5 +54,13 @@ class UsersController < ApplicationController
   def purchase_data
     @purchase = Item.item_buyer_list(trading_status[:progress], current_user.id)
     @purchased = Item.item_buyer_list(trading_status[:complete], current_user.id)
+  end
+
+  def get_profile
+    @profile = current_user.profile
+  end
+
+  def profile_params
+    params.require(:profile).permit(:postal_code, :prefecture, :city, :number, :building)
   end
 end

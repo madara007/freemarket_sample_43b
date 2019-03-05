@@ -22,6 +22,8 @@ Rails.application.routes.draw do
       get "purchase"
       get "logout"
     end
+    get "profile"
+    patch "entry"
   end
   get 'auth/:provider/callback', to: 'googles#create'
   get 'signout', to: 'googles#destroy'
