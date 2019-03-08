@@ -14,20 +14,29 @@ class User < ApplicationRecord
   validates :encrypted_password, presence: true
   validates :password, length: { in: 6..128, message: "パスワードは6文字以上128文字以下で入力してください" }
 
-  def self.find_for_oauth(auth)
+  def self.find_for_oauth(auth, select)
     user = User.where(uid: auth.uid, provider: auth.provider).first
-
-    unless user
-      user = User.create(
-        uid:      auth.uid,
-        provider: auth.provider,
-        email:    User.dummy_email(auth),
-        password: Devise.friendly_token[0, 20],
-        nickname: auth.info.name
-      )
+    if select.match(/new/)
+      if user
+        return false
+      else
+        user = User.new(
+          uid:      auth.uid,
+          provider: auth.provider,
+          email:    User.dummy_email(auth),
+          password: Devise.friendly_token[0, 20],
+          nickname: auth.info.name
+        )
+      end
+    elsif select.match(/sign_in/)
+      if user
+        return user
+      else
+        return false
+      end
+    else
+      return false
     end
-
-    user
   end
 
   private
