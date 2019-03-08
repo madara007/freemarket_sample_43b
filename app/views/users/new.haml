@@ -12,3 +12,6 @@
         = link_to "", class: "google" do
           Googleで登録
           = fa_icon "google-plus-g", class: "google-icon"
+        - if flash[:error]
+          .alert
+            = flash[:error]
