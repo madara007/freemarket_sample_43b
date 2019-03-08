@@ -45,12 +45,16 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @user = User.find_for_oauth(request.env['omniauth.auth'], $select_page)
 
     if @user == false
-      redirect_to $select_page
+      if $select_page.match(/sign_in/)
+        errmsg = "未登録です。新規登録して下さい。"
+      else
+        errmsg = "登録済みです。ログインして下さい。"
+      end
+      redirect_to $select_page, flash: {error: errmsg}
     else
       if @user.new_record?
         @user.build_profile.created_at = Date.today.to_time
         @user.save(context: :created_at)
-        binding.pry
       end
       sign_in_and_redirect @user, event: :authentication
     end
