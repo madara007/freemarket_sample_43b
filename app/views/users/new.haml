@@ -6,7 +6,7 @@
         = link_to new_user_registration_path, class: "mail" do
           メールアドレスで登録
           = fa_icon "envelope", class: "mail-icon"
-        = link_to "", class: "facebook" do
+        = link_to user_facebook_omniauth_authorize_path, class: "facebook" do
           Facebookで登録
           = fa_icon "facebook-square", class: "facebook-icon"
         = link_to "", class: "google" do
