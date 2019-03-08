@@ -7,6 +7,9 @@
     .session
       = link_to "Facebookログイン", user_facebook_omniauth_authorize_path, class: "session-facebook"
       = link_to "Googleログイン",  user_google_oauth2_omniauth_authorize_path,class: "session-google"
+      - if flash[:error]
+        .alert
+          = flash[:error]
     = form_with(model: @user, url: new_user_session_path, method: :post, local: true, class: "login-form") do |form|
       .login-form__inner
         .form-column
