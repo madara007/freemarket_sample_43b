@@ -39,16 +39,28 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   private
 
   def callback_from(provider)
+    $select_page = request.env['omniauth.origin']
     provider = provider.to_s
 
-    @user = User.find_for_oauth(request.env['omniauth.auth'])
+    @user = User.find_for_oauth(request.env['omniauth.auth'], $select_page)
 
-    if @user.persisted?
-      flash[:notice] = I18n.t('devise.omniauth_callbacks.success', kind: provider.capitalize)
-      sign_in_and_redirect @user, event: :authentication
+    if @user == false
+      redirect_to $select_page
     else
-      session["devise.#{provider}_data"] = request.env['omniauth.auth']
-      redirect_to new_user_registration_url
+      if @user.new_record?
+        @user.build_profile.created_at = Date.today.to_time
+        @user.save(context: :created_at)
+        binding.pry
+      end
+      sign_in_and_redirect @user, event: :authentication
+    end
+  end
+
+  def after_sign_in_path_for(resource)
+    if $select_page.match(/sign_in/)
+      root_path
+    else
+      user_profile_path(resource)
     end
   end
 
