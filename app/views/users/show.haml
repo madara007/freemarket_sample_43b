@@ -1,87 +1,48 @@
-- breadcrumb :identification
-.user-identity
-  .user-identity__area.clearfix
-    .user-identity__area--profile
-      .profile-head
-        %h2.profile-head__title
-          本人情報の登録
-        %p
-          お客さまのあんしん・あんぜんな取引のため、本人情報のご登録をお願いしております。
-      %form.profile-form
-        .profile-form__box
-          %label.profile-form__box--name お名前
-          %span.profile-form__box--required 必須
-          %input{type: "text", name: "last_name", placeholder: "例）山田", class: "profile-form__box--input"}
-          %input{type: "text", name: "first_name", placeholder: "例）彩", class: "profile-form__box--input"}
-        .profile-form__box
-          %label.profile-form__box--name お名前カナ
-          %span.profile-form__box--required 必須
-          %input{type: "text", name: "last_name_kana", placeholder: "例）ヤマダ", class: "profile-form__box--input"}
-          %input{type: "text", name: "first_name_kana", placeholder: "例）アヤ", class: "profile-form__box--input"}
-        .profile-form__box
-          %label.profile-form__box--name 郵便番号
-          %span.profile-form__box--option 任意
-          %input{type: "text", name: "postal_code", placeholder: "例）1234567", class: "profile-form__box--input"}
-        .profile-form__box
-          %label.profile-form__box--name 都道府県
-          %span.profile-form__box--required 必須
-          .profile-form__box--select-area
-            .select-inbox
-              // 都道府県情報の仮置き
-              %select{name: "prefectures", class: "select-inbox__selection"}
-                - for num in 1..47 do
-                  %option
-                    = num
-              = fa_icon("angle-down")
-        .profile-form__box
-          %label.profile-form__box--name 市区町村
-          %span.profile-form__box--required 必須
-          %input{type: "text", name: "city", placeholder: "例）横浜市緑区", class: "profile-form__box--input"}
-        .profile-form__box
-          %label.profile-form__box--name 番地
-          %span.profile-form__box--required 必須
-          %input{type: "text", name: "number", placeholder: "例）青山1−1−1", class: "profile-form__box--input"}
-        .profile-form__box
-          %label.profile-form__box--name 建物名
-          %span.profile-form__box--option 任意
-          %input{type: "text", name: "building", placeholder: "例）柳ビル103", class: "profile-form__box--input"}
-        .profile-form__box
-          %label.profile-form__box--name 都道府県
-          %span.profile-form__box--required 必須
-          %br
-          .profile-form__box--select-area.clearfix
-            .select-inbox.birthday
-              // 西暦の仮置き
-              %select{name: "prefectures", class: "select-inbox__selection"}
-                - for num in 1900..2019 do
-                  %option
-                    = num
-              = fa_icon("angle-down")
-            %span.birthday-datename 年
-            .select-inbox.birthday
-              // 月の仮置き
-              %select{name: "prefectures", class: "select-inbox__selection"}
-                - for num in 1..12 do
-                  %option
-                    = num
-              = fa_icon("angle-down")
-            %span.birthday-datename 月
-            .select-inbox.birthday
-              // 日の仮置き
-              %select{name: "prefectures", class: "select-inbox__selection"}
-                - for num in 1..31 do
-                  %option
-                    = num
-              = fa_icon("angle-down")
-            %span.birthday-datename 日
-        %p.profile-form__box--info-text
-          ※出品されたことがある、本人情報未登録のお客さまもご対象となります。
-        .button{type: "submit", class: "profile-form__box--submit"}
-          登録する
-        .profile-form__box
-          .profile-form__box--info
-            = link_to "" do
-              %p
-                本人情報の登録について
-                = fa_icon("angle-right")
-    = render partial: 'user_side_bar'
+- breadcrumb :users_page, @user
+.user-detail
+  .user-detail__profile
+    .user-detail__profile--info
+      = link_to user_path(@user), class: "user-link" do
+        = image_tag("member_photo_noimage_thumb.png",class: "user-link__image")
+        %h2.user-name
+          = @user.nickname
+        .user-history
+          %span
+            評価
+            = @user.scores.length
+          %span
+            出品数
+            = @user.items.length
+    .user-detail__profile--result
+      .user-score
+        .user-score__box
+          = fa_icon "grin", class: "grin"
+          .rationg-score
+            = @grin_score
+        .user-score__box
+          = fa_icon "meh-o", class: "meh"
+          .rationg-score
+            = @meh_score
+        .user-score__box
+          = fa_icon "frown-o", class: "frown"
+          .rationg-score
+            = @frown_score
+      .user-comment
+        %p.user-comment__text
+          = @user.profile.comment
+    .user-detail__profile--media
+      %ul.media-box
+        %li.facebook
+          = link_to "", class: "facebook" do
+            = fa_icon "facebook-square", class: "fa"
+        %li.twitter
+          = link_to "", class: "twitter" do
+            = fa_icon "twitter", class: "fa"
+        %li.line
+          = link_to "", class: "line" do
+            %i.fab.fa-line
+    %selection.user-detail__profile--items
+      .items-head
+        この出品者の商品
+      .item-list.clearfix
+        = render partial: "items/item-box", collection: @user.items.includes(:likes), as: "item"
