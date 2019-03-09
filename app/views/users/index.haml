@@ -2,7 +2,7 @@
 .user-container
   .user-container__during
     %section.user-container__during--user-box
-      = link_to "", class:  "user-link" do
+      = link_to user_path(current_user), class:  "user-link" do
         = image_tag("member_photo_noimage_thumb.png",class: "user-link__image")
         %h2
           = current_user.nickname
