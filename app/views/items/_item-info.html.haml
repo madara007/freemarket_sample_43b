@@ -3,7 +3,7 @@
     %th
       出品者
     %td
-      = link_to "", class: "link" do
+      = link_to user_path(@item.saler.id), class: "link" do
         = @item.saler.nickname
       .item-user
         %span.item-user-rating
