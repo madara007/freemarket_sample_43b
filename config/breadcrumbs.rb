@@ -28,6 +28,11 @@ crumb :regions do
   parent :root
 end
 
+crumb :users_page do |user|
+  link user.nickname
+  parent :root
+end
+
 # 商品詳細
 crumb :item_show do |item|
   link item.name
