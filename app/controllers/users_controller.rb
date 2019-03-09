@@ -17,6 +17,10 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
+    @grin_score = @user.scores.where(type: 1, user_id: @user).length
+    @meh_score = @user.scores.where(type: 2, user_id: @user).length
+    @frown_score = @user.scores.where(type: 3, user_id: @user).length
   end
 
   def selling
