@@ -39,6 +39,9 @@ class UsersController < ApplicationController
     end
   end
 
+  def information
+  end
+
   def logout
   end
 
