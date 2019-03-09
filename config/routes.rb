@@ -23,6 +23,7 @@ Rails.application.routes.draw do
       get "logout"
     end
     get "profile"
+    get "information"
     patch "entry"
   end
   get 'auth/:provider/callback', to: 'googles#create'
