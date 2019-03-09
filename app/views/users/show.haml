@@ -1,0 +1,47 @@
+.user-detail
+  .user-detail__profile
+    .user-detail__profile--info
+      = link_to user_path(@user), class: "user-link" do
+        = image_tag("member_photo_noimage_thumb.png",class: "user-link__image")
+        %h2.user-name
+          = @user.nickname
+        .user-history
+          %span
+            評価
+            = @user.scores.length
+          %span
+            出品数
+            = @user.items.length
+    .user-detail__profile--result
+      .user-score
+        .user-score__box
+          = fa_icon "grin", class: "grin"
+          .rationg-score
+            = @grin_score
+        .user-score__box
+          = fa_icon "meh-o", class: "meh"
+          .rationg-score
+            = @meh_score
+        .user-score__box
+          = fa_icon "frown-o", class: "frown"
+          .rationg-score
+            = @frown_score
+      .user-comment
+        %p.user-comment__text
+          comment!
+    .user-detail__profile--media
+      %ul.media-box
+        %li.facebook
+          = link_to "", class: "facebook" do
+            = fa_icon "facebook-square", class: "fa"
+        %li.twitter
+          = link_to "", class: "twitter" do
+            = fa_icon "twitter", class: "fa"
+        %li.line
+          = link_to "", class: "line" do
+            %i.fab.fa-line
+    %selection.user-detail__profile--items
+      .items-head
+        この出品者の商品
+      .item-list.clearfix
+        = render partial: "items/item-box", collection: @user.items.includes(:likes), as: "item"
