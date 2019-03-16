@@ -14,4 +14,5 @@ class ShipMethodsController < ApplicationController
       format.json
     end
   end
+  
 end

@@ -12,6 +12,7 @@ class Item < ApplicationRecord
   accepts_nested_attributes_for :item_photos
   has_many :likes, dependent: :destroy
   has_many :snslikes
+  has_many :scores
   has_many :snscredential
   validates :name, presence: true
   validates :name, length: { maximum: 40 }
