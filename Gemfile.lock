@@ -442,7 +442,7 @@ DEPENDENCIES
   omniauth-google-oauth2
   payjp
   pry-rails
-  puma (~> 3.11)
+  puma (~> 3.12)
   rails (~> 5.2.2)
   rails-controller-testing
   rb-readline
