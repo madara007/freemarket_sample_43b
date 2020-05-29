@@ -10,6 +10,7 @@ class RegistrationsController < Devise::RegistrationsController
       set_minimum_password_length
       respond_with_navigational(resource) { render :new }
     end
+    
   end
 
 end

@@ -1,4 +1,5 @@
 class RegionsController < ApplicationController
+
   def index
     @hokkaido = Region.get_hokkaido
     @tohoku = Region.get_tohoku
@@ -14,4 +15,5 @@ class RegionsController < ApplicationController
   def show
     @region = Region.find(params[:id])
   end
+  
 end
